@@ -64,8 +64,7 @@ function Category() {
                 
                 />
                 : null
-            }
-                
+            }                
             
         </div>
     </div>
