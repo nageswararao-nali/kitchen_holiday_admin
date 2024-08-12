@@ -20,6 +20,8 @@ import AddOrder from './pages/Orders/AddOrder';
 import Zones from './pages/DeliveryZone';
 import AddZone from './pages/DeliveryZone/add';
 import ItemMapping from './pages/SubItem/mapping';
+import OrdersNew from './pages/OrdersNew/OrdersNew';
+import OrderDetails from './pages/OrderDetails/orderDetails';
 
 function App() {
   return (
@@ -28,6 +30,11 @@ function App() {
           <Route path="/"  element={<ProtectedRoute />} >
             <Route path="/" element={<Home />} />
           </Route>
+           <Route path="/ordersNew"  element={<OrdersNew />} >
+          </Route>
+          {/* <Route path="/orderDetails"  element={<OrderDetails />} >
+            
+          </Route> */}
           <Route path="/orders"  element={<ProtectedRoute />} >
             <Route path="/orders" element={<Orders />} />
             <Route path="/orders/add" element={<AddOrder />} />
