@@ -32,9 +32,9 @@ function App() {
           </Route>
            <Route path="/ordersNew"  element={<OrdersNew />} >
           </Route>
-          {/* <Route path="/orderDetails"  element={<OrderDetails />} >
+          { <Route path="/orderDetails"  element={<OrderDetails />} >
             
-          </Route> */}
+          </Route> }
           <Route path="/orders"  element={<ProtectedRoute />} >
             <Route path="/orders" element={<Orders />} />
             <Route path="/orders/add" element={<AddOrder />} />

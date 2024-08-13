@@ -122,7 +122,7 @@ function OrdersNew() {
           <div class="customer-search sm-mb-0 mb-3">
             <div class="input-group search-area">
               <input type="text" class="form-control" placeholder="Search here......"/>
-              <span class="input-group-text"><a href="/react/demo/order-list"><i class="flaticon-381-search-2"></i></a>
+              <span class="input-group-text"><a href="/react/demo/order-list"><i class="bi bi-search"></i></a>
               </span>
             </div>
           </div>
