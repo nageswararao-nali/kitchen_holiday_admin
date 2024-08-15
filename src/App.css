@@ -257,3 +257,52 @@ svg.vert-move {
     min-width: 90%;
   }
 }
+@media only screen and (max-width: 991px) {
+  .delivery-contact li a {
+      height: 2.5rem;
+      line-height: 2.5rem;
+      width: 2.5rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .orders {
+    display: block;
+}
+.order_details_page  .card {
+  border-radius: .375rem;
+  height: calc(100% - .938rem);
+  margin-bottom: .938rem;
+}
+.order_details_page .card-body {
+  padding: 1rem;
+}
+  .orders li {
+      padding: 0 0 1.5625rem;
+      width: 100%;
+  }
+  .orders li a {
+    border-width: .125rem;
+    float: left;
+    height: 3.125rem;
+    line-height: 2.8rem;
+    margin-right: .625rem;
+    min-width: 3.125rem;
+    width: 3.125rem;
+}
+.orders li a svg {
+  height: 1.875rem;
+  width: 1.875rem;
+}
+.orders li:after {
+  height: 100%;
+  left: 1.5625rem;
+  width: .125rem;
+}
+.delivery-guy img {
+  height: 3.125rem;
+  width: 3.125rem;
+}
+.delivery-guy .h4, .delivery-guy h4 {
+  font-size: .9375rem;
+}
+}
