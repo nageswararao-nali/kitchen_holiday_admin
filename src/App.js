@@ -22,6 +22,7 @@ import AddZone from './pages/DeliveryZone/add';
 import ItemMapping from './pages/SubItem/mapping';
 import OrdersNew from './pages/OrdersNew/OrdersNew';
 import OrderDetails from './pages/OrderDetails/orderDetails';
+import Inventory from './pages/Inventory/inventory';
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
       <Routes>
           <Route path="/"  element={<ProtectedRoute />} >
             <Route path="/" element={<Home />} />
+          </Route>
+          <Route path="/inventory"  element={<Inventory />} >
           </Route>
            <Route path="/ordersNew"  element={<OrdersNew />} >
           </Route>
