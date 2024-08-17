@@ -328,6 +328,24 @@ table.dataTable tbody td {
 .shadow.btn-secondary {
   box-shadow: 0 .3125rem .9375rem 0 rgba(98, 79, 209, .2) !important;
 }
+.shadow.btn-secondary:hover{background-color: #624fd1;}
+.fs-20, .fs-22 {
+  line-height: 1.5;
+}
+.fs-20 {
+  font-size: 1.25rem !important;
+}
+.form_modal .form-control {
+  background: #fff;
+  border: .0625rem solid #e5e9ed;
+  border-radius: 1rem;
+  color: #6e6e6e;
+  height: 3.5rem;
+  padding: .3125rem 1.25rem;height: 3rem;
+}
+.form_modal .form-control:focus {
+  border-color: #fd683e;box-shadow:none;
+}
 @media only screen and (max-width: 1400px) {
   table.dataTable thead th {
       font-size: 1rem;
