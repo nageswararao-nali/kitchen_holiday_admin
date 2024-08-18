@@ -86,6 +86,12 @@ export default function Sidebar() {
           <span>Delivery Zone</span>
         </a>
       </li>
+      <li className="nav-item" onClick={() => navigateToRoute('orders-new')}>
+        <a className="nav-link collapsed" >
+          <i className="bi bi-map"></i>
+          <span>Orders New</span>
+        </a>
+      </li>
     </ul>
 
   </aside>

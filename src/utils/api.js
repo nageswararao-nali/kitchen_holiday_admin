@@ -2,23 +2,26 @@ import axios from 'axios';
 
 const API_URL = 'http://localhost:3001/api/';
 
-const getHeaders = (token) => {
+const getHeaders = (token, isFile) => {
   let headers = {
     'Content-Type': 'application/json',
   };
   if (token) {
     headers['Authorization'] = `Bearer ${token}`;
   }
+  if(isFile) {
+    headers['content-type'] = 'multipart/form-data';
+  }
   return headers;
 };
 
-const apiRequest = async (endpoint, method, data, token = null) => {
+const apiRequest = async (endpoint, method, data, token = null, isFile = false) => {
   try {
     const response = await axios({
       url: `${API_URL}${endpoint}`,
       method,
       data,
-      headers: getHeaders(token),
+      headers: getHeaders(token, isFile),
     });
     return response.data;
   } catch (error) {

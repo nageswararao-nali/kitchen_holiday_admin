@@ -55,7 +55,7 @@ function Subscriptions() {
         </div>
         <div className='row'>
           <Card style={{ padding: '10px' }}>
-              <Card.Title>Orders</Card.Title>
+              <Card.Title>Subscriptions</Card.Title>
               <Card.Body>
                   {
                       (subscriptions && subscriptions.length) ?

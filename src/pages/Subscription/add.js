@@ -14,9 +14,11 @@ function AddSubscription() {
     const { error } = useSelector((state) => state.users)
     const [validated, setValidated] = useState(false);
     const [name, setName] = useState('');
+    const [shortName, setShortName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [days, setDays] = useState('');
+    const [isVeg , setIsVeg] = useState(true)
 
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
@@ -31,7 +33,8 @@ function AddSubscription() {
             name,
             description,
             price,
-            days
+            days,
+            isVeg
         }
         await dispatch(addSubscription(userObj));
         navigate('/subscriptions')
@@ -63,6 +66,18 @@ function AddSubscription() {
                             type="text" placeholder="Name" required 
                             onChange={(e) => setName(e.target.value)}
                             value={name}
+                        />
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+                    <Col sm={2}>
+                        <Form.Label> Subscription Short Name </Form.Label>
+                    </Col>
+                    <Col sm={10}>
+                        <Form.Control 
+                            type="text" placeholder="Short Name" required 
+                            onChange={(e) => setShortName(e.target.value)}
+                            value={shortName}
                         />
                     </Col>
                 </Form.Group>
@@ -104,6 +119,12 @@ function AddSubscription() {
                             onChange={(e) => setPrice(e.target.value)}
                             value={price}
                         />
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="mb-3" controlId="formHorizontalCheck">
+                    <Col sm={2}></Col>
+                    <Col sm={2}>
+                        <Form.Check label="Is Veg?" checked={isVeg} onChange={(e) => setIsVeg(e.target.checked)} />
                     </Col>
                 </Form.Group>
                 <Button type="submit">Add subscription</Button>

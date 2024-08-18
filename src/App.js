@@ -30,7 +30,7 @@ function App() {
           <Route path="/"  element={<ProtectedRoute />} >
             <Route path="/" element={<Home />} />
           </Route>
-           <Route path="/ordersNew"  element={<OrdersNew />} >
+           <Route path="/orders-new"  element={<OrdersNew />} >
           </Route>
           { <Route path="/orderDetails"  element={<OrderDetails />} >
             
@@ -64,7 +64,6 @@ function App() {
             <Route path="/delivery-zone" element={<Zones />} />
             <Route path="/delivery-zone/add" element={<AddZone />} />
           </Route>
-          
           <Route path="/login"  element={<Login />} />
           <Route path="/otp"  element={<Otp />} />
           <Route path="*" element={<Navigate to="/" />} />
