@@ -38,7 +38,8 @@ export default function Header() {
 
     <div className="d-flex align-items-center justify-content-between">
       <a className="logo d-flex align-items-center">
-        <img src="/assets/img/logo_main.png" alt="" />
+        <img src="/assets/img/logo_f.png" alt="" />
+        <span>Kitchen Holiday</span>
       </a>
       <i className="bi bi-list toggle-sidebar-btn" onClick={() => toggleSidebar()}></i>
     </div>
