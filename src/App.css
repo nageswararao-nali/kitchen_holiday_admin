@@ -42,15 +42,7 @@
   padding: 5px;
 }
 /* login form */
-.login-form {
-  min-width: 100%;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  left: 0;
-  min-height: 100%;
-  /* font-size: 2.5rem */
-}
+
 .orders {
   display: flex;
   justify-content: space-around;
@@ -376,11 +368,7 @@ table.dataTable tbody td {
 .orders li:last-child:after{content: none;}
 }
 .card .text-black{font-size: 16px;font-weight: 500;}
-@media (max-width: 500px) {
-  .login-form {
-    min-width: 90%;
-  }
-}
+
 @media only screen and (max-width: 991px) {
   .delivery-contact li a {
       height: 2.5rem;

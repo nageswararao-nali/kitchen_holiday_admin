@@ -108,7 +108,7 @@ function Home() {
                             {isError ? <span className='error d-block text-left'>Please Enter Username</span> : null}
                         </div>
                     </div>
-                    <div className="col-md-12 pd5 form_modal mt-3">
+                    <div className="col-md-12 pd5 form_modal mt-2">
                         <div className="form-floating">
                             <input type="test" className="form-control" id="floatingEmail" placeholder="password" onChange={(e) => {
                                 setPassword(e.target.value); 
@@ -119,15 +119,30 @@ function Home() {
                             {isError ? <span className='error  d-block text-left'>Please Enter Password</span> : null}
                         </div>
                     </div>
+                    <div className="col-md-12 pd5 form_modal mt-2">
+                        <div className="form-floating2">
+                            <select value={userType} className="form-control" onChange={(e) => {
+                                setUserType(e.target.value); 
+                                e.target.value ? setIsError(false) : setIsError(true);
+                                }}>
+                            <option value="">User Type</option>
+                            <option value="admin">Admin</option>
+                            <option value="delivery boy">Delivery Boy</option>
+                            <option value="kitchen">Kitchen</option>
+                            <label htmlFor="floatingEmail">User Type</label>
+                            </select>
+                            {isError ? <span className='error'>Please Select User Type</span> : null}
+                        </div>
+                    </div>
                     
-                    <div className="text-center pd5 mt-2">
-                        <button onClick={() => loginAction()} className="btn btn-primary w-100 mt-2 py-3 loginbtn">Login</button>
+                    <div className="text-center pd5 mt-2 login_btn_wrap">
+                        <button onClick={() => loginAction()} className="btn w-100 mt-2 py-3 loginbtn btn_signin">Login</button>
                     </div>
                     </div></div>
                     <div class="col-lg-6 col-md-5 d-flex box-skew1">
                         <div class="inner-content align-self-center">
                             <img src='assets/img/logo_with_leaves.png' width={200} className='img-fluid'/>
-                            <h2 class="m-b10 text-white">Kitchen Holiday</h2><p class="m-b40 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div></div></div></div>
+                            <h2 class="m-b10 ">Kitchen Holiday</h2><p class="m-b40 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div></div></div></div>
         </section>
         
     </Layout>

@@ -1224,6 +1224,15 @@ h6 {
   border-radius: 5px;
   box-shadow: 0 0 35px 0 hsla(215, 9%, 64%, .15);
 }
+.login-form {
+  min-width: 100%;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  /* font-size: 2.5rem */background: #fbfbfb;
+}
 .login-form .box-skew .authincation-content {
   box-shadow: none;
   padding: 50px;
@@ -1242,7 +1251,7 @@ h6 {
 }
 .login-form .box-skew1:after {
   /* background-image: url(/react/demo/static/media/bg-login.5883497….jpg); */
-  background: #ec1d25;
+  background: #faf7f2;
   background-size: cover;
   content: "";
   height: 100%;
@@ -1252,11 +1261,62 @@ h6 {
   -webkit-transform: skew(-5deg);
   transform: skew(-5deg);
   width: 120%;
-  z-index: -1;
+  z-index: 1;
 }
 .btn-primary.loginbtn{background:var(--primary-btn-color)}
 .error{color: #ec1d25;font-size: 13px;}
-
+.login-form .box-skew .authincation-content:after {
+  background-color: #fff;
+  box-shadow: 0 12px 23px 0 rgba(62, 73, 84, .08);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 200%;
+  z-index: -1;
+}
+.inner-content{z-index: 2;}
+/* .form-floating > .form-control:focus, .form-floating > .form-control:not(:placeholder-shown), .form-floating > .form-control-plaintext:focus, .form-floating > .form-control-plaintext:not(:placeholder-shown){
+  padding-top: 0.625rem !important;
+} */
+ .form_modal  .form-floating2 .form-control{height: 58px;}
+.login_btn_wrap .btn_signin {
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #57b846;
+  box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
+  -moz-box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
+  -webkit-box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
+  -o-box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
+  -ms-box-shadow: 0 10px 30px 0px rgba(87, 184, 70, 0.5);
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.login_btn_wrap .btn_signin:hover {
+  color: #fff;
+  background-color: #cf2227;
+  box-shadow: 0 10px 30px 0px rgba(184, 76, 70, 0.5);
+  -moz-box-shadow: 0 10px 30px 0px rgba(184, 70, 70, 0.5);
+  -webkit-box-shadow: 0 10px 30px 0px rgba(184, 70, 70, 0.5);
+  -o-box-shadow: 0 10px 30px 0px rgba(184, 70, 70, 0.5);
+  -ms-box-shadow: 0 10px 30px 0px rgba(184, 70, 70, 0.5);
+}
 
 @keyframes animate-loading {
   0% {
@@ -1342,4 +1402,15 @@ table > thead > tr > th {
 }
 table i {
   cursor: pointer;
+}
+@media (max-width: 900px) {
+  .login-form .box-skew .authincation-content{    position: static;
+    width: 100%;
+    transform: none;
+    padding: 10px;padding-top: 20px;}
+    .login-form{position: absolute;overflow: hidden;}
+    .login-form .box-skew, .login-form .box-skew1{    min-height: inherit;
+      height: inherit;}
+      .login-form .box-skew, .login-form .box-skew1{    min-height: inherit;
+        height: inherit;}
 }
