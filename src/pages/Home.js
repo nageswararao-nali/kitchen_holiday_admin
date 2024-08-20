@@ -1,16 +1,28 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTotalCustomers, getTotalDrivers, getTotalUsers } from '../store/usersSlice';
+import { useNavigate } from 'react-router-dom';
 function Home() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { totalUsers, totalCustomers, totalDrivers } = useSelector((state) => state.users)
+  const { user } = useSelector((state) => state.auth)
   const loadDashboardData = async () => {
     await dispatch(getTotalUsers())
     await dispatch(getTotalCustomers())
     await dispatch(getTotalDrivers())
   }
   useEffect(() => {
-    loadDashboardData()
+    console.log("user.user_type")
+    console.log(user.user_type)
+    if(user.user_type == 'kitchen') {
+        navigate('/kitchen-orders')
+    } else if(user.user_type == 'delivery boy') {
+      console.log("navigating to orders")
+        navigate('/delivery-orders')
+    } else {
+      loadDashboardData()
+    }
   }, [])
   return (
         <div className='container dashboard'>

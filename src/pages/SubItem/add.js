@@ -18,7 +18,8 @@ function AddSubItem(props) {
     const [isVeg , setIsVeg] = useState(true)
     const [itemImage , setItemImage] = useState(null)
     const [quantity , setQuantity] = useState(0)
-    
+    const [price, setPrice] = useState(null)
+
     const getItemData = async () => {
         await dispatch(getSubItem({id: itemId}))
     }
@@ -45,14 +46,21 @@ function AddSubItem(props) {
           event.stopPropagation();
         } else {
             event.preventDefault();
-            let userObj = {
-                name,
-                description,
-                itemImage,
-                quantity,
-                isVeg
-            }
-            await dispatch(addSubItem(userObj));
+            // let userObj = {
+            //     name,
+            //     description,
+            //     itemImage,
+            //     quantity,
+            //     isVeg
+            // }
+            const formData = new FormData();
+            formData.append('itemImage', itemImage)
+            formData.append('name', name)
+            formData.append('description', description)
+            formData.append('isVeg', isVeg)
+            formData.append('quantity', quantity)
+            formData.append('price', price)
+            await dispatch(addSubItem(formData));
             navigate('/sub-items')
         }
         setValidated(true);
@@ -62,7 +70,7 @@ function AddSubItem(props) {
     <div className='container'>
         <div className='row mx-5'>
             <Card>
-                <Card.Title>Add Item</Card.Title>
+                <Card.Title>Add Sub Item</Card.Title>
                 <Card.Body>
                     {
                         error ? 
@@ -109,6 +117,20 @@ function AddSubItem(props) {
                                     placeholder="quantity"
                                     onChange={(e) => setQuantity(e.target.value)}
                                     value={quantity}
+                                />
+                            </Col>
+                        </Form.Group>
+                        <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+                            <Col sm={2}>
+                            <Form.Label> Price </Form.Label>
+                            </Col>
+                            <Col sm={10}>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    placeholder="Price"
+                                    onChange={(e) => setPrice(e.target.value)}
+                                    value={price}
                                 />
                             </Col>
                         </Form.Group>

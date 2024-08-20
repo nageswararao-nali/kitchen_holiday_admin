@@ -57,15 +57,22 @@ function AddItem(props) {
           event.stopPropagation();
         } else {
             event.preventDefault();
-            let userObj = {
-                category,
-                name,
-                description,
-                itemImage,
-                isVeg,
-                price
-            }
-            await dispatch(addItem(userObj));
+            const formData = new FormData();
+            formData.append('itemImage', itemImage)
+            formData.append('name', name)
+            formData.append('category', category)
+            formData.append('description', description)
+            formData.append('isVeg', isVeg)
+            formData.append('price', price)
+            // let userObj = {
+            //     category,
+            //     name,
+            //     description,
+            //     itemImage,
+            //     isVeg,
+            //     price
+            // }
+            await dispatch(addItem(formData));
             navigate('/items')
         }
         setValidated(true);

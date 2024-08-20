@@ -2,21 +2,21 @@
 import apiRequest from '../utils/api';
 import { ADD_SUBSCRIPTION, GET_SUBSCRIPTIONS, ADD_ZONE, GET_ZONES} from '../utils/apiRoutes'
 
-const userToken = localStorage.getItem('userToken');
+// const userToken = localStorage.getItem('userToken');
 
-const addSubscription = async (reqObj) => {
+const addSubscription = async (reqObj, userToken) => {
     return await apiRequest(ADD_SUBSCRIPTION, 'POST', reqObj, userToken);
   };
 
-const getSubscriptions = async (reqObj) => {
+const getSubscriptions = async (reqObj, userToken) => {
     return await apiRequest(GET_SUBSCRIPTIONS, 'POST', reqObj, userToken);
 };
 
-const addZone = async (reqObj) => {
+const addZone = async (reqObj, userToken) => {
     return await apiRequest(ADD_ZONE, 'POST', reqObj, userToken);
   };
 
-const getZones = async (reqObj) => {
+const getZones = async (reqObj, userToken) => {
     return await apiRequest(GET_ZONES, 'POST', reqObj, userToken);
 };
 

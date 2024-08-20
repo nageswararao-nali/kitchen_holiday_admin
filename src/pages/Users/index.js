@@ -37,11 +37,11 @@ function Users() {
         text: "User ID",
       },
       {
-        dataField: "orderDateTime",
-        text: "Order Date",
+        isDummyField: true,
+        text: "Full Name",
         formatter: (cell, row, rowIndex) => {
           return (
-            row.orderDateTime
+            row.fName + " " +row.lName
           )
         }
       },
@@ -103,7 +103,7 @@ function Users() {
         </div>
         <div className='row'>
           <Card style={{ padding: '10px' }}>
-              <Card.Title>Orders</Card.Title>
+              <Card.Title>Users</Card.Title>
               <Card.Body>
                   {
                       (users && users.length) ?
