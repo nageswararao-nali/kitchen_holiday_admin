@@ -20,8 +20,11 @@ import AddOrder from './pages/Orders/AddOrder';
 import Zones from './pages/DeliveryZone';
 import AddZone from './pages/DeliveryZone/add';
 import ItemMapping from './pages/SubItem/mapping';
-import OrdersNew from './pages/OrdersNew/OrdersNew';
-import OrderDetails from './pages/OrderDetails/orderDetails';
+import DeliveryOrders from './pages/DeliveryOrders/Orders';
+import DeliveryOrderDetails from './pages/DeliveryOrders/orderDetails';
+import Inventory from './pages/Inventory/inventory';
+import KitchenOrders from './pages/KitchenOrders/Orders';
+import KitchenOrderDetails from './pages/KitchenOrders/orderDetails';
 
 function App() {
   return (
@@ -30,11 +33,23 @@ function App() {
           <Route path="/"  element={<ProtectedRoute />} >
             <Route path="/" element={<Home />} />
           </Route>
-           <Route path="/orders-new"  element={<OrdersNew />} >
+          <Route path="/inventory"  element={<Inventory />} >
           </Route>
-          { <Route path="/orderDetails"  element={<OrderDetails />} >
+           {/* <Route path="/ordersNew"  element={<OrdersNew />} >
+          </Route>
+          <Route path="/orderDetails"  element={<OrderDetails />} >
             
-          </Route> }
+          </Route>  */}
+          <Route path="/delivery-orders"  element={<ProtectedRoute />} >
+            <Route path="/delivery-orders" element={<DeliveryOrders />} />
+            <Route path="/delivery-orders/details/:orderId" element={<DeliveryOrderDetails />} />
+          </Route>
+
+          <Route path="/kitchen-orders"  element={<ProtectedRoute />} >
+            <Route path="/kitchen-orders" element={<KitchenOrders />} />
+            <Route path="/kitchen-orders/details/:orderId" element={<KitchenOrderDetails />} />
+          </Route>
+          
           <Route path="/orders"  element={<ProtectedRoute />} >
             <Route path="/orders" element={<Orders />} />
             <Route path="/orders/add" element={<AddOrder />} />

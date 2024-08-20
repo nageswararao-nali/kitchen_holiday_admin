@@ -15,6 +15,8 @@ function AddUser() {
     const [validated, setValidated] = useState(false);
     const [userType, setUserType] = useState('customer');
     const [email, setEmail] = useState('');
+    const [fName, setFName] = useState('');
+    const [lName, setLName] = useState('');
     const [password, setPassword] = useState('');
     const [mobile, setMobile] = useState('');
     const [username, setUsername] = useState('');
@@ -29,6 +31,8 @@ function AddUser() {
         setValidated(true);
         event.preventDefault();
         let userObj = {
+            fName,
+            lName,
             email,
             mobile,
             username,
@@ -56,6 +60,30 @@ function AddUser() {
                 : null
             }
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+                    <Col sm={2}>
+                        <Form.Label> First Name </Form.Label>
+                    </Col>
+                    <Col sm={10}>
+                        <Form.Control 
+                            type="text" placeholder="First Name" required 
+                            onChange={(e) => setFName(e.target.value)}
+                            value={fName}
+                        />
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+                    <Col sm={2}>
+                        <Form.Label> Last Name </Form.Label>
+                    </Col>
+                    <Col sm={10}>
+                        <Form.Control 
+                            type="text" placeholder="Last Name" required 
+                            onChange={(e) => setLName(e.target.value)}
+                            value={lName}
+                        />
+                    </Col>
+                </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
                     <Col sm={2}>
                         <Form.Label> Email </Form.Label>

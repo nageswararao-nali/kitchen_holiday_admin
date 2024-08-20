@@ -1,6 +1,6 @@
 
 import apiRequest from '../utils/api';
-import { ADD_ORDER, GET_ORDERS, GET_ORDER, UPDATE_ORDER} from '../utils/apiRoutes'
+import { ADD_ORDER, GET_ORDERS, GET_ORDER, UPDATE_ORDER, UPDATE_ORDER_STATUS} from '../utils/apiRoutes'
 
 // const userToken = localStorage.getItem('userToken');
 
@@ -17,15 +17,19 @@ const getOrder = async (reqObj, userToken) => {
 };
 
 const updateOrderStatus = async (reqObj, userToken) => {
-    return await apiRequest(UPDATE_ORDER, 'POST', reqObj, userToken);
+    return await apiRequest(UPDATE_ORDER_STATUS, 'POST', reqObj, userToken);
   };
+const updateOrder = async (reqObj, userToken) => {
+  return await apiRequest(UPDATE_ORDER, 'POST', reqObj, userToken);
+};
 
 
 const usersService = {
     getOrder,
     getOrders,
     addOrder,
-    updateOrderStatus
+    updateOrderStatus,
+    updateOrder
 };
 
 export default usersService;

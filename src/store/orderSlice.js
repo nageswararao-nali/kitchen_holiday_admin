@@ -18,13 +18,17 @@ export const updateOrderStatus = createAsyncThunk('orders/updateOrderStatus', as
     return handleAuthApiCall(orderService.updateOrderStatus, order, thunkAPI);
   });
 
+export const updateOrder = createAsyncThunk('orders/updateOrder', async (order, thunkAPI) => {
+  return handleAuthApiCall(orderService.updateOrder, order, thunkAPI);
+});
+
 
 const itemsSlice = createSlice({
   name: 'items',
   initialState: {
     loading: false,
     orders: [],
-    order: null,
+    order: {},
     error: null
   },
   reducers: {
@@ -85,6 +89,20 @@ const itemsSlice = createSlice({
         state.loading = false;
       })
       .addCase(updateOrderStatus.rejected, (state, action) => {
+        state.loading = false;
+      })
+      .addCase(updateOrder.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(updateOrder.fulfilled, (state, action) => {
+        if(action.payload.success) {
+            // state.order = action.payload.data
+        } else {
+          state.error = action.payload.message
+        }
+        state.loading = false;
+      })
+      .addCase(updateOrder.rejected, (state, action) => {
         state.loading = false;
       })
       

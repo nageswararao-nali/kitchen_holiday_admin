@@ -8,20 +8,28 @@ function Home() {
 
     const navigate = useNavigate()
     const dispatch = useDispatch();
-    const { isAuthenticated, error } = useSelector((state) => state.auth)
+    const { isAuthenticated, error, user } = useSelector((state) => state.auth)
+    const [userType, setUserType] = useState('')
     const [username, setUsername] = useState(null)
     const [password, setPassword] = useState(null)
     const [isError, setIsError] = useState(false)
     const loginAction = async () => {
         if(username && password) {
-            await dispatch(login({username, password}))
+            await dispatch(login({username, password, userType}))
         } else {
             setIsError(true)
         }
     }
     useEffect(() => {
         if(isAuthenticated) {
-            navigate('/')
+            if(user.user_type == 'kitchen') {
+                navigate('/kitchen-orders')
+            } else if(user.user_type == 'delivery boy') {
+                navigate('/delivery-orders')
+            } else {
+                navigate('/')
+            }
+            
         }
     }, [isAuthenticated])
   return (
@@ -55,6 +63,21 @@ function Home() {
                             />
                             <label htmlFor="floatingEmail">Password</label>
                             {isError ? <span className='error'>Please Enter Password</span> : null}
+                        </div>
+                    </div>
+                    <div className="col-md-12 pd5">
+                        <div className="form-floating">
+                            <select value={userType} className="form-control" onChange={(e) => {
+                                setUserType(e.target.value); 
+                                e.target.value ? setIsError(false) : setIsError(true);
+                                }}>
+                            <option value="">User Type</option>
+                            <option value="admin">Admin</option>
+                            <option value="delivery boy">Delivery Boy</option>
+                            <option value="kitchen">Kitchen</option>
+                            <label htmlFor="floatingEmail">User Type</label>
+                            </select>
+                            {isError ? <span className='error'>Please Select User Type</span> : null}
                         </div>
                     </div>
                     
