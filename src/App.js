@@ -25,6 +25,7 @@ import DeliveryOrderDetails from './pages/DeliveryOrders/orderDetails';
 import Inventory from './pages/Inventory/inventory';
 import KitchenOrders from './pages/KitchenOrders/Orders';
 import KitchenOrderDetails from './pages/KitchenOrders/orderDetails';
+import Myprofile from './pages/Myprofile/myprofile';
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
       <Routes>
           <Route path="/"  element={<ProtectedRoute />} >
             <Route path="/" element={<Home />} />
+          </Route>
+          <Route path="/myprofile"  element={<Myprofile />} >
           </Route>
           <Route path="/inventory"  element={<Inventory />} >
           </Route>

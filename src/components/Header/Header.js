@@ -103,9 +103,9 @@ export default function Header() {
             </li>
 
             <li>
-              <a className="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a className="dropdown-item d-flex align-items-center" >
                 <i className="bi bi-person"></i>
-                <span>My Profile</span>
+                <span onClick={() => navigateToRoute('myprofile')}>My Profile</span>
               </a>
             </li>
             <li>

@@ -12,7 +12,7 @@
 :root {
   scroll-behavior: smooth;
   --primary-color: #2e9a3f;
-  --primary-btn-color: #ce1212;
+  --primary-btn-color: #ec1d25;
   --btn-label-color: #f6f9ff;
   --secondery-color:#9fa4a6;
   --rgba-primary-1: rgba(253, 62, 100, 0.1);
@@ -42,8 +42,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Nunito", sans-serif;
+  /* font-family: "Nunito", sans-serif;  */
+  font-family: "MuseoModerno", sans-serif !important;
+
 }
+p{  font-family: "Nunito", sans-serif; }
 
 /*--------------------------------------------------------------
 # Main
@@ -316,7 +319,7 @@ h6 {
   font-size: 14px;
   font-family: "Nunito", sans-serif;
   color: #899bbd;
-  font-weight: 600;
+  font-weight: 600;margin: 0 !important; 
 }
 
 .breadcrumb a {
@@ -1317,6 +1320,129 @@ h6 {
   -o-box-shadow: 0 10px 30px 0px rgba(184, 70, 70, 0.5);
   -ms-box-shadow: 0 10px 30px 0px rgba(184, 70, 70, 0.5);
 }
+.container-fluid .card{    background-color: #fff;
+  border: 0 solid transparent;
+  border-radius: 1.75rem;
+  box-shadow: 0 .25rem .25rem rgba(0, 0, 0, .1);
+  /* height: calc(100% - 30px); */
+  margin-bottom: 1.875rem;
+  position: relative;
+  transition: all .5s ease-in-out;}
+  .page-titles {
+    background: #fff;
+    border-radius: 1rem;
+    margin: 0 0 1.875rem;
+    padding: .9375rem 2.5rem;
+}
+.profile .profile-photo {
+  max-width: 6.25rem;
+  position: relative;
+}
+.profile-info .text-primary.h4, .profile-info h4.text-primary {
+  color: #ec1d25 !important;
+  color: var(--primary-btn-color) !important;
+}
+.text-primary {
+  color: #ec1d25 !important;
+  color: var(--primary-btn-color) !important;
+}
+.container-fluid h4 {
+  font-size: 16px;
+}
+.profile-info p {
+  color: #828690;font-size: 12px;text-align: left;margin: 0;
+}
+.profile-name,.profile-email{display: flex;
+  flex-direction: column;
+  justify-content: center;}
+.profile-details{justify-content: space-between;width: 100%;}
+.light.btn-primary {
+  background-color: rgba(253, 104, 62, .1);
+  background-color: var(--rgba-primary-1);
+  border-color: rgba(253, 104, 62, .1);
+  border-color: var(--rgba-primary-1);
+  color: #ec1d25;
+  color: var(--primary-btn-color);
+}
+.light.btn-primary:hover {
+  background-color: #ec1d25;
+  background-color: var(--primary-btn-color);
+  border-color: #ec1d25;
+  border-color: var(--primary-btn-color);
+  color: #fff;
+}
+.nav-tabs .nav-link {
+  display: block;
+  padding: .5rem 1rem;color: #828690;
+  text-decoration: none;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+.profile-tab .nav-item .nav-link.active, .profile-tab .nav-item .nav-link:hover {
+  background: transparent;
+  border: 0;
+  border-bottom: .0125rem solid #ec1d25;
+  border-bottom: .0125rem solid var(--primary-btn-color);
+  color: #ec1d25;
+  color: var(--primary-btn-color);
+}
+.custom-tab-1 .fade:not(.show){opacity: 1;}
+.tab-pane p{font-size: 12px;}
+.form-label {
+  font-size: 13px;
+}
+.settings-form .form-control{font-size: 16px;}
+.profile-tab h5{font-size: 15px;}
+.email-list .message .col-mail-2 {
+  bottom: 0;
+  left: 5.625rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.email-list .message .col-mail-2 .subject {
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 5.5rem;
+  text-overflow: ellipsis;
+  top: 0;
+  white-space: nowrap;
+}
+.email-list .message a {
+  color: #828690;font-size: 12px;
+}
+.email-list .message .col-mail-2 .date {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.email-list .message {
+  cursor: default;
+  display: block;
+  height: 3.125rem;
+  line-height: 3.125rem;
+  position: relative;
+  transition-duration: .3s;
+}
+.email-list .message-single i {
+  color: #89879f;
+  font-size: 1.125rem;
+  padding-left: .4rem;
+}
+.form-check {
+  display: block;
+  margin-bottom: .125rem;
+  min-height: 1.3125rem;
+  padding-left: 1.5em;line-height: normal;
+}
+.form-check-input:checked {
+  background-color: #ec1d25;
+  background-color: var(--primary-btn-color) !important;
+  border-color: #ec1d25;
+  border-color: var(--primary-btn-color) !important;
+}
+.form-check-input:focus{box-shadow: none !important;}
+.profile-tab{min-height: 600px;}
 
 @keyframes animate-loading {
   0% {
