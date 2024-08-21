@@ -1355,7 +1355,7 @@ p{  font-family: "Nunito", sans-serif; }
 .profile-name,.profile-email{display: flex;
   flex-direction: column;
   justify-content: center;}
-.profile-details{justify-content: space-between;width: 100%;}
+.profile-details{width: 100%;}
 .light.btn-primary {
   background-color: rgba(253, 104, 62, .1);
   background-color: var(--rgba-primary-1);
@@ -1499,6 +1499,9 @@ p{  font-family: "Nunito", sans-serif; }
   background: transparent;
   border-color: transparent;
 }
+.profile-edit{display: flex;
+  justify-content: end;
+  align-items: center;}
 
 @keyframes animate-loading {
   0% {

@@ -34,8 +34,9 @@ function Myprofile() {
                             <div class="profile-details d-flex">
                                 <div class="profile-name px-3 pt-2"><h4 class="text-primary mb-0">Mitchell C. Shay</h4><p>UX / UI Designer</p></div>
                                 <div class="profile-email px-2 pt-2"><h4 class="text-muted mb-0">hello@email.com</h4><p>Email</p></div>  
-                                <div class="profile-email px-2 pt-2">                      
-                                    <a class="btn btn-primary light px-3 me-1" href="#"><i class="bi bi-pencil-fill m-0"></i> </a>
+                                <div className='flex-grow-1 px-2 pt-2 profile-edit'>
+                                                        
+                                        <a class="btn btn-primary light px-3 me-1" href="#"><i class="bi bi-pencil-fill m-0"></i> </a>
                                 </div>
                             </div>
                         </div>
