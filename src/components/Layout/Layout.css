@@ -1361,7 +1361,7 @@ p{  font-family: "Nunito", sans-serif; }
   background-color: var(--rgba-primary-1);
   border-color: rgba(253, 104, 62, .1);
   border-color: var(--rgba-primary-1);
-  color: #ec1d25;
+  color: #ec1d25;border-radius: 15px;
   color: var(--primary-btn-color);
 }
 .light.btn-primary:hover {
@@ -1443,6 +1443,7 @@ p{  font-family: "Nunito", sans-serif; }
 }
 .form-check-input:focus{box-shadow: none !important;}
 .profile-tab{min-height: 600px;}
+
 
 @keyframes animate-loading {
   0% {
