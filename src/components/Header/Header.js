@@ -36,15 +36,16 @@ export default function Header() {
   return (
     <header id="header" className="header fixed-top d-flex align-items-center">
 
-    <div className="d-flex align-items-center justify-content-between">
-      <a className="logo d-flex align-items-center">
+    <div className="d-flex align-items-center justify-content-between header_inn">
+      <a className="logo d-flex align-items-center p-3">
         <img src="/assets/img/logo_f.png" alt="" />
-        <span>Kitchen Holiday</span>
+        {/* <span>Kitchen Holiday</span> */}
       </a>
-      <i className="bi bi-list toggle-sidebar-btn" onClick={() => toggleSidebar()}></i>
+     
     </div>
 
-    <div className="search-bar">
+    <div className="search-bar d-flex">
+    <i className="bi bi-list toggle-sidebar-btn p-3" onClick={() => toggleSidebar()}></i>
       <form className="search-form d-flex align-items-center" method="POST" action="#">
         <input type="text" name="query" placeholder="Search" title="Enter search keyword" />
         <button type="submit" title="Search"><i className="bi bi-search"></i></button>

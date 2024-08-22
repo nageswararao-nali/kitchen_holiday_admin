@@ -401,10 +401,14 @@ p{  font-family: "Nunito", sans-serif; }
   height: 5.5rem;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
   background-color: #fff;
-  padding-left: 20px;
+  padding-left: 20px;height: 100px;
+  box-shadow: none;
+  border-bottom: .0625rem solid #eee;padding-left: 0;
+  /* z-index: 1; */
   /* Toggle Sidebar Button */
   /* Search Bar */
 }
+.header_inn{height: 100%; box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);width: 18rem;}
 
 .header .toggle-sidebar-btn {
   font-size: 32px;
@@ -622,15 +626,16 @@ p{  font-family: "Nunito", sans-serif; }
   top: 5.5em;
   left: 0;
   bottom: 0;
-  width: 18.5rem;
+  width: 18rem;
   z-index: 996;
   transition: all 0.3s;
   padding: 20px;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
-  box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+  /* box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1); */
   background-color: #fff;
+  box-shadow: 0 1.25rem 1.875rem 0 rgba(0, 0, 0, .02);    z-index: 1030;
 }
 
 @media (max-width: 1199px) {
@@ -721,7 +726,7 @@ p{  font-family: "Nunito", sans-serif; }
 }
 
 .sidebar-nav .nav-link i {
-  font-size: 16px;
+  font-size: 18px;
   margin-right: 10px;
   /* color: #4154f1; */
   color: var(--primary-btn-color);
@@ -753,7 +758,9 @@ p{  font-family: "Nunito", sans-serif; }
   width: 50px;
   background: none;margin-right: 0px;transition: all .5s ease-in-out;
 }
-.sidebar-nav .nav-link:hover i.bi-chevron-down,.sidebar-nav .nav-link i.bi-chevron-down{background: none;color: #000;margin: 0;}
+.sidebar-nav .nav-link:hover i.bi-caret-right-fill,.sidebar-nav .nav-link i.bi-caret-right-fill{background: none;color: #c8c8c8 ;margin: 0;    right: -30px;
+  position: relative;
+}
 
 .sidebar-nav .nav-link:hover {
   color: #000;
