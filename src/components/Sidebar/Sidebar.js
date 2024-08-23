@@ -18,7 +18,7 @@ export default function Sidebar() {
         (user.user_type == "admin") ?
         <li className="nav-item" onClick={() => navigateToRoute('')}>
           <a className="nav-link ">
-            <i className="bi bi-grid"></i>
+            <i className="bi bi-grid-1x2-fill"></i>
             <span>Dashboard</span>
           </a>
         </li>
@@ -28,7 +28,7 @@ export default function Sidebar() {
         (user.user_type == "admin") ?
         <li className="nav-item" onClick={() => navigateToRoute('users')}>
           <a className="nav-link collapsed" >
-            <i className="bi bi-person"></i>
+          <i class="bi bi-people-fill"></i>
             <span>Users</span>
           </a>
         </li>
@@ -38,22 +38,22 @@ export default function Sidebar() {
         (user.user_type == "admin") ?
         <li className="nav-item">
           <a className="nav-link collapsed" data-bs-target="#orders-nav" data-bs-toggle="collapse" href="#">
-            <i className="bi bi-cart-check-fill"></i><span>Orders</span><i className="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-bag-check-fill"></i><span>Orders</span><i className="bi bi-caret-right-fill ms-auto"></i>
           </a>
           <ul id="orders-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li onClick={() => navigateToRoute('orders')}>
               <a >
-                <i className="bi bi-circle"></i><span>Normal Orders</span>
+              <i class="bi bi-diamond"></i><span>Normal Orders</span>
               </a>
             </li>
             <li onClick={() => navigateToRoute('sub-orders')}>
               <a>
-                <i className="bi bi-circle"></i><span>Subscription Orders</span>
+              <i class="bi bi-diamond"></i><span>Subscription Orders</span>
               </a>
             </li>
             <li onClick={() => navigateToRoute('all-orders')}>
               <a>
-                <i className="bi bi-circle"></i><span>All Orders</span>
+              <i class="bi bi-diamond"></i><span>All Orders</span>
               </a>
             </li>
           </ul>
@@ -64,27 +64,27 @@ export default function Sidebar() {
         (user.user_type == "admin") ?
         <li className="nav-item">
           <a className="nav-link collapsed" data-bs-target="#items-nav" data-bs-toggle="collapse" href="#">
-            <i className="bi bi-journal-text"></i><span>Items</span><i className="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-view-list"></i><span>Items</span><i className="bi bi-caret-right-fill ms-auto"></i>
           </a>
           <ul id="items-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li onClick={() => navigateToRoute('categories')}>
               <a >
-                <i className="bi bi-circle"></i><span>Categories</span>
+              <i class="bi bi-diamond"></i><span>Categories</span>
               </a>
             </li>
             <li onClick={() => navigateToRoute('items')}>
               <a>
-                <i className="bi bi-circle"></i><span>Items</span>
+              <i class="bi bi-diamond"></i><span>Items</span>
               </a>
             </li>
             <li onClick={() => navigateToRoute('sub-items')}>
               <a>
-                <i className="bi bi-circle"></i><span>Sub Items</span>
+              <i class="bi bi-diamond"></i><span>Sub Items</span>
               </a>
             </li>
             <li onClick={() => navigateToRoute('items/mapping')}>
               <a>
-                <i className="bi bi-circle"></i><span>Items Mapping</span>
+              <i class="bi bi-diamond"></i><span>Items Mapping</span>
               </a>
             </li>
           </ul>
@@ -95,7 +95,7 @@ export default function Sidebar() {
         (user.user_type == "admin") ?
         <li className="nav-item" onClick={() => navigateToRoute('subscriptions')}>
           <a className="nav-link collapsed" >
-            <i className="bi bi-person"></i>
+          <i class="bi bi-check-circle-fill"></i>
             <span>Subscriptions</span>
           </a>
         </li>
@@ -105,7 +105,7 @@ export default function Sidebar() {
         (user.user_type == "admin") ?
         <li className="nav-item" onClick={() => navigateToRoute('delivery-zone')}>
           <a className="nav-link collapsed" >
-            <i className="bi bi-map"></i>
+            <i className="bi bi-map-fill"></i>
             <span>Delivery Zone</span>
           </a>
         </li> : null
@@ -115,7 +115,7 @@ export default function Sidebar() {
         (user.user_type == "admin" || user.user_type == "delivery boy") ?
           <li className="nav-item" onClick={() => navigateToRoute('delivery-orders')}>
           <a className="nav-link collapsed" >
-            <i className="bi bi-map"></i>
+          <i class="bi bi-truck"></i>
             <span>Delivery Orders</span>
           </a>
         </li>
@@ -126,7 +126,7 @@ export default function Sidebar() {
         (user.user_type == "admin" || user.user_type == "kitchen") ?
         <li className="nav-item" onClick={() => navigateToRoute('kitchen-orders')}>
           <a className="nav-link collapsed" >
-            <i className="bi bi-map"></i>
+          <i class="bi bi-egg-fill"></i>
             <span>Kitchen Orders</span>
           </a>
         </li>

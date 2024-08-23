@@ -28,78 +28,78 @@ function Home() {
         <div className='container dashboard'>
           <div className='row'>
             <div className="col-xxl-4 col-md-6">
-              <div className="card info-card sales-card widget-stat">
+              <div className="card info-card widget-stat bg-danger">
                 <div className="card-body p-4">
                   <div className='media ai-icon'>
-                    <span class="me-3 bgl-primary text-primary"><svg id="icon-customers" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>                    
+                    <span class="me-3 bgl-primary "><i class="bi bi-people-fill"></i></span>                    
                     <div class="media-body">
                       <p class="mb-1"><b>All Users</b></p>
-                      <h4 class="mb-0 text-left">{totalUsers}</h4>
+                      <h4 class="mb-0 ">{totalUsers}</h4>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-xxl-4 col-md-6">
-              <div className="card info-card sales-card widget-stat">
+              <div className="card info-card sales-card widget-stat bg-success">
                 <div className="card-body p-4">
                   <div className='media ai-icon'>
-                    <span class="me-3 bgl-warning text-warning"><svg id="icon-customers" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>                    
+                    <span class="me-3 bgl-warning text-warning"><img src='assets/img/customer.png' width={36} /></span>                    
                     <div class="media-body">
                       <p class="mb-1"><b>Customers</b></p>
-                      <h4 class="mb-0 text-left">{totalCustomers}</h4>
+                      <h4 class="mb-0 ">{totalCustomers}</h4>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-xxl-4 col-md-6">
-              <div className="card info-card sales-card widget-stat">
+              <div className="card info-card sales-card widget-stat bg-info">
                 <div className="card-body p-4">
                   <div className='media ai-icon'>
-                    <span class="me-3 bgl-danger text-danger"><svg id="icon-customers" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>                    
+                    <span class="me-3 bgl-danger text-danger"><img src='assets/img/delivery-boy.png' width={36} /></span>                    
                     <div class="media-body">
                       <p class="mb-1"><b>Delivery Boys</b></p>
-                      <h4 class="mb-0 text-left">{totalDrivers}</h4>
+                      <h4 class="mb-0 ">{totalDrivers}</h4>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-xxl-4 col-md-6">
-              <div className="card info-card sales-card widget-stat">
+              <div className="card info-card sales-card widget-stat bg-primary1">
                 <div className="card-body p-4">
                   <div className='media ai-icon'>
-                    <span class="me-3 bgl-success text-success"><svg id="icon-customers" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>                    
+                    <span class="me-3 bgl-success"><img src='assets/img/booking.png' width={36} /></span>                    
                     <div class="media-body">
                       <p class="mb-1"><b>All Orders</b></p>
-                      <h4 class="mb-0 text-left">145</h4>
+                      <h4 class="mb-0 ">145</h4>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-xxl-4 col-md-6">
-              <div className="card info-card sales-card widget-stat">
+              <div className="card info-card sales-card widget-stat bg-warning">
                 <div className="card-body p-4">
                   <div className='media ai-icon'>
-                    <span class="me-3 bgl-primary text-primary"><svg id="icon-customers" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>                    
+                    <span class="me-3 bgl-primary text-primary"><img src='assets/img/location.png' width={36} /></span>                    
                     <div class="media-body">
                       <p class="mb-1"><b>Orders Pickedup</b></p>
-                      <h4 class="mb-0 text-left">145</h4>
+                      <h4 class="mb-0 ">145</h4>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="col-xxl-4 col-md-6">
-              <div className="card info-card sales-card widget-stat">
+              <div className="card info-card sales-card widget-stat bg-secondary">
                 <div className="card-body p-4">
                   <div className='media ai-icon'>
-                    <span class="me-3 bgl-primary text-primary"><svg id="icon-customers" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>                    
+                    <span class="me-3 bgl-primary text-primary"><img src='assets/img/delivered.png' width={36}></img></span>                    
                     <div class="media-body">
                       <p class="mb-1"><b>Orders Deliverd</b></p>
-                      <h4 class="mb-0 text-left">145</h4>
+                      <h4 class="mb-0">145</h4>
                     </div>
                   </div>
                 </div>

@@ -42,15 +42,7 @@
   padding: 5px;
 }
 /* login form */
-.login-form {
-  min-width: 100%;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  left: 0;
-  min-height: 100%;
-  /* font-size: 2.5rem */
-}
+
 .orders {
   display: flex;
   justify-content: space-around;
@@ -172,10 +164,10 @@ svg.vert-move {
   100% { transform: translateX(-10px); }
 }
 .card-table a{text-decoration: none;}
-.table tbody tr td {
+/* .table tbody tr td {
   border-color: #e5e9ed;
   vertical-align: middle;
-}
+} */
 .media a img {
   border-radius: .75rem;
   height: 5.4375rem;
@@ -230,49 +222,7 @@ svg.vert-move {
 .shadow-hover tr:hover td {
   font-weight: 700;
 }
-.widget-stat.card{background-color: #fff;
-  border: 0 solid transparent;
-  border-radius: 1.75rem;
-  box-shadow: 0 .25rem .25rem rgba(0, 0, 0, .1);
-  /* height: calc(100% - 30px); */
-  margin-bottom: 1.875rem;
-  position: relative;
-  transition: all .5s ease-in-out;}
-.widget-stat .media{    align-items: center;
-  padding: 0;display: flex;}
-  .widget-stat .media>span {
-    align-items: center;
-    border-radius: 3.125rem;
-    color: #464a53;
-    display: flex;
-    font-size: 2rem;
-    height: 5.3125rem;
-    justify-content: center;
-    min-width: 5.3125rem;
-    padding: .625rem .75rem;
-    width: 5.3125rem;
-}
-.bgl-primary{    background: rgba(253, 104, 62, .1);}
-.text-primary {  color: #fd683e !important;}
-.text-warning{color: #ffa41d !important;}
-.bgl-warning {
-  background: #ffdba7;
-  border-color: #ffdba7;
-} 
-.bgl-danger {
-  background: #fee6ea;
-  border-color: #fee6ea;
-}
-.text-danger {
-  color: #f72b50 !important;
-}
-.bgl-success {
-  background: #e7fbe6;
-  border-color: #e7fbe6;
-}
-.text-success {
-  color: #68e365 !important;
-}
+
 .inventory_card.card{background-color: #fff;
   border: 0 solid transparent;
   border-radius: 1.75rem;
@@ -376,11 +326,7 @@ table.dataTable tbody td {
 .orders li:last-child:after{content: none;}
 }
 .card .text-black{font-size: 16px;font-weight: 500;}
-@media (max-width: 500px) {
-  .login-form {
-    min-width: 90%;
-  }
-}
+
 @media only screen and (max-width: 991px) {
   .delivery-contact li a {
       height: 2.5rem;
