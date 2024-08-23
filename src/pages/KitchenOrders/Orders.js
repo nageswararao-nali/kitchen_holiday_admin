@@ -85,12 +85,6 @@ function KitchenOrders() {
                       <Dropdown.Item onClick={() => {updateOrder(row.id, 'ready')}}> 
                         Ready to Pickup 
                       </Dropdown.Item> 
-                      <Dropdown.Item onClick={() => {updateOrder(row.id, 'completed')}}> 
-                        Completed 
-                      </Dropdown.Item> 
-                      <Dropdown.Item onClick={() => {updateOrder(row.id, 'cancelled')}}> 
-                        Cancelled
-                      </Dropdown.Item> 
                     </Dropdown.Menu> 
                   </Dropdown>
 									<i style={{color: 'green'}} className="bi bi-eye-fill"

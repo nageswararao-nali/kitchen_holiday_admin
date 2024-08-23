@@ -284,12 +284,6 @@ function KitchenOrderDetails() {
                       <Dropdown.Item onClick={() => {updateOrder(orderId, 'ready')}}> 
                         Ready to Pickup 
                       </Dropdown.Item> 
-                      <Dropdown.Item onClick={() => {updateOrder(orderId, 'completed')}}> 
-                        Completed 
-                      </Dropdown.Item> 
-                      <Dropdown.Item onClick={() => {updateOrder(orderId, 'cancelled')}}> 
-                        Cancelled
-                      </Dropdown.Item> 
                     </Dropdown.Menu> 
                   </Dropdown>
                 </div>
