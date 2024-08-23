@@ -4,29 +4,24 @@ import paginationFactory from "react-bootstrap-table2-paginator";
 import { useNavigate } from 'react-router-dom';
 import { Button, Card, Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getOrders, updateOrderStatus, clearOrders} from '../../store/orderSlice';
-import * as moment from 'moment';
+import { getOrders, updateOrderStatus } from '../../store/orderSlice';
 
-function SubOrders() {
+
+
+function AllOrders() {
   const navigate = useNavigate();
     const [status , setStatus] = useState(null)
     const dispatch = useDispatch()
     const { orders } = useSelector((state) => state.orders)
 
     const getOrdersData = async () => {
-        console.log("calling sub order s......")
-      await dispatch(clearOrders())
-      await dispatch(getOrders({orderType: 'subscription'}))
+      await dispatch(getOrders({}))
     }
-    // useEffect(() => {
-    //     if(!orders.length && !status) {
-    //       getOrdersData()
-    //     }
-    // }, [orders])
-
     useEffect(() => {
-        getOrdersData()
-    }, [])
+        if(!orders.length && !status) {
+          getOrdersData()
+        }
+    }, [orders])
 
     const updateOrder = async(orderId, statusD) => {
       console.log(orderId, status)
@@ -37,20 +32,11 @@ function SubOrders() {
 
     const filterOrders = async (statusValue) => {
       if(statusValue) {
-        if(statusValue == 'today') {
-            await dispatch(getOrders({orderType: 'subscription', orderDate: moment().format('YYYY-MM-DD')}))
-        } else {
-            await dispatch(getOrders({orderType: 'subscription', status: statusValue}))
-        }
+        await dispatch(getOrders({status: statusValue}))
       } else {
-        await dispatch(getOrders({orderType: 'subscription'}))
+        await dispatch(getOrders({}))
       }
       
-    }
-
-    const filterTodayOrders = async () => {
-        await dispatch(getOrders({orderType: 'subscription', orderDate: moment().format('YYYY-MM-DD')}))
-        
     }
     const columns = [
       {
@@ -125,17 +111,12 @@ function SubOrders() {
     <div className='container'>
         <div className='row mb-2' style={{justifyContent: 'end'}}>
             <div className='col-sm-2'>
-                <Button onClick={() => navigate('/sub-orders/add')}> Add Subscription Order</Button>
+                <Button onClick={() => navigate('/orders/add')}> Add Normal Order</Button>
             </div>
         </div>
         <div className='row mb-3'>
             <div className='col-sm-12'>
                 <div className='brand-list-content'>
-                
-                    <div className='brand-list'>
-                        <input type="radio" name="brand" className="btn-check" id="btn-today-outlined" value="today" autoComplete="off" checked={status == 'today'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
-                        <label className="btn btn-outline-primary" htmlFor="btn-today-outlined">Today Orders</label>
-                    </div>
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-new-outlined" value="new" autoComplete="off" checked={status == 'new'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
                         <label className="btn btn-outline-primary" htmlFor="btn-new-outlined">New Orders</label>
@@ -165,7 +146,7 @@ function SubOrders() {
         </div>
         <div className='row'>
           <Card style={{ padding: '10px' }}>
-              <Card.Title>Subscription Orders</Card.Title>
+              <Card.Title>Orders</Card.Title>
               <Card.Body>
                   {
                       (orders && orders.length) ?
@@ -187,4 +168,4 @@ function SubOrders() {
   );
 }
 
-export default SubOrders;
+export default AllOrders;

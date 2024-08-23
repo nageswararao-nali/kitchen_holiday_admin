@@ -26,6 +26,8 @@ import Inventory from './pages/Inventory/inventory';
 import KitchenOrders from './pages/KitchenOrders/Orders';
 import KitchenOrderDetails from './pages/KitchenOrders/orderDetails';
 import Myprofile from './pages/Myprofile/myprofile';
+import SubOrders from './pages/Orders/SubOrders';
+import AllOrders from './pages/Orders/AllOrders';
 
 function App() {
   return (
@@ -53,10 +55,18 @@ function App() {
             <Route path="/kitchen-orders/details/:orderId" element={<KitchenOrderDetails />} />
           </Route>
           
+          <Route path="/sub-orders"  element={<ProtectedRoute />} >
+            <Route path="/sub-orders" element={<SubOrders />} />
+          </Route>
+          <Route path="/all-orders"  element={<ProtectedRoute />} >
+            <Route path="/all-orders" element={<AllOrders />} />
+          </Route>
+
           <Route path="/orders"  element={<ProtectedRoute />} >
             <Route path="/orders" element={<Orders />} />
             <Route path="/orders/add" element={<AddOrder />} />
           </Route>
+          
           <Route path="/users"  element={<ProtectedRoute />} >
             <Route path="/users" element={<Users />} />
             <Route path="/users/add" element={<AddUser />} />
