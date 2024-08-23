@@ -47,15 +47,20 @@ function Subscriptions() {
       }
     ];
   return (
-    <div className='container'>
-        <div className='row mb-2' style={{justifyContent: 'end'}}>
-            <div className='col-sm-2'>
-                <Button onClick={() => navigate('/subscriptions/add')}> Add Subscription</Button>
-            </div>
-        </div>
+    <div className='container-fluid'>
+       
         <div className='row'>
           <Card style={{ padding: '10px' }}>
-              <Card.Title>Subscriptions</Card.Title>
+              {/* <Card.Title>Subscriptions</Card.Title> */}
+              <div class="card-header  mb-3">
+                <div class="card-title h5">Subscriptions</div>
+                <div className=' mb-2' style={{justifyContent: 'end'}}>
+                    <div>
+                    <Button onClick={() => navigate('/subscriptions/add')}> Add Subscription</Button>
+
+                    </div>
+                </div>
+              </div>
               <Card.Body>
                   {
                       (subscriptions && subscriptions.length) ?

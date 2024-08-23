@@ -73,13 +73,9 @@ function Users() {
       }
     ];
   return (
-    <div className='container'>
-        <div className='row mb-2' style={{justifyContent: 'end'}}>
-            <div className='col-sm-2'>
-                <Button onClick={() => navigate('/users/add')}> Add User</Button>
-            </div>
-        </div>
-        <div className='row mb-3'>
+    <div className='container-fluid'>
+      
+        {/* <div className='row mb-3'>
             <div className='col-sm-12'>
                 <div className='brand-list-content'>
                     <div className='brand-list'>
@@ -100,13 +96,50 @@ function Users() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> */}
         <div className='row'>
           <Card style={{ padding: '10px' }}>
-              <Card.Title>Users</Card.Title>
+              {/* <Card.Title>Users</Card.Title> */}
+              <div class="card-header">
+                <div class="card-title h5">Users</div>
+                <div className=' mb-2' style={{justifyContent: 'end'}}>
+                    <div>
+                        <Button onClick={() => navigate('/users/add')}> Add User</Button>
+                    </div>
+                </div>
+              </div>
+              <div class="card-action coin-tabs mt-3 mt-sm-3">
+                <ul class="nav nav-tabs nav" role="tablist">
+                  <li class="nav-item nav-item">
+                    <div className='brand-list'>
+                        <input type="radio" name="brand" className="btn-check" id="btn-new-outlined" value="customer" autoComplete="off" checked={userType == 'customer'} onChange={(e) => {setUserType(e.target.value); filterUsers(e.target.value)}} />
+                        <label className="btn btn-outline-primary " htmlFor="btn-new-outlined">Customers</label>
+                    </div>
+                  </li>
+                  <li class="nav-item nav-item">
+                    <div className='brand-list'>
+                        <input type="radio" name="brand" className="btn-check" id="btn-confirmed-outlined" value="delivery boy" autoComplete="off" checked={userType == 'delivery boy'} onChange={(e) => {setUserType(e.target.value); filterUsers(e.target.value)}} />
+                        <label className="btn btn-outline-primary" htmlFor="btn-confirmed-outlined">Delivery Boys</label>
+                    </div>
+                  </li>
+                  <li class="nav-item nav-item">
+                    <div className='brand-list'>
+                        <input type="radio" name="brand" className="btn-check" id="btn-preparing-outlined" value="admin" autoComplete="off" checked={userType == 'admin'} onChange={(e) => {setUserType(e.target.value); filterUsers(e.target.value)}} />
+                        <label className="btn btn-outline-primary" htmlFor="btn-preparing-outlined">Admins</label>
+                    </div>
+                  </li>
+                  <li class="nav-item nav-item">
+                    <div className='brand-list'>
+                        <input type="radio" name="brand" className="btn-check" id="btn-ready-outlined" value="kitchen" autoComplete="off" checked={userType == 'kitchen'} onChange={(e) => {setUserType(e.target.value); filterUsers(e.target.value)}} />
+                        <label className="btn btn-outline-primary" htmlFor="btn-ready-outlined">Kitchen</label>
+                    </div>
+                  </li>
+                </ul>
+              </div>
               <Card.Body>
                   {
                       (users && users.length) ?
+                      <div className='table-responsive'>
                       <BootstrapTable
                           bootstrap4
                           keyField="id"
@@ -115,6 +148,7 @@ function Users() {
                           pagination={paginationFactory({ sizePerPage: 10, hideSizePerPage: true, onPageChange:(page)=>console.log("DB CALL with page" + page) })}
                       
                       />
+                      </div>
                       : null
                   }
                 

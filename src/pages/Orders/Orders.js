@@ -81,7 +81,7 @@ function Orders() {
                   
                   <Dropdown drop={"start"}> 
                     <Dropdown.Toggle variant="success"> 
-                    <i style={{color: 'green'}} className="bi bi-pencil-fill" />
+                    <i style={{color: '#000'}} className="bi bi-pencil-square" />
                     </Dropdown.Toggle> 
                     <Dropdown.Menu> 
                       <Dropdown.Item onClick={() => {updateOrder(row.id, 'confirmed')}}> 
@@ -108,45 +108,61 @@ function Orders() {
       }
     ];
   return (
-    <div className='container'>
-        <div className='row mb-2' style={{justifyContent: 'end'}}>
-            <div className='col-sm-2'>
-                <Button onClick={() => navigate('/orders/add')}> Add Normal Order</Button>
-            </div>
-        </div>
+    <div className='container-fluid'>
+       
         <div className='row mb-3'>
+          <Card style={{ padding: '10px' }}>
             <div className='col-sm-12'>
-                <div className='brand-list-content'>
+              <div class="card-header  mb-3">
+                <div class="card-title h5">Orders</div>
+                <div className=' mb-2' style={{justifyContent: 'end'}}>
+                    <div>
+                    <Button onClick={() => navigate('/orders/add')}> Add Normal Order</Button>
+                    </div>
+                </div>
+              </div>
+            <div class="card-action coin-tabs mt-3 mt-sm-0">
+                <ul class="nav nav-tabs nav" role="tablist">
+                  <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-new-outlined" value="new" autoComplete="off" checked={status == 'new'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
                         <label className="btn btn-outline-primary" htmlFor="btn-new-outlined">New Orders</label>
                     </div>
+                    </li>
+                    <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-confirmed-outlined" value="confirmed" autoComplete="off" checked={status == 'confirmed'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
                         <label className="btn btn-outline-primary" htmlFor="btn-confirmed-outlined">Confirmed</label>
                     </div>
+                    </li>
+                    <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-preparing-outlined" value="preparing" autoComplete="off" checked={status == 'preparing'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
                         <label className="btn btn-outline-primary" htmlFor="btn-preparing-outlined">Preparing</label>
                     </div>
+                    </li>
+                    <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-ready-outlined" value="ready" autoComplete="off" checked={status == 'ready'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
                         <label className="btn btn-outline-primary" htmlFor="btn-ready-outlined">Ready for Pickup</label>
                     </div>
+                    </li>
+                    <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-completed-outlined" value="completed" autoComplete="off" checked={status == 'completed'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
                         <label className="btn btn-outline-primary" htmlFor="btn-completed-outlined">Order Completed</label>
                     </div>
+                    </li>
+                    <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-cancelled-outlined" value="cancelled" autoComplete="off" checked={status == 'cancelled'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
                         <label className="btn btn-outline-primary" htmlFor="btn-cancelled-outlined">Cancelled</label>
                     </div>
+                    </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <div className='row'>
-          <Card style={{ padding: '10px' }}>
-              <Card.Title>Orders</Card.Title>
+              {/* <Card.Title>Orders</Card.Title> */}
               <Card.Body>
                   {
                       (orders && orders.length) ?
@@ -163,7 +179,7 @@ function Orders() {
                 
               </Card.Body>
             </Card>
-        </div>
+            </div>
     </div>
   );
 }

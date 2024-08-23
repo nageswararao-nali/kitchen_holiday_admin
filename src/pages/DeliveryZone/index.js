@@ -44,15 +44,19 @@ function Zones() {
       }
     ];
   return (
-    <div className='container'>
-        <div className='row mb-2' style={{justifyContent: 'end'}}>
-            <div className='col-sm-2'>
-                <Button onClick={() => navigate('/delivery-zone/add')}> Add Zone</Button>
-            </div>
-        </div>
+    <div className='container-fluid'>
+        
         <div className='row'>
           <Card style={{ padding: '10px' }}>
-              <Card.Title>Zones</Card.Title>
+              <div class="card-header  mb-3">
+                <div class="card-title h5">Zones</div>
+                <div className=' mb-2' style={{justifyContent: 'end'}}>
+                    <div>
+                    <Button onClick={() => navigate('/delivery-zone/add')}> Add Zone</Button>
+
+                    </div>
+                </div>
+              </div>
               <Card.Body>
                   {
                       (zones && zones.length) ?

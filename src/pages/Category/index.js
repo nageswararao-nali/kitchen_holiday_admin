@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { getCategories } from '../../store/itemsSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import {  Card } from 'react-bootstrap';
 
 export const productsGenerator = quantity => {
   const items = [];
@@ -44,15 +45,18 @@ function Category() {
     }, [])
     
   return (
-    <div className='container'>
+    <div className='container-fluid'>
+       
         <div className='row'>
-            <div className='col-sm-12'>
+        <Card style={{ padding: '10px' }}>
+          <div class="card-header mb-3">
+            <div class="card-title h5">Category</div>
+            <div className=' mb-2' style={{justifyContent: 'end'}}>
+                <div>
                 <Button onClick={() => navigate('/category/add')}> Add Category</Button>
+                </div>
             </div>
-        </div>
-        <br />
-        <br />
-        <div className='row'>
+          </div>
             {
                 (categories && categories.length) ?
                 <BootstrapTable
@@ -65,7 +69,7 @@ function Category() {
                 />
                 : null
             }                
-            
+            </Card>
         </div>
     </div>
   );

@@ -33,15 +33,19 @@ function Items() {
           text: 'Actions',
           formatter: (cell, row, rowIndex) => {
             return (
-              <div key={row.id} style={{display: "flex", justifyContent: 'space-evenly'}}>
-                  <i style={{color: 'red'}} className="bi bi-trash-fill" onClick={() => {
+              <div key={row.id} className='d-flex justify-content-center'>
+                <span className='btn btn-primary shadow btn-xs sharp me-1 d-flex justify-content-center m-0 p-0'>
+                  <i style={{color: '#fff'}} className="bi bi-trash2-fill" onClick={() => {
                      console.log (row);
                      console.log(cell)
                    } } />
-                  <i style={{color: 'green'}} className="bi bi-pencil-fill"
+                   </span>
+                   <span className='btn btn-secondry shadow btn-xs sharp me-1 d-flex justify-content-center m-0 p-0'>
+                  <i style={{color: '#fff'}} className="bi bi-pencil-fill"
                   onClick={() => {
                       navigate('/items/edit/'+row.id)
                     } } />
+                    </span>
               </div>
             )
           }
@@ -57,15 +61,18 @@ function Items() {
     }, [])
     
   return (
-    <div className='container'>
-        <div className='row mb-2' style={{justifyContent: 'end'}}>
-            <div className='col-sm-2'>
-                <Button onClick={() => navigate('/items/add')}> Add Item</Button>
-            </div>
-        </div>
+    <div className='container-fluid'>
+       
         <div className='row'>
           <Card style={{ padding: '10px' }}>
-            <Card.Title>Items</Card.Title>
+          <div class="card-header  mb-3">
+                <div class="card-title h5">Items</div>
+                <div className=' mb-2' style={{justifyContent: 'end'}}>
+                    <div>
+                    <Button onClick={() => navigate('/items/add')}> Add Item</Button>
+                    </div>
+                </div>
+              </div>
             <Card.Body>
                 {
                     (items && items.length) ?
