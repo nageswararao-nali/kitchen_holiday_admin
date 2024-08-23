@@ -32,7 +32,9 @@ const itemsSlice = createSlice({
     error: null
   },
   reducers: {
-    
+    clearOrders: (state) => {
+      state.orders = []
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -109,6 +111,6 @@ const itemsSlice = createSlice({
   },
 });
 
-export const {  } = itemsSlice.actions;
+export const { clearOrders } = itemsSlice.actions;
 
 export default itemsSlice.reducer;

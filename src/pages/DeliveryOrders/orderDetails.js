@@ -276,9 +276,12 @@ function DeliveryOrderDetails() {
                       <Dropdown.Item onClick={() => {updateOrder(orderId, 'pickedup')}}> 
                         Ready to Pickup 
                       </Dropdown.Item> 
-                      <Dropdown.Item onClick={() => {updateOrder(orderId, 'completed')}}> 
-                        Completed 
+                      <Dropdown.Item onClick={() => {updateOrder(orderId, 'delivered')}}> 
+                        Deliverd 
                       </Dropdown.Item> 
+                      <Dropdown.Item onClick={() => {updateOrder(orderId, 'cancelled')}}> 
+                        Cancelled 
+                      </Dropdown.Item>
                     </Dropdown.Menu> 
                   </Dropdown>
                 </div>

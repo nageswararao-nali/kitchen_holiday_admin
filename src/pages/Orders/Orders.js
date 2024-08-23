@@ -15,13 +15,17 @@ function Orders() {
     const { orders } = useSelector((state) => state.orders)
 
     const getOrdersData = async () => {
-      await dispatch(getOrders({}))
+      await dispatch(getOrders({orderType: 'normal'}))
     }
     useEffect(() => {
         if(!orders.length && !status) {
           getOrdersData()
         }
     }, [orders])
+
+    useEffect(() => {
+      getOrdersData()
+    }, [])
 
     const updateOrder = async(orderId, statusD) => {
       console.log(orderId, status)
@@ -32,9 +36,9 @@ function Orders() {
 
     const filterOrders = async (statusValue) => {
       if(statusValue) {
-        await dispatch(getOrders({status: statusValue}))
+        await dispatch(getOrders({orderType: 'normal', status: statusValue}))
       } else {
-        await dispatch(getOrders({}))
+        await dispatch(getOrders({orderType: 'normal'}))
       }
       
     }
@@ -44,7 +48,7 @@ function Orders() {
         text: "Order ID",
       },
       {
-        dataField: "orderDateTime",
+        dataField: "orderDate",
         text: "Order Date",
         formatter: (cell, row, rowIndex) => {
           return (

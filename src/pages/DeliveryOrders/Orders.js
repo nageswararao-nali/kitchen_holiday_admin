@@ -78,8 +78,11 @@ function DeliveryOrders() {
                       <Dropdown.Item onClick={() => {updateOrder(row.id, 'pickedup')}}> 
                         Ready to Pickup 
                       </Dropdown.Item> 
-                      <Dropdown.Item onClick={() => {updateOrder(row.id, 'completed')}}> 
-                        Completed 
+                      <Dropdown.Item onClick={() => {updateOrder(row.id, 'delivered')}}> 
+                        Delivered 
+                      </Dropdown.Item> 
+                      <Dropdown.Item onClick={() => {updateOrder(row.id, 'cancelled')}}> 
+                        Cancelled 
                       </Dropdown.Item> 
                     </Dropdown.Menu> 
                   </Dropdown>
