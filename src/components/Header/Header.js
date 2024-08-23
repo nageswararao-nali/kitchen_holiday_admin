@@ -41,13 +41,14 @@ export default function Header() {
         <img src="/assets/img/logo_f.png" alt="" />
         {/* <span>Kitchen Holiday</span> */}
       </a>
-     
+      <div class="hamburger m-3 hide-sm"  onClick={() => toggleSidebar()}><span class="line" ></span><span class="line"></span><span class="line"></span></div>
     </div>
 
     <div className="search-bar d-flex">
-    <i className="bi bi-list toggle-sidebar-btn p-3" onClick={() => toggleSidebar()}></i>
+    {/* <i className="bi bi-list toggle-sidebar-btn p-3" onClick={() => toggleSidebar()}></i> */}
+    <div class="hamburger m-3 hide-md"  onClick={() => toggleSidebar()}><span class="line" ></span><span class="line"></span><span class="line"></span></div>
       <form className="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword" />
+        <input type="text" className="form-control" name="query" placeholder="Search" title="Enter search keyword" />
         <button type="submit" title="Search"><i className="bi bi-search"></i></button>
       </form>
     </div>
@@ -77,7 +78,7 @@ export default function Header() {
         <li className="nav-item dropdown">
 
           <a className="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-            <i className="bi bi-chat-left-text"></i>
+          <i class="bi bi-chat-square-text"></i>
             <span className="badge bg-success badge-number">3</span>
           </a>
 

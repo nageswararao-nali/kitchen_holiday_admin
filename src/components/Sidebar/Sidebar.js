@@ -43,17 +43,17 @@ export default function Sidebar() {
           <ul id="orders-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li onClick={() => navigateToRoute('orders')}>
               <a >
-                <i className="bi bi-circle"></i><span>Normal Orders</span>
+              <i class="bi bi-diamond"></i><span>Normal Orders</span>
               </a>
             </li>
             <li onClick={() => navigateToRoute('sub-orders')}>
               <a>
-                <i className="bi bi-circle"></i><span>Subscription Orders</span>
+              <i class="bi bi-diamond"></i><span>Subscription Orders</span>
               </a>
             </li>
             <li onClick={() => navigateToRoute('all-orders')}>
               <a>
-                <i className="bi bi-circle"></i><span>All Orders</span>
+              <i class="bi bi-diamond"></i><span>All Orders</span>
               </a>
             </li>
           </ul>
@@ -69,22 +69,22 @@ export default function Sidebar() {
           <ul id="items-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li onClick={() => navigateToRoute('categories')}>
               <a >
-                <i className="bi bi-circle"></i><span>Categories</span>
+              <i class="bi bi-diamond"></i><span>Categories</span>
               </a>
             </li>
             <li onClick={() => navigateToRoute('items')}>
               <a>
-                <i className="bi bi-circle"></i><span>Items</span>
+              <i class="bi bi-diamond"></i><span>Items</span>
               </a>
             </li>
             <li onClick={() => navigateToRoute('sub-items')}>
               <a>
-                <i className="bi bi-circle"></i><span>Sub Items</span>
+              <i class="bi bi-diamond"></i><span>Sub Items</span>
               </a>
             </li>
             <li onClick={() => navigateToRoute('items/mapping')}>
               <a>
-                <i className="bi bi-circle"></i><span>Items Mapping</span>
+              <i class="bi bi-diamond"></i><span>Items Mapping</span>
               </a>
             </li>
           </ul>

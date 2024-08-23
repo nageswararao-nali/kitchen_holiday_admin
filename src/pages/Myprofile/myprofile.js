@@ -111,7 +111,7 @@ function Myprofile() {
                                                     <div class="form-check custom-checkbox"/><input type="checkbox" class="form-check-input" id="gridCheck"/><label class="form-check-label" for="gridCheck">Check me out</label>
                                                     </div>
                                                 </div>
-                                                <button class="btn btn-primary" type="submit">Sign in</button>
+                                                <button class="btn btn-primary" type="submit">Update</button>
                                         
                                         </div>
                                     </div>
