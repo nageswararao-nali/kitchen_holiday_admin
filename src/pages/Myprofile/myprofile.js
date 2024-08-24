@@ -73,6 +73,14 @@ function Myprofile() {
                                                 <div class="col-9"><span>example@examplel.com</span></div>
                                             </div>
                                             <div class="row mb-2">
+                                                <div class="col-3"><h5 class="f-w-500">Mobile<span class="pull-right">:</span></h5></div>
+                                                <div class="col-9"><span>123456XXXXX</span></div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-3"><h5 class="f-w-500">WhatsApp<span class="pull-right">:</span></h5></div>
+                                                <div class="col-9"><span>123456XXXXX</span></div>
+                                            </div>
+                                            <div class="row mb-2">
                                                 <div class="col-3"><h5 class="f-w-500">  Availability<span class="pull-right">:</span></h5></div>
                                                 <div class="col-9"><span>Full Time (Free Lancer)</span></div>
                                             </div>
@@ -91,7 +99,7 @@ function Myprofile() {
                                         </div>
                                     </div>
                                 </Tab>
-                                <Tab eventKey="profile" title="Settings">
+                                <Tab eventKey="settings" title="Settings">
                                     <div  class="fade tab-pane text-left">
                                         <div class="pt-3">
                                             <div class="settings-form text-left"><h4 class="text-primary">Account Setting</h4>
@@ -100,6 +108,7 @@ function Myprofile() {
                                                     <div class="form-group mb-3 col-md-6"><label class="form-label">Email</label><input type="email" placeholder="Email" class="form-control"/></div>
                                                     <div class="form-group mb-3 col-md-6"><label class="form-label">Password</label><input type="password" placeholder="Password" class="form-control"/></div>
                                                 </div>
+                                                <div class="form-group mb-3"><label class="form-label">Mobile</label><input type="mobile" placeholder="Enter mobile number" class="form-control"/></div>
                                                 <div class="form-group mb-3"><label class="form-label">Address</label><input type="text" placeholder="1234 Main St" class="form-control"/></div>
                                                 <div class="form-group mb-3"><label class="form-label">Address 2</label><input type="text" placeholder="Apartment, studio, or floor" class="form-control"/></div>
                                                 <div class="row">
@@ -116,7 +125,7 @@ function Myprofile() {
                                         </div>
                                     </div>
                                 </Tab>
-                                <Tab eventKey="contact" title="Inbox" >
+                                <Tab eventKey="inbox" title="Inbox" >
                                    <div class="email-right-box ms-0 ms-sm-4 ms-sm-0 text-left">
                                         <div role="toolbar" class="toolbar ms-1 ms-sm-0">
                                             <div class="btn-group mb-1 me-1 ms-1">
@@ -124,25 +133,161 @@ function Myprofile() {
                                                 <div class="btn-group mb-1"><button class="btn btn-primary light px-3" type="button"><i class="bi bi-arrow-clockwise"></i></button></div>
                                                 <div class="btn-group mb-1 dropdown"><button type="button" id="react-aria8096053300-13" aria-expanded="false" data-toggle="dropdown" class="btn btn-primary px-3 light dropdown-toggle ms-1 dropdown-toggle btn btn-primary">More <span class="caret"></span></button></div>
                                                 </div>
-                                                <div class="email-list mt-3"><div class="message position-relative"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox2"/><label class="form-check-label" for="checkbox2"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Ingredia Nutrisha, A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture</div><div class="date">11:49 am</div></a></div></div><div class="message position-relative"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox3"/><label class="form-check-label" for="checkbox3"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</div><div class="date">11:49 am</div></a></div></div><div class="message position-relative"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox4"/><label class="form-check-label" for="checkbox4"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div><div class="date">11:49 am</div></a></div></div><div class="message position-relative"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox5"/><label class="form-check-label" for="checkbox5"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div><div class="date">11:49 am</div></a></div></div><div class="message position-relative"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox6"/><label class="form-check-label" for="checkbox6"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Ingredia Nutrisha, A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture</div><div class="date">11:49 am</div></a></div></div><div class="message position-relative"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox7"/><label class="form-check-label" for="checkbox7"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</div><div class="date">11:49 am</div></a></div></div><div class="message position-relative"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox8"/><label class="form-check-label" for="checkbox8"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div><div class="date">11:49 am</div></a></div></div><div class="message unread position-relative"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox9"/><label class="form-check-label" for="checkbox9"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div><div class="date">11:49 am</div></a></div></div><div class="message unread position-relative"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox10"/><label class="form-check-label" for="checkbox10"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Ingredia Nutrisha, A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture</div><div class="date">11:49 am</div></a></div></div><div class="message d-none"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox11"/><label class="form-check-label" for="checkbox11"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</div><div class="date">11:49 am</div></a></div></div><div class="message d-none"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox12"/><label class="form-check-label" for="checkbox12"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div><div class="date">11:49 am</div></a></div></div><div class="message d-none"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox13"/><label class="form-check-label" for="checkbox13"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div><div class="date">11:49 am</div></a></div></div><div class="message d-none"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox14"/><label class="form-check-label" for="checkbox14"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Ingredia Nutrisha, A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture</div><div class="date">11:49 am</div></a></div></div><div class="message unread d-none"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox15"/><label class="form-check-label" for="checkbox15"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</div><div class="date">11:49 am</div></a></div></div><div class="message d-none"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox16"/><label class="form-check-label" for="checkbox16"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div><div class="date">11:49 am</div></a></div></div><div class="message d-none"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox17"/><label class="form-check-label" for="checkbox17"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div><div class="date">11:49 am</div></a></div></div><div class="message d-none"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox18"/><label class="form-check-label" for="checkbox18"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Ingredia Nutrisha, A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture</div><div class="date">11:49 am</div></a></div></div><div class="message d-none"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox19"/><label class="form-check-label" for="checkbox19"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</div><div class="date">11:49 am</div></a></div></div><div class="message unread d-none"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox20"/><label class="form-check-label" for="checkbox20"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div><div class="date">11:49 am</div></a></div></div><div class="message d-none"><div><div class="d-flex message-single"><div class="ps-1 align-self-center"><div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox21"/><label class="form-check-label" for="checkbox21"></label></div></div><div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div></div><a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div><div class="date">11:49 am</div></a></div></div></div>
-                                                <div class="row mt-4"><div class="col-12 ps-3"><nav><ul class="pagination pagination-gutter pagination-primary pagination-sm no-bg"><li class="page-item page-indicator"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li><li class="page-item  active "><a class="page-link" href="#">1</a></li><li class="page-item   "><a class="page-link" href="/#">2</a></li><li class="page-item   "><a class="page-link" href="#">3</a></li><li class="page-item page-indicator"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li></ul></nav></div></div></div>
+                                                <div class="email-list mt-3">
+                                                    <div class="message position-relative"><div><div class="d-flex message-single">
+                                                        <div class="ps-1 align-self-center">
+                                                            <div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox2"/><label class="form-check-label" for="checkbox2"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read">
+                                                        <div class="subject">Ingredia Nutrisha, A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture</div>
+                                                        <div class="date">11:49 am</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="message position-relative">
+                                                <div>
+                                                    <div class="d-flex message-single">
+                                                        <div class="ps-1 align-self-center">
+                                                            <div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox3"/><label class="form-check-label" for="checkbox3"></label></div>
+                                                        </div>
+                                                        <div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div>
+                                                    </div>
+                                                    <a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</div>
+                                                    <div class="date">11:49 am</div></a>
+                                                </div>
+                                            </div>
+                                            <div class="message position-relative"><div>
+                                            <div class="d-flex message-single">
+                                                <div class="ps-1 align-self-center">
+                                                    <div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox4"/><label class="form-check-label" for="checkbox4"></label></div>
+                                                </div>
+                                                <div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div>
+                                            </div>
+                                            <a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div><div class="date">11:49 am</div></a>
+                                        </div>
+                                    </div>
+                                    <div class="message position-relative"><div>
+                                    <div class="d-flex message-single">
+                                        <div class="ps-1 align-self-center">
+                                            <div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox5"/><label class="form-check-label" for="checkbox5"></label></div>
+                                        </div>
+                                        <div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div>
+                                    </div>
+                                    <a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div><div class="date">11:49 am</div></a>
+                                </div>
+                            </div>
+                            <div class="message position-relative"><div>
+                            <div class="d-flex message-single">
+                                <div class="ps-1 align-self-center">
+                                    <div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox6"/><label class="form-check-label" for="checkbox6"></label></div>
+                                </div>
+                                <div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div>
+                            </div>
+                            <a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Ingredia Nutrisha, A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture</div><div class="date">11:49 am</div></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12 ps-3">
+                        <nav>
+                            <ul class="pagination pagination-gutter pagination-primary pagination-sm no-bg">
+                                <li class="page-item page-indicator"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li>
+                                <li class="page-item  active "><a class="page-link" href="#">1</a></li>
+                                <li class="page-item   "><a class="page-link" href="/#">2</a></li>
+                                <li class="page-item   "><a class="page-link" href="#">3</a></li>
+                                <li class="page-item page-indicator"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                                    </div>
                                 </Tab>
                                 <Tab eventKey="notifications" title="Notifications" >
-                                    <div class="profile-news d-flex flex-column align-items-start">
-                                        <div class="media pt-3 pb-3 d-flex align-items-center text-left">
-                                        <img src="assets/img/messages-3.jpg" alt="" class="me-3 rounded" width="75"/>
-                                    
-                                    <div class="media-body"><h5 class="m-b-5"><a class="text-black" href="/react/demo/post-details">Collection of textile samples</a></h5><p class="mb-0">I shared this on my fb wall a few months back, and I thought. </p></div>
+                                <div class="email-right-box ms-0 ms-sm-4 ms-sm-0 text-left">
+                                        <div role="toolbar" class="toolbar ms-1 ms-sm-0">
+                                            <div class="btn-group mb-1 me-1 ms-1">
+                                                <div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox1"/><label class="form-check-label" for="checkbox1"></label></div></div>
+                                                <div class="btn-group mb-1"><button class="btn btn-primary light px-3" type="button"><i class="bi bi-arrow-clockwise"></i></button></div>
+                                                <div class="btn-group mb-1 dropdown"><button type="button" id="react-aria8096053300-13" aria-expanded="false" data-toggle="dropdown" class="btn btn-primary px-3 light dropdown-toggle ms-1 dropdown-toggle btn btn-primary">More <span class="caret"></span></button></div>
+                                                </div>
+                                                <div class="email-list mt-3">
+                                                    <div class="message position-relative"><div><div class="d-flex message-single">
+                                                        <div class="ps-1 align-self-center">
+                                                            <div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox2"/><label class="form-check-label" for="checkbox2"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read">
+                                                        <div class="subject">Ingredia Nutrisha, A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture</div>
+                                                        <div class="date">11:49 am</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="message position-relative">
+                                                <div>
+                                                    <div class="d-flex message-single">
+                                                        <div class="ps-1 align-self-center">
+                                                            <div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox3"/><label class="form-check-label" for="checkbox3"></label></div>
+                                                        </div>
+                                                        <div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div>
+                                                    </div>
+                                                    <a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</div>
+                                                    <div class="date">11:49 am</div></a>
+                                                </div>
+                                            </div>
+                                            <div class="message position-relative"><div>
+                                            <div class="d-flex message-single">
+                                                <div class="ps-1 align-self-center">
+                                                    <div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox4"/><label class="form-check-label" for="checkbox4"></label></div>
+                                                </div>
+                                                <div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div>
+                                            </div>
+                                            <a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div><div class="date">11:49 am</div></a>
+                                        </div>
+                                    </div>
+                                    <div class="message position-relative"><div>
+                                    <div class="d-flex message-single">
+                                        <div class="ps-1 align-self-center">
+                                            <div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox5"/><label class="form-check-label" for="checkbox5"></label></div>
+                                        </div>
+                                        <div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div>
+                                    </div>
+                                    <a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div><div class="date">11:49 am</div></a>
                                 </div>
-                                <div class="media pt-3 pb-3 d-flex align-items-center text-left">
-                                    <img src="assets/img/messages-1.jpg" alt="" class="me-3 rounded" width="75"/>
-                                    <div class="media-body"><h5 class="m-b-5"><a class="text-black" href="/react/demo/post-details">Collection of textile samples</a></h5><p class="mb-0">I shared this on my fb wall a few months back, and I thought.</p></div>
+                            </div>
+                            <div class="message position-relative"><div>
+                            <div class="d-flex message-single">
+                                <div class="ps-1 align-self-center">
+                                    <div class="form-check custom-checkbox"><input type="checkbox" class="form-check-input" id="checkbox6"/><label class="form-check-label" for="checkbox6"></label></div>
                                 </div>
-                                <div class="media pt-3 pb-3 d-flex align-items-center text-left"><img src="assets/img/messages-2.jpg" alt="" class="me-3 rounded" width="75"/>
-                                    <div class="media-body"><h5 class="m-b-5"><a class="text-black" href="/react/demo/post-details">Collection of textile samples</a></h5><p class="mb-0">I shared this on my fb wall a few months back, and I thought.</p></div></div></div>
+                                <div class="ms-2"><button class="border-0 bg-transparent align-middle p-0"><i class="bi bi-star-fill" aria-hidden="true"></i></button></div>
+                            </div>
+                            <a class="col-mail col-mail-2" href="/react/demo/email-inbox/email-read"><div class="subject">Ingredia Nutrisha, A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture</div><div class="date">11:49 am</div></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12 ps-3">
+                        <nav>
+                            <ul class="pagination pagination-gutter pagination-primary pagination-sm no-bg">
+                                <li class="page-item page-indicator"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li>
+                                <li class="page-item  active "><a class="page-link" href="#">1</a></li>
+                                <li class="page-item   "><a class="page-link" href="/#">2</a></li>
+                                <li class="page-item   "><a class="page-link" href="#">3</a></li>
+                                <li class="page-item page-indicator"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                                    </div>
                                 </Tab>
-                            </Tabs>                            
-                              
+                            </Tabs> 
                             </div>
                         </div>
                     </div>

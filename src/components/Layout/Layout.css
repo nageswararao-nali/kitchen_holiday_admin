@@ -12,7 +12,7 @@
 :root {
   scroll-behavior: smooth;
   --primary-color: #2e9a3f;
-  --primary-btn-color: #ec1d25;
+  --primary-btn-color: #ff4136;
   --btn-label-color: #f6f9ff;
   --secondery-color:#9fa4a6;
   --rgba-primary-1: rgba(253, 62, 100, 0.15);
@@ -21,7 +21,7 @@
 
 body {
   /* font-family: "Open Sans", sans-serif; */
-  font-family: "MuseoModerno", sans-serif !important;
+  /* font-family: "MuseoModerno", sans-serif !important; */
   background: #fbfbfb !important;
   color: #444444;
 }
@@ -44,9 +44,13 @@ h5,
 h6 {
   /* font-family: "Nunito", sans-serif;  */
   font-family: "MuseoModerno", sans-serif !important;
-
+  
+  /* font-family: "Open Sans", sans-serif; */
 }
-p{  font-family: "Nunito", sans-serif; }
+.profile  h4,.profile-tab h4{  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important; }
+p{ 
+  /* font-family: "Open Sans", sans-serif; */
+ }
 
 /*--------------------------------------------------------------
 # Main
@@ -353,10 +357,10 @@ p{  font-family: "Nunito", sans-serif; }
   background: rgba(253, 104, 62, .1);
   background: var(--rgba-primary-1);
   border-radius: 2.1875rem;
-  padding: .625rem 1.875rem;width: max-content;margin: auto;
+  padding: .425rem 1.875rem;margin: auto;width: 100%;
 }
 .coin-tabs .nav-tabs {
-  border: 0;
+  border: 0;justify-content: space-evenly;align-items: center;
 }
 .coin-tabs .nav-link {
   display: block;
@@ -371,6 +375,7 @@ p{  font-family: "Nunito", sans-serif; }
   border-top-right-radius: .75rem;
   margin-bottom: -1px;
 }
+.coin-tabs .nav-tabs .nav-item{flex: 1;}
 .coin-tabs .nav-tabs .nav-item .nav-link {
   background: transparent;
   border: 0;
@@ -387,9 +392,15 @@ p{  font-family: "Nunito", sans-serif; }
 .brand-list .btn-check:checked + .btn, :not(.btn-check) + .btn:active, .brand-list .btn:first-child:active, .brand-list .btn.active, .brand-list .btn.show{
   background: #ec1d25;
     background: var(--primary-btn-color);
-    color: #fff;    border-radius: 2.1875rem;border: 0;
+    color: #fff;    border-radius: 2.1875rem;border: 0;width: 100%;
 }
-.brand-list .btn-outline-primary{border: 0;color: #000;font-size: 14px;}
+.brand-list .btn-check:checked + .selected_bg1{background: #ff4136 ;}
+.brand-list .btn-check:checked + .selected_bg2{background: #624fd1;}
+.brand-list .btn-check:checked + .selected_bg5{background: #b48dd3;}
+.brand-list .btn-check:checked + .selected_bg4{background: #2e9a3f;}
+.brand-list .btn-check:checked + .selected_bg6{background: #ffa41d;}
+.brand-list .btn-check:checked + .selected_bg3{background: #fd683e;}
+.brand-list .btn-outline-primary{border: 0;color: #000;font-size: 15px;font-weight: 500;padding: 10px;}
 .container-fluid .card-header {
   align-items: center;
   background: transparent;
@@ -885,7 +896,7 @@ p{  font-family: "Nunito", sans-serif; }
   border-radius: 4px;
   border-radius: 2rem;
     font-family: MuseoModerno, cursive;
-    font-family: var(--font-family-title);
+    /* font-family: var(--font-family-title); */
     font-size: 1rem;
     padding: .5rem 2.1875rem .5rem .625rem;
     transition: all .5s ease-in-out;
@@ -1821,7 +1832,7 @@ table i {
   cursor: pointer;font-size: 14px;line-height: 24px;
 }
  .table tbody tr td{border: none;        font-size: .875rem;
-  padding: .5rem .9375rem;}
+  padding: .5rem .9375rem;line-height: 36px;}
   /* table, table>td, table>th {    background-color: #f2f4fa;} */
   .react-bootstrap-table table{    border: 1px solid #ffe2e8;}
 
