@@ -274,7 +274,7 @@ function DeliveryOrderDetails() {
                     </Dropdown.Toggle> 
                     <Dropdown.Menu> 
                       <Dropdown.Item onClick={() => {updateOrder(orderId, 'pickedup')}}> 
-                        Ready to Pickup 
+                        Pickedup 
                       </Dropdown.Item> 
                       <Dropdown.Item onClick={() => {updateOrder(orderId, 'delivered')}}> 
                         Deliverd 
