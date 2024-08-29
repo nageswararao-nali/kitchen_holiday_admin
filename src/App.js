@@ -28,6 +28,9 @@ import KitchenOrderDetails from './pages/KitchenOrders/orderDetails';
 import Myprofile from './pages/Myprofile/myprofile';
 import SubOrders from './pages/Orders/SubOrders';
 import AllOrders from './pages/Orders/AllOrders';
+import TodayOrders from './pages/Orders/TodayOrders';
+import ZoneMapping from './pages/DeliveryZone/mappings';
+import AddSubOrder from './pages/Orders/AddSubOrder';
 
 function App() {
   return (
@@ -57,6 +60,10 @@ function App() {
           
           <Route path="/sub-orders"  element={<ProtectedRoute />} >
             <Route path="/sub-orders" element={<SubOrders />} />
+            <Route path="/sub-orders/add" element={<AddSubOrder />} />
+          </Route>
+          <Route path="/today-orders"  element={<ProtectedRoute />} >
+            <Route path="/today-orders" element={<TodayOrders />} />
           </Route>
           <Route path="/all-orders"  element={<ProtectedRoute />} >
             <Route path="/all-orders" element={<AllOrders />} />
@@ -91,6 +98,7 @@ function App() {
           <Route path="/delivery-zone"  element={<ProtectedRoute />} >
             <Route path="/delivery-zone" element={<Zones />} />
             <Route path="/delivery-zone/add" element={<AddZone />} />
+            <Route path="/delivery-zone/mapping" element={<ZoneMapping />} />
           </Route>
           <Route path="/login"  element={<Login />} />
           <Route path="/otp"  element={<Otp />} />

@@ -5,27 +5,26 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Card, Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOrders, updateOrderStatus } from '../../store/orderSlice';
+import * as moment from 'moment';
+import Modal from 'react-bootstrap/Modal';
 
-
-
-function Orders() {
-  const navigate = useNavigate();
+function TodayOrders() {
+    const navigate = useNavigate();
     const [status , setStatus] = useState(null)
     const dispatch = useDispatch()
     const { orders } = useSelector((state) => state.orders)
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const getOrdersData = async () => {
-      await dispatch(getOrders({orderType: 'normal'}))
+      await dispatch(getOrders({orderDate: moment().format('YYYY-MM-DD')}))
     }
     useEffect(() => {
         if(!orders.length && !status) {
           getOrdersData()
         }
     }, [orders])
-
-    useEffect(() => {
-      getOrdersData()
-    }, [])
 
     const updateOrder = async(orderId, statusD) => {
       console.log(orderId, status)
@@ -36,16 +35,24 @@ function Orders() {
 
     const filterOrders = async (statusValue) => {
       if(statusValue) {
-        await dispatch(getOrders({orderType: 'normal', status: statusValue}))
+        await dispatch(getOrders({status: statusValue, orderDate: moment().format('YYYY-MM-DD')}))
       } else {
-        await dispatch(getOrders({orderType: 'normal'}))
+        await dispatch(getOrders({orderDate: moment().format('YYYY-MM-DD')}))
       }
       
     }
+    
     const columns = [
       {
         dataField: "id",
         text: "Order ID",
+        formatter: (cell, row, rowIndex) => {
+            return (
+                <span onClick={() => {
+                    navigate('/kitchen-orders/details/'+row.id)
+                  } }>{row.id}</span>
+            )
+        }
       },
       {
         dataField: "orderDate",
@@ -54,6 +61,17 @@ function Orders() {
           return (
             row.orderDate
           )
+        }
+      },
+      {
+        dataField: "userId",
+        text: "Customer ID",
+        formatter: (cell, row, rowIndex) => {
+            return (
+                <span onClick={() => {
+                    handleShow(row.invoiceFile)
+                  } }>{row.userId}</span>
+            )
         }
       },
       {
@@ -85,7 +103,7 @@ function Orders() {
                   
                   <Dropdown drop={"start"}> 
                     <Dropdown.Toggle variant="success"> 
-                    <i style={{color: '#000'}} className="bi bi-pencil-square" />
+                    <i style={{color: 'green'}} className="bi bi-pencil-fill" />
                     </Dropdown.Toggle> 
                     <Dropdown.Menu> 
                       <Dropdown.Item onClick={() => {updateOrder(row.id, 'confirmed')}}> 
@@ -112,61 +130,40 @@ function Orders() {
       }
     ];
   return (
-    <div className='container-fluid'>
-       
+    <div className='container'>
         <div className='row mb-3'>
-          <Card style={{ padding: '10px' }}>
             <div className='col-sm-12'>
-              <div class="card-header  mb-3">
-                <div class="card-title h5">Orders</div>
-                <div className=' mb-2' style={{justifyContent: 'end'}}>
-                    <div>
-                    <Button onClick={() => navigate('/orders/add')}> Add Normal Order</Button>
-                    </div>
-                </div>
-              </div>
-            <div class="card-action coin-tabs mt-3 mt-sm-0">
-                <ul class="nav nav-tabs nav" role="tablist">
-                  <li class="nav-item nav-item">
+                <div className='brand-list-content'>
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-new-outlined" value="new" autoComplete="off" checked={status == 'new'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
                         <label className="btn btn-outline-primary" htmlFor="btn-new-outlined">New Orders</label>
                     </div>
-                    </li>
-                    <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-confirmed-outlined" value="confirmed" autoComplete="off" checked={status == 'confirmed'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
                         <label className="btn btn-outline-primary" htmlFor="btn-confirmed-outlined">Confirmed</label>
                     </div>
-                    </li>
-                    <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-preparing-outlined" value="preparing" autoComplete="off" checked={status == 'preparing'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
                         <label className="btn btn-outline-primary" htmlFor="btn-preparing-outlined">Preparing</label>
                     </div>
-                    </li>
-                    <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-ready-outlined" value="ready" autoComplete="off" checked={status == 'ready'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
                         <label className="btn btn-outline-primary" htmlFor="btn-ready-outlined">Ready for Pickup</label>
                     </div>
-                    </li>
-                    <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-completed-outlined" value="completed" autoComplete="off" checked={status == 'completed'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
                         <label className="btn btn-outline-primary" htmlFor="btn-completed-outlined">Order Completed</label>
                     </div>
-                    </li>
-                    <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-cancelled-outlined" value="cancelled" autoComplete="off" checked={status == 'cancelled'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
                         <label className="btn btn-outline-primary" htmlFor="btn-cancelled-outlined">Cancelled</label>
                     </div>
-                    </li>
-                    </ul>
                 </div>
             </div>
-              {/* <Card.Title>Orders</Card.Title> */}
+        </div>
+        <div className='row'>
+          <Card style={{ padding: '10px' }}>
+              <Card.Title>Today Orders</Card.Title>
               <Card.Body>
                   {
                       (orders && orders.length) ?
@@ -176,16 +173,42 @@ function Orders() {
                           data={orders}
                           columns={columns}
                           pagination={paginationFactory({ sizePerPage: 10, hideSizePerPage: true, onPageChange:(page)=>console.log("DB CALL with page" + page) })}
-                      
+                          exportCSV={ {
+                            fileName: 'custom.csv',
+                            separator: '|',
+                            ignoreHeader: true,
+                            noAutoBOM: false
+                          } }
                       />
                       : null
                   }
                 
               </Card.Body>
             </Card>
+            <div
+            className="modal show"     
+            >
+            <Modal show={show} onHide={handleClose} className='form_modal'>
+                <Modal.Header closeButton>
+                <Modal.Title className='modal-title fs-20'>Order Invoice</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Invoice
+
+                </Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                    Close
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                    Download
+                </Button>
+                </Modal.Footer>
+            </Modal>
             </div>
+        </div>
     </div>
   );
 }
 
-export default Orders;
+export default TodayOrders;

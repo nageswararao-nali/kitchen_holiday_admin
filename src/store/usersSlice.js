@@ -22,6 +22,15 @@ export const getUsers = createAsyncThunk('users/getUsers', async (searchQuery, t
     return handleAuthApiCall(usersService.getUsers, {searchQuery}, thunkAPI);
 });
 
+export const deleteUser = createAsyncThunk('users/deleteUser', async (user, thunkAPI) => {
+  return handleAuthApiCall(usersService.deleteUser, user, thunkAPI);
+});
+
+
+export const getUserAddresses = createAsyncThunk('users/getUserAddresses', async (reaObj, thunkAPI) => {
+  return handleAuthApiCall(usersService.getUserAddresses, reaObj, thunkAPI);
+});
+
 const usersSlice = createSlice({
   name: 'users',
   initialState: {
@@ -29,6 +38,7 @@ const usersSlice = createSlice({
     totalUsers: 0,
     totalCustomers: 0,
     totalDrivers: 0,
+    userAddresses: [],
     users: [],
     error: null
   },
@@ -96,6 +106,32 @@ const usersSlice = createSlice({
         state.loading = false;
       })
       .addCase(getUsers.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload
+      })
+      .addCase(deleteUser.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(deleteUser.fulfilled, (state, action) => {
+        if(action.payload.success) {
+            // state.users = action.payload.data.users
+        }
+        state.loading = false;
+      })
+      .addCase(deleteUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload
+      })
+      .addCase(getUserAddresses.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getUserAddresses.fulfilled, (state, action) => {
+        if(action.payload.success) {
+            state.userAddresses = action.payload.data.users
+        }
+        state.loading = false;
+      })
+      .addCase(getUserAddresses.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload
       })

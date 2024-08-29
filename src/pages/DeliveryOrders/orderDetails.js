@@ -136,32 +136,7 @@ function DeliveryOrderDetails() {
                                 </div>
                             </div>
                             :
-                            <div className="row"> 
-                                
-                                {
-                                    (users && users.length) ?
-                                    <div className="row">
-                                        <div className="col-md-6">
-                                        <Form.Select defaultValue={deliveryBoy} onChange={(e) => setDeliveryBoy(e.target.value)} required >
-                                            <option value="">Select Delivery Boy</option>
-                                            {
-                                                users.map((user) => {
-                                                    return (
-                                                        <option value={user.id}>{user.fName + " " + user.lName}</option>
-                                                    )
-                                                })
-                                            }
-                                        </Form.Select>
-                                        </div>
-                                        <div className='col-md-6'>
-                                            <button onClick={assignDriver} className="btn btn-primary btn-sm">Assign</button>
-                                        </div>
-                                        
-                                    </div>
-                                    
-                                    : null
-                                }
-                            </div>
+                            null
                         }
                         
                     </div>
@@ -179,7 +154,7 @@ function DeliveryOrderDetails() {
                         </div>
                     </div>
                 </div>
-                <div className="col-xl-12">
+                {/* <div className="col-xl-12">
                     <div className="card">
                         <div className="card-body p-0">
                             <h4>{order.itemName + " - " + order.quantity}</h4>
@@ -200,14 +175,6 @@ function DeliveryOrderDetails() {
                                                         <tr key={subItem.id}>
                                                             <td>
                                                                 <div className="media d-flex align-items-start text-left">
-                                                                    {/* <a href="/orderDetails"> */}
-                                                                        <img
-                                                                            style={{width: "100px"}}
-                                                                            className="me-3 img-fluid"
-                                                                        src={subItem?.image}
-                                                                            alt="DexignZone"
-                                                                        />
-                                                                    {/* </a> */}
                                                                     <div className="media-body">
                                                                         <small className="mt-0 mb-1 font-w600"><a className="text-primary" href="/orderDetails">{subItem.name}</a></small>
                                                                         <h5 className="mt-0 mb-2 mb-sm-3"><a className="text-black" href="/ecom-product-grid">{subItem.description}</a></h5>
@@ -233,7 +200,7 @@ function DeliveryOrderDetails() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
         <div className="col-xl-3 col-xxl-4">

@@ -62,7 +62,7 @@ function SubOrders() {
         text: "Order Date",
         formatter: (cell, row, rowIndex) => {
           return (
-            row.orderDateTime
+            row.orderDate
           )
         }
       },

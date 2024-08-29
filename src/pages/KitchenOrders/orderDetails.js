@@ -233,6 +233,9 @@ function KitchenOrderDetails() {
                                     </tbody>
                                 </table>
                             </div>
+                            <div>
+                                Total Price: ${order.totalAmount}
+                            </div>
                         </div>
                     </div>
                 </div>

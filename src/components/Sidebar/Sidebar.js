@@ -56,6 +56,11 @@ export default function Sidebar() {
               <i class="bi bi-diamond"></i><span>All Orders</span>
               </a>
             </li>
+            <li onClick={() => navigateToRoute('today-orders')}>
+              <a>
+              <i class="bi bi-diamond"></i><span>Today Orders</span>
+              </a>
+            </li>
           </ul>
         </li>
         : null

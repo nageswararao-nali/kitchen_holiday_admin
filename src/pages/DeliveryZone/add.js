@@ -57,7 +57,7 @@ function AddZone() {
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
                     <Col sm={2}>
-                        <Form.Label> Zone Name </Form.Label>
+                        <Form.Label> Zone Zipcode </Form.Label>
                     </Col>
                     <Col sm={10}>
                         <Form.Control 
@@ -67,9 +67,9 @@ function AddZone() {
                         />
                     </Col>
                 </Form.Group>
-                <Row className='mb-5'>
+                {/* <Row className='mb-5'>
                     <GoogleMapComponent />
-                </Row>
+                </Row> */}
                 <Button type="submit">Add Zone</Button>
             </Form>
         </div>

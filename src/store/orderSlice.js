@@ -6,6 +6,10 @@ export const addOrder = createAsyncThunk('orders/addOrder', async (order, thunkA
   return handleAuthApiCall(orderService.addOrder, order, thunkAPI);
 });
 
+export const addUserOrder = createAsyncThunk('orders/addUserOrder', async (order, thunkAPI) => {
+  return handleAuthApiCall(orderService.addUserOrder, order, thunkAPI);
+});
+
 export const getOrders = createAsyncThunk('orders/getOrders', async (reqObj, thunkAPI) => {
   return handleAuthApiCall(orderService.getOrders, reqObj, thunkAPI);
 });
@@ -105,6 +109,18 @@ const itemsSlice = createSlice({
         state.loading = false;
       })
       .addCase(updateOrder.rejected, (state, action) => {
+        state.loading = false;
+      })
+      .addCase(addUserOrder.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(addUserOrder.fulfilled, (state, action) => {
+        if(!action.payload.success) {
+          state.error = action.payload.message
+        }
+        state.loading = false;
+      })
+      .addCase(addUserOrder.rejected, (state, action) => {
         state.loading = false;
       })
       

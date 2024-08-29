@@ -4,7 +4,7 @@ import paginationFactory from "react-bootstrap-table2-paginator";
 import { useNavigate } from 'react-router-dom';
 import { Button, Card, Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsers } from '../../store/usersSlice';
+import { getUsers, deleteUser } from '../../store/usersSlice';
 
 
 
@@ -22,6 +22,12 @@ function Users() {
           getUsersData()
         }
     }, [users])
+
+    const deleteUserData = async (userId) => {
+      console.log("user id ", userId)
+      await dispatch(deleteUser({userId: userId}))
+      await filterUsers()
+    }
 
     const filterUsers = async (userTypeValue) => {
       if(userTypeValue) {
@@ -67,6 +73,13 @@ function Users() {
         formatter: (cell, row, rowIndex) => {
           return (
             <div key={row.id} style={{display: "flex", justifyContent: 'space-evenly'}}>
+              <span className='btn btn-primary shadow btn-xs sharp me-1 d-flex justify-content-center m-0 p-0'>
+                  <i style={{color: '#fff'}} className="bi bi-trash2-fill" onClick={() => {
+                     console.log (row);
+                     deleteUserData(row.id)
+                     console.log(cell)
+                   } } />
+              </span>
             </div>
           )
         }

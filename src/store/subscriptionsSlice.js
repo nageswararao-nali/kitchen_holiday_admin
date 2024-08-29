@@ -17,14 +17,24 @@ export const addZone = createAsyncThunk('subscriptions/addZone', async (reqObj, 
   export const getZones = createAsyncThunk('subscriptions/getZones', async (reqObj, thunkAPI) => {
     return handleAuthApiCall(subscriptionService.getZones, reqObj, thunkAPI);
   });
-
-
+  export const addZoneMapping = createAsyncThunk('subscriptions/addZoneMapping', async (reqObj, thunkAPI) => {
+    return handleAuthApiCall(subscriptionService.addZoneMapping, reqObj, thunkAPI);
+  });
+  export const zoneMappingsData = createAsyncThunk('subscriptions/zoneMappingsData', async (reqObj, thunkAPI) => {
+    return handleAuthApiCall(subscriptionService.zoneMappingsData, reqObj, thunkAPI);
+  });
+  export const getOrderDates = createAsyncThunk('subscriptions/getOrderDates', async (reqObj, thunkAPI) => {
+    return handleAuthApiCall(subscriptionService.getOrderDates, reqObj, thunkAPI);
+  }); 
+  
 const subscriptionSlice = createSlice({
   name: 'items',
   initialState: {
     loading: false,
     subscriptions: [],
     zones: [],
+    lastSubDate: null,
+    mappings: [],
     error: null
   },
   reducers: {
@@ -84,6 +94,48 @@ const subscriptionSlice = createSlice({
         state.loading = false;
       })
       .addCase(getZones.rejected, (state, action) => {
+        state.loading = false;
+      })
+      .addCase(addZoneMapping.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(addZoneMapping.fulfilled, (state, action) => {
+        if(!action.payload.success) {
+          state.error = action.payload.message
+        }
+        state.loading = false;
+      })
+      .addCase(addZoneMapping.rejected, (state, action) => {
+        state.loading = false;
+      })
+      .addCase(zoneMappingsData.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(zoneMappingsData.fulfilled, (state, action) => {
+        if(action.payload.success) {
+            state.mappings = action.payload.data.items
+        } else {
+          state.error = action.payload.message
+        }
+        state.loading = false;
+      })
+      .addCase(zoneMappingsData.rejected, (state, action) => {
+        state.loading = false;
+      })
+      .addCase(getOrderDates.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getOrderDates.fulfilled, (state, action) => {
+        if(action.payload.success) {
+          let orderDates = action.payload.data
+            state.lastSubDate = orderDates[orderDates.length -1]
+        } else {
+          state.error = action.payload.message
+          // state.mySubscriptions = []
+        }
+        state.loading = false;
+      })
+      .addCase(getOrderDates.rejected, (state, action) => {
         state.loading = false;
       })
   },

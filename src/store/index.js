@@ -5,12 +5,14 @@ import usersReducer from './usersSlice';
 import itemsReducer from './itemsSlice';
 import ordersReducer from './orderSlice';
 import subscriptionsReducer from './subscriptionsSlice';
+import adminReducer from './adminSlice';
 export const store = configureStore({
   reducer: {
     auth: authReducer,
     users: usersReducer,
     items: itemsReducer,
     orders: ordersReducer,
-    subscriptions: subscriptionsReducer
+    subscriptions: subscriptionsReducer,
+    admin: adminReducer
   },
 });

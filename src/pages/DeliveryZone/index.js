@@ -50,9 +50,15 @@ function Zones() {
           <Card style={{ padding: '10px' }}>
               <div class="card-header  mb-3">
                 <div class="card-title h5">Zones</div>
-                <div className=' mb-2' style={{justifyContent: 'end'}}>
+                <div className=' mb-2' style={{justifyContent: 'start'}}>
                     <div>
                     <Button onClick={() => navigate('/delivery-zone/add')}> Add Zone</Button>
+
+                    </div>
+                </div>
+                <div className=' mb-2' style={{justifyContent: 'end'}}>
+                    <div>
+                    <Button onClick={() => navigate('/delivery-zone/mapping')}> Mapping</Button>
 
                     </div>
                 </div>
