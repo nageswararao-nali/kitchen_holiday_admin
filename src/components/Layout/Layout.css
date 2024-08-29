@@ -1836,6 +1836,8 @@ p{
   background-color: rgb(46 154 63);
   color: white;
 }
+.flex-1{flex: 1 !important;}
+.card_total_price{font-weight: 600;font-size: 20px;margin: 0 0 15px;}
 
 @keyframes animate-loading {
   0% {
