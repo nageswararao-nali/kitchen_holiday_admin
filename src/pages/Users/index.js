@@ -126,25 +126,25 @@ function Users() {
                   <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-new-outlined" value="customer" autoComplete="off" checked={userType == 'customer'} onChange={(e) => {setUserType(e.target.value); filterUsers(e.target.value)}} />
-                        <label className="btn btn-outline-primary " htmlFor="btn-new-outlined">Customers</label>
+                        <label className="btn btn-outline-primary selected_bg1" htmlFor="btn-new-outlined">Customers</label>
                     </div>
                   </li>
                   <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-confirmed-outlined" value="delivery boy" autoComplete="off" checked={userType == 'delivery boy'} onChange={(e) => {setUserType(e.target.value); filterUsers(e.target.value)}} />
-                        <label className="btn btn-outline-primary" htmlFor="btn-confirmed-outlined">Delivery Boys</label>
+                        <label className="btn btn-outline-primary selected_bg2" htmlFor="btn-confirmed-outlined">Delivery Boys</label>
                     </div>
                   </li>
                   <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-preparing-outlined" value="admin" autoComplete="off" checked={userType == 'admin'} onChange={(e) => {setUserType(e.target.value); filterUsers(e.target.value)}} />
-                        <label className="btn btn-outline-primary" htmlFor="btn-preparing-outlined">Admins</label>
+                        <label className="btn btn-outline-primary selected_bg3" htmlFor="btn-preparing-outlined">Admins</label>
                     </div>
                   </li>
                   <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-ready-outlined" value="kitchen" autoComplete="off" checked={userType == 'kitchen'} onChange={(e) => {setUserType(e.target.value); filterUsers(e.target.value)}} />
-                        <label className="btn btn-outline-primary" htmlFor="btn-ready-outlined">Kitchen</label>
+                        <label className="btn btn-outline-primary selected_bg4" htmlFor="btn-ready-outlined">Kitchen</label>
                     </div>
                   </li>
                 </ul>

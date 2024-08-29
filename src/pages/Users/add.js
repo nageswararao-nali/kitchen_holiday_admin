@@ -47,7 +47,7 @@ function AddUser() {
   };
     
   return (
-    <div className='container'>
+    <div className='container-fluid'>
         <div className='row mx-5'>
             <Row className='mb-3 mt-3'>
                 <h2>Add User</h2>

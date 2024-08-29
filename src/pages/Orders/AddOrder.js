@@ -57,10 +57,14 @@ function AddOrder() {
         
     };
   return (
-    <div className='container'>
+    <div className='container-fluid'>
         <div className='row mx-5'>
             <Card>
-                <Card.Title>Add Item</Card.Title>
+                {/* <Card.Title>Add Item</Card.Title> */}
+                <div class="card-header  mb-3">
+                    <div class="card-title h5">Add Item</div>
+                   
+                </div>
                 <Card.Body>
                     {
                         error ? 
