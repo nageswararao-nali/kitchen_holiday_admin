@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
+// import ToolkitProvider from 'react-bootstrap-table2-toolkit';
 import { useNavigate } from 'react-router-dom';
 import { Button, Card, Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOrders, updateOrderStatus } from '../../store/orderSlice';
 import * as moment from 'moment';
 import Modal from 'react-bootstrap/Modal';
-
+import ToolkitProvider, {CSVExport} from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
+const { ExportCSVButton } = CSVExport;
 function TodayOrders() {
     const navigate = useNavigate();
     const [status , setStatus] = useState(null)
@@ -16,6 +18,7 @@ function TodayOrders() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [selectedOrder, setSelectedOrder] = useState({})
 
     const getOrdersData = async () => {
       await dispatch(getOrders({orderDate: moment().format('YYYY-MM-DD')}))
@@ -69,6 +72,7 @@ function TodayOrders() {
         formatter: (cell, row, rowIndex) => {
             return (
                 <span onClick={() => {
+                    setSelectedOrder(row)
                     handleShow(row.invoiceFile)
                   } }>{row.userId}</span>
             )
@@ -170,19 +174,29 @@ function TodayOrders() {
               <Card.Body>
                   {
                       (orders && orders.length) ?
-                      <BootstrapTable
-                          bootstrap4
-                          keyField="id"
-                          data={orders}
-                          columns={columns}
-                          pagination={paginationFactory({ sizePerPage: 10, hideSizePerPage: true, onPageChange:(page)=>console.log("DB CALL with page" + page) })}
-                          exportCSV={ {
-                            fileName: 'custom.csv',
-                            separator: '|',
-                            ignoreHeader: true,
-                            noAutoBOM: false
-                          } }
-                      />
+                      <ToolkitProvider
+                        keyField="id"
+                        data={ orders }
+                        columns={ columns }
+                        exportCSV
+                      >
+                        {
+                          props => (
+                            <div>
+                              <ExportCSVButton { ...props.csvProps }>Export CSV!!</ExportCSVButton>
+                              <hr />
+                              <BootstrapTable
+                                      { ...props.baseProps }
+                                    pagination={paginationFactory({ sizePerPage: 10, hideSizePerPage: true, onPageChange:(page)=>console.log("DB CALL with page" + page) })}
+                                    
+                                />
+                            </div>
+                            
+                            
+                          )
+                        }
+                      </ToolkitProvider>
+                      
                       : null
                   }
                 
@@ -197,7 +211,7 @@ function TodayOrders() {
                 </Modal.Header>
                 <Modal.Body>
                     Invoice
-
+                    <iframe src={selectedOrder.invoice}></iframe>
                 </Modal.Body>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>

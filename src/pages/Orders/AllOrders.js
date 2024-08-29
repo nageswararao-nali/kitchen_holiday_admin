@@ -5,15 +5,20 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Card, Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOrders, updateOrderStatus } from '../../store/orderSlice';
-
-
+import ToolkitProvider, {CSVExport} from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
+import * as moment from 'moment';
+import Modal from 'react-bootstrap/Modal';
+const { ExportCSVButton } = CSVExport;
 
 function AllOrders() {
   const navigate = useNavigate();
     const [status , setStatus] = useState(null)
     const dispatch = useDispatch()
     const { orders } = useSelector((state) => state.orders)
-
+    const [selectedOrder, setSelectedOrder] = useState({})
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     const getOrdersData = async () => {
       await dispatch(getOrders({}))
     }
@@ -50,6 +55,19 @@ function AllOrders() {
           return (
             row.orderDate
           )
+        }
+      },
+      {
+        dataField: "userId",
+        text: "Customer ID",
+        formatter: (cell, row, rowIndex) => {
+            return (
+                <span onClick={() => {
+                  console.log(row)
+                    setSelectedOrder(row)
+                    handleShow(row.invoiceFile)
+                  } }>{row.userId}</span>
+            )
         }
       },
       {
@@ -169,19 +187,55 @@ function AllOrders() {
               <Card.Body>
                   {
                       (orders && orders.length) ?
-                      <BootstrapTable
-                          bootstrap4
-                          keyField="id"
-                          data={orders}
-                          columns={columns}
-                          pagination={paginationFactory({ sizePerPage: 10, hideSizePerPage: true, onPageChange:(page)=>console.log("DB CALL with page" + page) })}
+                      <ToolkitProvider
+                        keyField="id"
+                        data={ orders }
+                        columns={ columns }
+                        exportCSV
+                      >
+                        {
+                          props => (
+                            <div>
+                              <ExportCSVButton { ...props.csvProps }>Export CSV!!</ExportCSVButton>
+                              <hr />
+                              <BootstrapTable
+                                      { ...props.baseProps }
+                                    pagination={paginationFactory({ sizePerPage: 10, hideSizePerPage: true, onPageChange:(page)=>console.log("DB CALL with page" + page) })}
+                                    
+                                />
+                            </div>
+                            
+                            
+                          )
+                        }
+                      </ToolkitProvider>
                       
-                      />
                       : null
                   }
                 
               </Card.Body>
             </Card>
+            <div
+            className="modal show"     
+            >
+            <Modal show={show} onHide={handleClose} className='form_modal'>
+                <Modal.Header closeButton>
+                <Modal.Title className='modal-title fs-20'>Order Invoice</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Invoice {selectedOrder.invoice}
+                    <iframe src={selectedOrder.invoice}></iframe>
+                </Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                    Close
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                    Download
+                </Button>
+                </Modal.Footer>
+            </Modal>
+            </div>
         </div>
     </div>
   );

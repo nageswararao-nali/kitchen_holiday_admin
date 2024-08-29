@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const API_URL = 'http://localhost:3001/api/';
-const API_URL = 'http://18.191.154.208:3000/api/';
+const API_URL = 'http://3.142.140.177:3000/api/';
 
 const getHeaders = (token, isFile) => {
   let headers = {
