@@ -91,7 +91,7 @@ function AddSubOrder() {
                 totalAmount: totalPrice,
                 customerName: address.fName + " " + address.lName,
                 customerMobile: address.mobile,
-                address: address.address + ", " + address.address1 + ", " + address.state + ", " + address.zipcode,
+                address: address.address + " " + address.address1 + " " + address.state + " " + address.zipcode,
                 zipcode: address.zipcode,
                 startDate: startDate,
                 selectedPlan: selectedPlan,
