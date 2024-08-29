@@ -392,7 +392,7 @@ p{
 .brand-list .btn-check:checked + .btn, :not(.btn-check) + .btn:active, .brand-list .btn:first-child:active, .brand-list .btn.active, .brand-list .btn.show{
   background: #ec1d25;
     background: var(--primary-btn-color);
-    color: #fff;    border-radius: 2.1875rem;border: 0;width: 100%;
+    color: #fff;    border-radius: 2.1875rem;border: 0;
 }
 .brand-list .btn-check:checked + .selected_bg1{background: #ff4136 ;}
 .brand-list .btn-check:checked + .selected_bg2{background: #624fd1;}
