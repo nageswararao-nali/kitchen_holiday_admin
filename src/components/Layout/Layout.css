@@ -1747,7 +1747,7 @@ p{
   justify-content: end;
   align-items: center;}
 .form-control{border-radius: 20px !important;height: 48px;}
-
+.container-fluid .card-title{font-size: 24px;    font-weight: 600;}
 
 @keyframes animate-loading {
   0% {

@@ -67,10 +67,14 @@ function AddSubItem(props) {
         
     };
   return (
-    <div className='container'>
+    <div className='container-fluid'>
         <div className='row mx-5'>
             <Card>
-                <Card.Title>Add Sub Item</Card.Title>
+                {/* <Card.Title>Add Sub Item</Card.Title> */}
+                <div class="card-header  mb-3">
+                    <div class="card-title h5">Add Sub Item</div>
+                   
+                </div>
                 <Card.Body>
                     {
                         error ? 
