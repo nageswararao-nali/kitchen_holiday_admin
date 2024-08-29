@@ -114,7 +114,7 @@ function KitchenOrderDetails() {
                     </div>
                 </div>
                 <div className="col-xl-8 col-md-7">
-                    <div className="card">
+                    <div className="card justify-content-center">
                         {
                             order.deliveryParterId ?
                             <div className="card-body d-flex align-items-center justify-content-between">
@@ -138,12 +138,12 @@ function KitchenOrderDetails() {
                                 </div>
                             </div>
                             :
-                            <div className="row"> 
+                            <div className="mx-3"> 
                                 
                                 {
                                     (users && users.length) ?
-                                    <div className="row">
-                                        <div className="col-md-6">
+                                    <div className="d-flex px-2 align-items-center">
+                                        <div className="col-md-8">
                                         <Form.Select defaultValue={deliveryBoy} onChange={(e) => setDeliveryBoy(e.target.value)} required >
                                             <option value="">Select Delivery Boy</option>
                                             {
@@ -155,8 +155,8 @@ function KitchenOrderDetails() {
                                             }
                                         </Form.Select>
                                         </div>
-                                        <div className='col-md-6'>
-                                            <button onClick={assignDriver} className="btn btn-primary btn-sm">Assign</button>
+                                        <div className='col-md-4'>
+                                            <button onClick={assignDriver} className="btn btn-primary btn-sm w-100 mx-2">Assign</button>
                                         </div>
                                         
                                     </div>
@@ -181,61 +181,7 @@ function KitchenOrderDetails() {
                         </div>
                     </div>
                 </div>
-                <div className="col-xl-12">
-                    <div className="card">
-                        <div className="card-body p-0">
-                            <h4>{order.itemName + " - " + order.quantity}</h4>
-                            <div className="table-responsive order-list card-table">
-                                <table className="table items-table table-responsive-md">
-                                    <tbody>
-                                        <tr>
-                                            <th className="text-black font-w700 fs-20">Items</th>
-                                            <th className="text-black font-w700 fs-20" >Qty</th>
-                                            <th className="text-black font-w700 fs-20">Price</th>
-                                            <th className="my-0 text-black font-w700 fs-20 wspace-no d-md-none d-lg-table-cell">Total Price</th>
-                                        </tr>
-                                        {
-                                            (subItems && subItems.length) ? 
-                                            subItems.map((subItem) => {
-                                                if(subItemsData && subItemsData[subItem.id]) {
-                                                    return (
-                                                        <tr key={subItem.id}>
-                                                            <td>
-                                                                <div className="media d-flex align-items-start text-left">
-                                                                    {/* <a href="/orderDetails"> */}
-                                                                        <img
-                                                                            style={{width: "100px"}}
-                                                                            className="me-3 img-fluid"
-                                                                        src={subItem?.image}
-                                                                            alt="DexignZone"
-                                                                        />
-                                                                    {/* </a> */}
-                                                                    <div className="media-body">
-                                                                        <small className="mt-0 mb-1 font-w600"><a className="text-primary" href="/orderDetails">{subItem.name}</a></small>
-                                                                        <h5 className="mt-0 mb-2 mb-sm-3"><a className="text-black" href="/ecom-product-grid">{subItem.description}</a></h5>
-                                                                        <div className="star-review d-flex align-items-center fs-14">
-                                                                            <i className="bi bi-star-fill text-danger"></i><i className="bi bi-star-fill text-danger"></i><i className="bi bi-star-fill text-danger"></i><i className="bi bi-star-fill text-danger"></i>
-                                                                            <i className="bi bi-star-fill text-gray"></i><span className="ms-3 text-dark">(454 revies)</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td><h5 className="my-0 font-w600">{subItemsData[subItem.id]}x</h5></td>
-                                                            <td><h5 className="my-0 font-w600">${subItem.price}</h5></td>
-                                                            <td className="d-md-none d-lg-table-cell"><h5 className="my-0 font-w600">${subItemsData[subItem.id] * subItem.price}</h5></td>
-                                                        </tr>
-                                                    )
-                                                }
-                                                
-                                            })
-                                            : null
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
         <div className="col-xl-3 col-xxl-4">
@@ -354,6 +300,118 @@ function KitchenOrderDetails() {
                         </div>
                     </div>
                 </div> */}
+            </div>
+        </div>
+        <div className='row'>
+            <div className="col-xl-6">
+                    <div className="card">
+                        <div className="card-body p-0">
+                            <h4>{order.itemName + " - " + order.quantity}</h4>
+                            <div className="table-responsive order-list card-table">
+                                <table className="table items-table table-responsive-md">
+                                    <tbody>
+                                        <tr>
+                                            <th className="text-black font-w700 ">Items</th>
+                                            <th className="text-black font-w700" >Qty</th>
+                                            <th className="text-black font-w700 ">Price</th>
+                                            <th className="my-0 text-black font-w700 wspace-no d-md-none d-lg-table-cell">Total Price</th>
+                                        </tr>
+                                        {
+                                            (subItems && subItems.length) ? 
+                                            subItems.map((subItem) => {
+                                                if(subItemsData && subItemsData[subItem.id]) {
+                                                    return (
+                                                        <tr key={subItem.id}>
+                                                            <td>
+                                                                <div className="media table_flex d-flex align-items-start text-left">
+                                                                    {/* <a href="/orderDetails"> */}
+                                                                        <img
+                                                                            style={{width: "100px"}}
+                                                                            className="me-3 img-fluid"
+                                                                        src={subItem?.image}
+                                                                            alt="DexignZone"
+                                                                        />
+                                                                    {/* </a> */}
+                                                                    <div className="media-body">
+                                                                        <small className="mt-0 mb-1 font-w600"><a className="text-primary" href="/orderDetails">{subItem.name}</a></small>
+                                                                        <h5 className="mt-0 mb-2 mb-sm-3"><a className="text-black" href="/ecom-product-grid">{subItem.description}</a></h5>
+                                                                        <div className="star-review d-flex align-items-center fs-14">
+                                                                            <i className="bi bi-star-fill text-danger"></i><i className="bi bi-star-fill text-danger"></i><i className="bi bi-star-fill text-danger"></i><i className="bi bi-star-fill text-danger"></i>
+                                                                            <i className="bi bi-star-fill text-gray"></i><span className="ms-3 text-dark">(454 revies)</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td><h5 className="my-0 font-w600">{subItemsData[subItem.id]}x</h5></td>
+                                                            <td><h5 className="my-0 font-w600">${subItem.price}</h5></td>
+                                                            <td className="d-md-none d-lg-table-cell"><h5 className="my-0 font-w600">${subItemsData[subItem.id] * subItem.price}</h5></td>
+                                                        </tr>
+                                                    )
+                                                }
+                                                
+                                            })
+                                            : null
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div className="col-xl-6">
+                    <div className="card">
+                        <div className="card-body p-0">
+                            <h4>{order.itemName + " - " + order.quantity}</h4>
+                            <div className="table-responsive order-list card-table">
+                                <table className="table items-table table-responsive-md">
+                                    <tbody>
+                                        <tr>
+                                            <th className="text-black font-w700 ">Items</th>
+                                            <th className="text-black font-w700 " >Qty</th>
+                                            <th className="text-black font-w700 ">Price</th>
+                                            <th className="my-0 text-black font-w700 wspace-no d-md-none d-lg-table-cell">Total Price</th>
+                                        </tr>
+                                        {
+                                            (subItems && subItems.length) ? 
+                                            subItems.map((subItem) => {
+                                                if(subItemsData && subItemsData[subItem.id]) {
+                                                    return (
+                                                        <tr key={subItem.id}>
+                                                            <td>
+                                                                <div className="media table_flex d-flex align-items-start text-left">
+                                                                    {/* <a href="/orderDetails"> */}
+                                                                        <img
+                                                                            style={{width: "100px"}}
+                                                                            className="me-3 img-fluid"
+                                                                        src={subItem?.image}
+                                                                            alt="DexignZone"
+                                                                        />
+                                                                    {/* </a> */}
+                                                                    <div className="media-body">
+                                                                        <small className="mt-0 mb-1 font-w600"><a className="text-primary" href="/orderDetails">{subItem.name}</a></small>
+                                                                        <h5 className="mt-0 mb-2 mb-sm-3"><a className="text-black" href="/ecom-product-grid">{subItem.description}</a></h5>
+                                                                        <div className="star-review d-flex align-items-center fs-14">
+                                                                            <i className="bi bi-star-fill text-danger"></i><i className="bi bi-star-fill text-danger"></i><i className="bi bi-star-fill text-danger"></i><i className="bi bi-star-fill text-danger"></i>
+                                                                            <i className="bi bi-star-fill text-gray"></i><span className="ms-3 text-dark">(454 revies)</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td><h5 className="my-0 font-w600">{subItemsData[subItem.id]}x</h5></td>
+                                                            <td><h5 className="my-0 font-w600">${subItem.price}</h5></td>
+                                                            <td className="d-md-none d-lg-table-cell"><h5 className="my-0 font-w600">${subItemsData[subItem.id] * subItem.price}</h5></td>
+                                                        </tr>
+                                                    )
+                                                }
+                                                
+                                            })
+                                            : null
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>

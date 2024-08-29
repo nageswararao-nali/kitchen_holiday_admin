@@ -354,8 +354,8 @@ p{
   background-color: rgba(255, 255, 255, 0.6);
 }
 .coin-tabs {
-  background: rgba(253, 104, 62, .1);
-  background: var(--rgba-primary-1);
+  /* background: rgba(253, 104, 62, .1); */
+  /* background: var(--rgba-primary-1); */
   border-radius: 2.1875rem;
   padding: .425rem 1.875rem;margin: auto;width: 100%;
 }
@@ -375,7 +375,7 @@ p{
   border-top-right-radius: .75rem;
   margin-bottom: -1px;
 }
-.coin-tabs .nav-tabs .nav-item{flex: 1;}
+/* .coin-tabs .nav-tabs .nav-item{flex: 1;} */
 .coin-tabs .nav-tabs .nav-item .nav-link {
   background: transparent;
   border: 0;
@@ -400,7 +400,10 @@ p{
 .brand-list .btn-check:checked + .selected_bg4{background: #2e9a3f;}
 .brand-list .btn-check:checked + .selected_bg6{background: #ffa41d;}
 .brand-list .btn-check:checked + .selected_bg3{background: #fd683e;}
-.brand-list .btn-outline-primary{border: 0;color: #000;font-size: 15px;font-weight: 500;padding: 10px;}
+.brand-list .btn-outline-primary{border: 0;color: #000;font-size: 15px;font-weight: 500;padding: 10px;background: #ffe2e8;
+  border-radius: 2.1875rem;
+  padding: 10px 15px;}
+/* .brand-list .btn-check + .btn-outline-primary:hover{background-color: #ffe2e8;color: #000;} */
 .container-fluid .card-header {
   align-items: center;
   background: transparent;
@@ -1745,6 +1748,7 @@ p{
   align-items: center;}
 .form-control{border-radius: 20px !important;height: 48px;}
 
+
 @keyframes animate-loading {
   0% {
     transform: rotate(0deg);
@@ -1846,4 +1850,5 @@ table i {
       height: inherit;}
       .login-form .box-skew, .login-form .box-skew1{    min-height: inherit;
         height: inherit;}
+        .table_flex{flex-direction: column;}
 }
