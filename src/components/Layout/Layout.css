@@ -402,7 +402,7 @@ p{
 .brand-list .btn-check:checked + .selected_bg3{background: #fd683e;}
 .brand-list .btn-outline-primary{border: 0;color: #000;font-size: 15px;font-weight: 500;padding: 10px;background: #ffe2e8;
   border-radius: 2.1875rem;
-  padding: 10px 15px;}
+  padding: 10px 15px;margin: 5px 0;}
 /* .brand-list .btn-check + .btn-outline-primary:hover{background-color: #ffe2e8;color: #000;} */
 .container-fluid .card-header {
   align-items: center;
@@ -1933,6 +1933,7 @@ table i {
   padding: .5rem .9375rem;line-height: 36px;}
   /* table, table>td, table>th {    background-color: #f2f4fa;} */
   .react-bootstrap-table table{    border: 1px solid #ffe2e8;}
+  .title_above{background: #f3f4f9;padding: 15px 10px;border-radius: 8px;}
 
 @media (max-width: 900px) {
   .login-form .box-skew .authincation-content{    position: static;
@@ -1951,4 +1952,5 @@ table i {
       margin-right: 0 !important;
       margin-left:0 !important;
   }
+  .cart-item{overflow: auto;}
 }

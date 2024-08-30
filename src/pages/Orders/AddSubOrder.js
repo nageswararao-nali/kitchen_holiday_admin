@@ -291,7 +291,7 @@ function AddSubOrder() {
                         <Row>
                             { itemId ?
                         <div class="cart-item ">
-                            <div className='d-md-flex justify-content-between'>
+                            <div className='d-flex justify-content-between'>
                                 
                                     <div class="px-3 my-3">
                                         <a class="cart-item-product d-flex " href="#">
@@ -330,7 +330,7 @@ function AddSubOrder() {
                                         <div class="cart-item-label">Choose your plan</div>
                                         <div class="count-input position-relative">
                                             <span className='position-absolute end-0 top-50 translate-middle d-arrow'><i class="bi bi-chevron-down"></i></span>
-                                            <select class="form-control" onChange={(e) => {setPlan(e.target.value); setSelectedPlan(e.target.value); getLastOrderDate()}} style={{height:'38px'}}>
+                                            <select class="form-control" onChange={(e) => {setPlan(e.target.value); setSelectedPlan(e.target.value); getLastOrderDate()}} style={{height:'38px',minWidth:'100px'}}>
                                                 <option value="">Select Plan</option>
                                                 <option value={[1,2,3,4,5]}>Mon-Fri</option>
                                                 <option value={[1,2,3,4,5,6]}>Mon-Sat</option>
