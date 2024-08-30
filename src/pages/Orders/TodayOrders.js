@@ -83,6 +83,10 @@ function TodayOrders() {
         text: "Customer Name",
       },
       {
+        dataField: "deliveryParterName",
+        text: "Delivery Boy Name",
+      },
+      {
         dataField: "address",
         text: "Address",
       },
