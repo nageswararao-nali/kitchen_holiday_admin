@@ -75,6 +75,10 @@ function AllOrders() {
         text: "Customer Name",
       },
       {
+        dataField: "deliveryParterName",
+        text: "Delivery Boy Name",
+      },
+      {
         dataField: "address",
         text: "Address",
       },
@@ -223,16 +227,16 @@ function AllOrders() {
                 <Modal.Title className='modal-title fs-20'>Order Invoice</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    Invoice {selectedOrder.invoice}
-                    <iframe src={selectedOrder.invoice}></iframe>
+                    {/* <iframe src={selectedOrder.invoice}></iframe> */}
+                    <object id="fgh" data={selectedOrder.invoice}  width="400" height="400"></object>
                 </Modal.Body>
                 <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={handleClose}>
+                {/* <Button variant="primary" onClick={handleClose}>
                     Download
-                </Button>
+                </Button> */}
                 </Modal.Footer>
             </Modal>
             </div>
