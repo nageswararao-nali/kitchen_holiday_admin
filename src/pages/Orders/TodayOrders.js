@@ -134,8 +134,14 @@ function TodayOrders() {
       }
     ];
   return (
-    <div className='container'>
+    <div className='container-fluid'>
         <div className='row mb-3'>
+        <Card style={{ padding: '10px' }}>
+        {/* <Card.Title>Today Orders</Card.Title> */}
+        <div class="card-header  mb-3">
+                <div class="card-title h5">Today Orders</div>
+                
+              </div>
             <div className='col-sm-12'>
                 <div className='brand-list-content'>
                     <div className='brand-list'>
@@ -164,10 +170,7 @@ function TodayOrders() {
                     </div>
                 </div>
             </div>
-        </div>
-        <div className='row'>
-          <Card style={{ padding: '10px' }}>
-              <Card.Title>Today Orders</Card.Title>
+       
               <Card.Body>
                   {
                       (orders && orders.length) ?
@@ -220,7 +223,7 @@ function TodayOrders() {
                 </Modal.Footer>
             </Modal>
             </div>
-        </div>
+            </div>
     </div>
   );
 }

@@ -184,7 +184,7 @@ function KitchenOrderDetails() {
                 <div className="col-xl-12">
                     <div className="card">
                         <div className="card-body p-0">
-                            <h4>{order.itemName + " - " + order.quantity}</h4>
+                            <div className='card-title m-1'>{order.itemName + " - " + order.quantity}</div>
                             <div className="table-responsive order-list card-table">
                                 <table className="table items-table table-responsive-md">
                                     <tbody>
@@ -233,7 +233,7 @@ function KitchenOrderDetails() {
                                     </tbody>
                                 </table>
                             </div>
-                            <div>
+                            <div className='card_total_price'>
                                 Total Price: ${order.totalAmount}
                             </div>
                         </div>
@@ -247,7 +247,7 @@ function KitchenOrderDetails() {
                     <div className="card">
                         <div className="card-body">
                             <div className="text-center order-media mb-4">
-                                <img src="data:image/jpeg;base64,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"
+                                <img src="../../assets/img/messages-3.jpg"
                                     alt=""
                                 />
                                 <div>
@@ -257,11 +257,11 @@ function KitchenOrderDetails() {
                             </div>
                             <div className="imfo align-items-center mb-4 d-flex">
                                 <i className="bi bi-phone-fill"></i>
-                                <h5 className="mb-0 text-black ms-3">{order.customerMobile}</h5>
+                                <h5 className="mb-0 text-black ms-3 flex-grow-1">{order.customerMobile}</h5>
                             </div>
                             <div className="imfo align-items-center mb-4 d-flex">
                                 <i className="bo bi-map-fill"></i>
-                                <h5 className="mb-0 text-black ms-3">
+                                <h5 className="mb-0 text-black ms-3  flex-1">
                                 {order.address}
                                 </h5>
                             </div>
@@ -363,7 +363,7 @@ function KitchenOrderDetails() {
             <div className="col-xl-6">
                     <div className="card">
                         <div className="card-body p-0">
-                            <h4>{order.itemName + " - " + order.quantity}</h4>
+                        <div className='card-title m-1'>{order.itemName + " - " + order.quantity}</div>
                             <div className="table-responsive order-list card-table">
                                 <table className="table items-table table-responsive-md">
                                     <tbody>
@@ -412,13 +412,16 @@ function KitchenOrderDetails() {
                                     </tbody>
                                 </table>
                             </div>
+                            <div  className='card_total_price'>
+                                Total Price: ${order.totalAmount}
+                            </div>
                         </div>
                     </div>
             </div>
             <div className="col-xl-6">
                     <div className="card">
                         <div className="card-body p-0">
-                            <h4>{order.itemName + " - " + order.quantity}</h4>
+                        <div className='card-title m-1'>{order.itemName + " - " + order.quantity}</div>
                             <div className="table-responsive order-list card-table">
                                 <table className="table items-table table-responsive-md">
                                     <tbody>
@@ -466,6 +469,9 @@ function KitchenOrderDetails() {
                                         }
                                     </tbody>
                                 </table>
+                            </div>
+                            <div  className='card_total_price'>
+                                Total Price: ${order.totalAmount}
                             </div>
                         </div>
                     </div>

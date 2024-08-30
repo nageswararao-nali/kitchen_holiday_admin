@@ -220,10 +220,14 @@ function AddSubOrder() {
         console.log(addressesRes.payload)
     }
   return (
-    <div className='container'>
+    <div className='container-fluid'>
         <div className='row mx-5'>
             <Card>
-                <Card.Title>Add Item</Card.Title>
+                {/* <Card.Title>Add Item</Card.Title> */}
+                <div class="card-header  mb-3">
+                    <div class="card-title h5">Add Item</div>
+                    
+                </div>
                 <Card.Body>
                     {
                         error ? 
@@ -290,10 +294,10 @@ function AddSubOrder() {
                             <div className='d-md-flex justify-content-between'>
                                 
                                     <div class="px-3 my-3">
-                                        <a class="cart-item-product" href="#">
-                                            <div class="cart-item-product-thumb"><img src={selectedItem.image} alt="Product"/></div>
+                                        <a class="cart-item-product d-flex align-items-center" href="#">
+                                            <div class="cart-item-product-thumb"><img src={selectedItem.image} alt="Product" width={100}/></div>
                                             <div class="cart-item-product-info">
-                                                <h4 class="cart-item-product-title">{selectedItem.name} ({selectedItem.shortName})</h4>
+                                                <div class="cart-item-product-title">{selectedItem.name} ({selectedItem.shortName})</div>
                                                 <span className='add_extra' onClick={handleShow}><strong>+ Add Extra</strong></span>
                                             </div>
                                         </a>
@@ -306,7 +310,7 @@ function AddSubOrder() {
                                         <div class="cart-item-label">Choose your plan</div>
                                         <div class="count-input position-relative">
                                             <span className='position-absolute end-0 top-50 translate-middle d-arrow'><i class="bi bi-chevron-down"></i></span>
-                                            <select class="form-control" onChange={(e) => {setPlan(e.target.value); setSelectedPlan(e.target.value); getLastOrderDate()}}>
+                                            <select class="form-control" onChange={(e) => {setPlan(e.target.value); setSelectedPlan(e.target.value); getLastOrderDate()}} style={{height:'38px'}}>
                                                 <option value="">Select Plan</option>
                                                 <option value={[1,2,3,4,5]}>Mon-Fri</option>
                                                 <option value={[1,2,3,4,5,6]}>Mon-Sat</option>
@@ -332,7 +336,7 @@ function AddSubOrder() {
                                     (deliverySlots && deliverySlots.length) ?
                                     <div class="px-3 my-3 text-center">
                                         <div class="cart-item-label">Choose Delivery Slot</div>
-                                        <div class="count-input position-relative">
+                                        <div class="count-input position-relative" style={{minWidth: '200px'}}>
                                             <span className='position-absolute end-0 top-50 translate-middle d-arrow'><i class="bi bi-chevron-down"></i></span>
                                             <select class="form-control" onChange={(e) => {setDeliverySlot(e.target.value);}}>
                                                 <option value="">Select Delivery Slot</option>
@@ -352,7 +356,7 @@ function AddSubOrder() {
                                     selectedSubscription ? 
                                     <div className='px-3 my-3 text-center'>
                                         <div class="cart-item-label">Start Date</div>
-                                        <div class="count-input position-relative">
+                                        <div class="count-input position-relative" style={{minWidth: '200px'}}>
                                             <DatePicker selected={startDate} onChange={(date) => {setStartDate(date); getLastOrderDate()}} />
                                         </div>
                                     </div>
@@ -494,19 +498,19 @@ function AddSubOrder() {
             </Modal.Header>
             <Modal.Body>
             <Row className='justify-content-center'>
+                <div className='d-flex flex-wrap justify-content-between'>
                 {
                     (subItems && subItems.length && mappings && mappings.length) ? 
                         subItems.map((subItem) => {
                             let mps = JSON.parse(mappings[0].subItemIds)
                             if(mps.indexOf(subItem.id.toString()) > -1) {
                                 return (
-                                    <div className="menu_item">
-                                        <span><img src={subItem.image} width="100" alt=""/></span><span className='d-block'>{subItem.name}</span>
-                                        <div class="added_count"><span class="count_minus" onClick={() => updateItemQuantity(-1, subItem.id)}>-</span><span class="count_total">{extraItemCountData[subItem.id] ? extraItemCountData[subItem.id] : 0}</span><span class="count_plus" onClick={() => updateItemQuantity(1, subItem.id)}>+</span></div>
+                                    <div className="menu_item d-flex align-items-center justify-content-between">
+                                        <span className='d-flex align-items-center'><img src={subItem.image} width="60" alt=""/><span className='d-block'>{subItem.name}</span></span>
+                                        <div class="d-flex flex-column flex_ryt"><span class="price mb-2">${price}</span><div class="added_count"><span class="count_minus" onClick={() => updateItemQuantity(-1, subItem.id)}>-</span><span class="count_total">{extraItemCountData[subItem.id] ? extraItemCountData[subItem.id] : 0}</span><span class="count_plus" onClick={() => updateItemQuantity(1, subItem.id)}>+</span></div></div>
                                     </div>
                                 )
                             }
-                            
                         })
                     : null
                 }
@@ -528,6 +532,7 @@ function AddSubOrder() {
                         })
                     : null
                 */}
+                </div>
             </Row>
             </Modal.Body>
             <Modal.Footer className='justify-content-center'>

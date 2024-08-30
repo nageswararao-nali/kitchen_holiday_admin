@@ -105,7 +105,10 @@ function ItemMapping(props) {
     <div className='container-fluid'>
         <div className='row mx-5'>
             <Card>
-                <Card.Title>Item Mapping</Card.Title>
+                <div class="card-header  mb-3">
+                    <div class="card-title h5">Item Mapping</div>
+                    
+                </div>
                 <Card.Body>
                     <Form noValidate validated={validated} onSubmit={handleSubmit}>
                         {
