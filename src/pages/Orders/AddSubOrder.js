@@ -291,14 +291,34 @@ function AddSubOrder() {
                         <Row>
                             { itemId ?
                         <div class="cart-item ">
-                            <div className='d-md-flex justify-content-between'>
+                            <div className='d-flex justify-content-between'>
                                 
                                     <div class="px-3 my-3">
-                                        <a class="cart-item-product d-flex align-items-center" href="#">
+                                        <a class="cart-item-product d-flex " href="#">
                                             <div class="cart-item-product-thumb"><img src={selectedItem.image} alt="Product" width={100}/></div>
                                             <div class="cart-item-product-info">
-                                                <div class="cart-item-product-title">{selectedItem.name} ({selectedItem.shortName})</div>
+                                                <div class="cart-item-product-title">{selectedItem.name} ({selectedItem.shortName})</div>                                               
                                                 <span className='add_extra' onClick={handleShow}><strong>+ Add Extra</strong></span>
+                                                <div className='extra_items_block mt-3'>
+                                                    <span className='sub_title d-block'><b>Extra items:</b></span>
+                                                    <span class="d-flex align-items-center extra_item ">
+                                                        <img src="https://kitchen-holiday-images.s3.us-east-2.amazonaws.com/veg_item1.png" width="40" alt=""/>
+                                                        <span>Vegetable</span>
+                                                    </span>
+                                                    <span class="d-flex align-items-center extra_item ">
+                                                       <img src="https://kitchen-holiday-images.s3.us-east-2.amazonaws.com/veg_item2.png" width="40" alt=""/>
+                                                        <span>Salad/Soup</span>
+                                                    </span>
+                                                    <span class="d-flex align-items-center extra_item ">
+                                                       <img src="https://kitchen-holiday-images.s3.us-east-2.amazonaws.com/veg_item3.png" width="40" alt=""/>
+                                                        <span class="d-block">Mutton curry</span>
+                                                    </span>
+                                                    <span class="d-flex align-items-center extra_item ">
+                                                      <img src="https://kitchen-holiday-images.s3.us-east-2.amazonaws.com/veg_item3.png" width="40" alt=""/>
+                                                        <span class="d-block">Chapathi</span>
+                                                    </span>
+                                                   
+                                                </div>
                                             </div>
                                         </a>
                                     </div> 
@@ -310,7 +330,7 @@ function AddSubOrder() {
                                         <div class="cart-item-label">Choose your plan</div>
                                         <div class="count-input position-relative">
                                             <span className='position-absolute end-0 top-50 translate-middle d-arrow'><i class="bi bi-chevron-down"></i></span>
-                                            <select class="form-control" onChange={(e) => {setPlan(e.target.value); setSelectedPlan(e.target.value); getLastOrderDate()}} style={{height:'38px'}}>
+                                            <select class="form-control" onChange={(e) => {setPlan(e.target.value); setSelectedPlan(e.target.value); getLastOrderDate()}} style={{height:'38px',minWidth:'100px'}}>
                                                 <option value="">Select Plan</option>
                                                 <option value={[1,2,3,4,5]}>Mon-Fri</option>
                                                 <option value={[1,2,3,4,5,6]}>Mon-Sat</option>
@@ -326,10 +346,28 @@ function AddSubOrder() {
                             <div class="px-3 my-3 text-center">
                                 <div class="cart-item-label">Quantity</div>
                                 <div className="added_count" ><span className="count_minus" onClick={() => updateQuantity(-1)}>-</span><span className="count_total">{quantity}</span><span className="count_plus" onClick={() => updateQuantity(1)}>+</span></div>
+                                <div className='extra_items_block d-inline-block mt-3'>
+                                    <div className="added_count mt-4" ><span className="count_minus" onClick={() => updateQuantity(-1)}>-</span><span className="count_total">{quantity}</span><span className="count_plus" onClick={() => updateQuantity(1)}>+</span></div>
+                                    <div className="added_count mt-4" ><span className="count_minus" onClick={() => updateQuantity(-1)}>-</span><span className="count_total">{quantity}</span><span className="count_plus" onClick={() => updateQuantity(1)}>+</span></div>
+                                    <div className="added_count mt-4" ><span className="count_minus" onClick={() => updateQuantity(-1)}>-</span><span className="count_total">{quantity}</span><span className="count_plus" onClick={() => updateQuantity(1)}>+</span></div>
+                                    <div className="added_count mt-4" ><span className="count_minus" onClick={() => updateQuantity(-1)}>-</span><span className="count_total">{quantity}</span><span className="count_plus" onClick={() => updateQuantity(1)}>+</span></div>
+                                </div>
                             </div>
                             <div class="px-3 my-3 text-center">
-                                <div class="cart-item-label">Subtotal</div><span class="text-xl font-weight-medium">${totalPrice}</span>
+                                <div class="cart-item-label">Subtotal</div>
+                                <span class="text-xl font-weight-medium sub_total">${totalPrice}</span>
+                                <div className='extra_items_block d-inline-block mt-3'>
+                                    <span class="text-xl font-weight-medium sub_total mt-4">${totalPrice}</span>
+                                    <span class="text-xl font-weight-medium sub_total mt-4">${totalPrice}</span>
+                                    <span class="text-xl font-weight-medium sub_total mt-4">${totalPrice}</span>
+                                    <span class="text-xl font-weight-medium sub_total mt-4">${totalPrice}</span>
+                                </div> 
                             </div>
+                            </div>
+                            <hr></hr>
+                            <div className='total_amt_block d-flex justify-content-end mx-3'>
+                                <span  className='mx-4'><b>Total:</b></span>
+                                <span className='mx-4'>$0</span>
                             </div>
                             <div className='d-md-flex'>
                                 {

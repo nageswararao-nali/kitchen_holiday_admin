@@ -32,7 +32,7 @@ a {
 }
 
 a:hover {
-  color: #717ff5;
+  color: #2f2f2f;
   text-decoration: none;
 }
 
@@ -402,7 +402,7 @@ p{
 .brand-list .btn-check:checked + .selected_bg3{background: #fd683e;}
 .brand-list .btn-outline-primary{border: 0;color: #000;font-size: 15px;font-weight: 500;padding: 10px;background: #ffe2e8;
   border-radius: 2.1875rem;
-  padding: 10px 15px;}
+  padding: 10px 15px;margin: 5px 0;}
 /* .brand-list .btn-check + .btn-outline-primary:hover{background-color: #ffe2e8;color: #000;} */
 .container-fluid .card-header {
   align-items: center;
@@ -1765,7 +1765,7 @@ p{
 .cart-item .cart-item-product-info > span.add_extra {
   color: #ec1d25;font-size: 13px;
 }
-.cart-item-product{text-decoration: none;text-align: left;}
+.cart-item-product{text-decoration: none;text-align: left;color: #000;}
 .added_count {
   background: rgb(255 255 255);
   font-size: 18px;
@@ -1838,7 +1838,11 @@ p{
 }
 .flex-1{flex: 1 !important;}
 .card_total_price{font-weight: 600;font-size: 20px;margin: 0 0 15px;}
-
+address{text-align: left;}
+.extra_item span{font-size: 14px;}
+.extra_items_block .extra_item{margin: 10px 0;}
+.sub_total{height: 30px;display: block;;}
+/* .total_amt{text-align: right;margin-right: 30px;} */
 @keyframes animate-loading {
   0% {
     transform: rotate(0deg);
@@ -1929,6 +1933,7 @@ table i {
   padding: .5rem .9375rem;line-height: 36px;}
   /* table, table>td, table>th {    background-color: #f2f4fa;} */
   .react-bootstrap-table table{    border: 1px solid #ffe2e8;}
+  .title_above{background: #f3f4f9;padding: 15px 10px;border-radius: 8px;}
 
 @media (max-width: 900px) {
   .login-form .box-skew .authincation-content{    position: static;
@@ -1941,4 +1946,11 @@ table i {
       .login-form .box-skew, .login-form .box-skew1{    min-height: inherit;
         height: inherit;}
         .table_flex{flex-direction: column;}
+    .card-body{padding-left: 0 !important;padding-right: 0 !important;}
+    .coin-tabs{padding: 0;}
+    .container-fluid .mx-5 {
+      margin-right: 0 !important;
+      margin-left:0 !important;
+  }
+  .cart-item{overflow: auto;}
 }
