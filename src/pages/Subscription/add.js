@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import { useDispatch, useSelector } from 'react-redux';
-import { addSubscription } from '../../store/subscriptionsSlice';
+import { addSubscription, getSubscriptions } from '../../store/subscriptionsSlice';
 import { useNavigate } from 'react-router-dom';
 
 function AddSubscription() {
@@ -37,6 +37,7 @@ function AddSubscription() {
             isVeg
         }
         await dispatch(addSubscription(userObj));
+        await dispatch(getSubscriptions({}))
         navigate('/subscriptions')
     }
     setValidated(true);

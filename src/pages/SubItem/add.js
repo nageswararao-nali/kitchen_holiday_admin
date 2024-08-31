@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
-import { addSubItem, getSubItem } from '../../store/itemsSlice'; 
+import { addSubItem, getSubItem, getSubItems } from '../../store/itemsSlice'; 
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Button, Form, Card } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -61,6 +61,7 @@ function AddSubItem(props) {
             formData.append('quantity', quantity)
             formData.append('price', price)
             await dispatch(addSubItem(formData));
+            await dispatch(getSubItems())
             navigate('/sub-items')
         }
         setValidated(true);

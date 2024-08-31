@@ -4,7 +4,7 @@ import paginationFactory from "react-bootstrap-table2-paginator";
 import { useNavigate } from 'react-router-dom';
 import { Button, Card, Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSubscriptions } from '../../store/subscriptionsSlice';
+import { getSubscriptions, deleteSubscription } from '../../store/subscriptionsSlice';
 
 
 
@@ -23,7 +23,10 @@ function Subscriptions() {
         }
     }, [subscriptions])
 
-    
+    const deleteItemFun = async (id) => {
+      await dispatch(deleteSubscription({id}))
+      getSubscriptionsData()
+    }
     const columns = [
       {
         dataField: "id",
@@ -44,6 +47,23 @@ function Subscriptions() {
       {
         dataField: "price",
         text: "Price"
+      },
+      {
+        isDummyField: true,
+        text: 'Actions',
+        formatter: (cell, row, rowIndex) => {
+          return (
+            <div key={row.id} className='d-flex justify-content-center'>
+              <span className='btn btn-primary shadow btn-xs sharp me-1 d-flex justify-content-center m-0 p-0'>
+                <i style={{color: '#fff'}} className="bi bi-trash2-fill" onClick={() => {
+                   console.log (row);
+                   console.log(cell)
+                   deleteItemFun(row.id)
+                 } } />
+                 </span>
+            </div>
+          )
+        }
       }
     ];
   return (

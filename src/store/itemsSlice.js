@@ -38,6 +38,13 @@ export const itemMappingsData = createAsyncThunk('items/itemMappingsData', async
   return handleAuthApiCall(itemService.itemMappingsData, reqObj, thunkAPI);
 });
 
+export const deleteItem = createAsyncThunk('items/deleteItem', async (reqObj, thunkAPI) => {
+  return handleAuthApiCall(itemService.deleteItem, reqObj, thunkAPI);
+});
+
+export const deleteSubItem = createAsyncThunk('items/deleteSubItem', async (reqObj, thunkAPI) => {
+  return handleAuthApiCall(itemService.deleteSubItem, reqObj, thunkAPI);
+});
 
 const itemsSlice = createSlice({
   name: 'items',

@@ -27,3 +27,6 @@ export const GET_DELIVERY_SLOTS = 'zones/getDeliverySlots';
 export const GET_DELIVERY_ORDER_DATES = 'orders/getOrderDates';
 export const GET_USER_ADDRESSES = 'users/getUserAddresses';
 export const ADD_USER_ORDER = 'orders/addUserOrder';
+export const DELETE_ITEM = 'items/deleteItem';
+export const DELETE_SUB_ITEM = 'items/deleteSubItem';
+export const DELETE_SUBSCRIPTION = 'subscriptions/deleteSubscription';

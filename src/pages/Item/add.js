@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
-import { getCategories, addItem, getItem } from '../../store/itemsSlice'; 
+import { getCategories, addItem, getItem, getItems } from '../../store/itemsSlice'; 
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Button, Form, Card } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -73,6 +73,7 @@ function AddItem(props) {
             //     price
             // }
             await dispatch(addItem(formData));
+            await dispatch(getItems())
             navigate('/items')
         }
         setValidated(true);

@@ -3,7 +3,7 @@ import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getItems } from '../../store/itemsSlice';
+import { getItems, deleteItem } from '../../store/itemsSlice';
 import { Button, Card } from 'react-bootstrap';
 
 function Items() {
@@ -38,6 +38,7 @@ function Items() {
                   <i style={{color: '#fff'}} className="bi bi-trash2-fill" onClick={() => {
                      console.log (row);
                      console.log(cell)
+                     deleteItemFun(row.id)
                    } } />
                    </span>
                    <span className='btn btn-secondry shadow btn-xs sharp me-1 d-flex justify-content-center m-0 p-0'>
@@ -60,6 +61,10 @@ function Items() {
         getItemsData()
     }, [])
     
+    const deleteItemFun = async (id) => {
+      await dispatch(deleteItem({id}))
+      getItemsData()
+    }
   return (
     <div className='container-fluid'>
        

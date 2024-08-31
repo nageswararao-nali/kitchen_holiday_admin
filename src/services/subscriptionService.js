@@ -1,6 +1,7 @@
 
 import apiRequest from '../utils/api';
-import { ADD_SUBSCRIPTION, GET_SUBSCRIPTIONS, ADD_ZONE, GET_ZONES, MAP_ZONE_USER, GET_MAP_ZONE_USER, GET_DELIVERY_ORDER_DATES} from '../utils/apiRoutes'
+import { ADD_SUBSCRIPTION, GET_SUBSCRIPTIONS, ADD_ZONE, GET_ZONES, MAP_ZONE_USER, 
+  GET_MAP_ZONE_USER, GET_DELIVERY_ORDER_DATES, DELETE_SUBSCRIPTION} from '../utils/apiRoutes'
 
 // const userToken = localStorage.getItem('userToken');
 
@@ -32,6 +33,10 @@ const getOrderDates = async (reqObj, userToken) => {
   return await apiRequest(GET_DELIVERY_ORDER_DATES, 'POST', reqObj, userToken);
 };
 
+const deleteSubscription = async (reqObj, userToken) => {
+  return await apiRequest(DELETE_SUBSCRIPTION, 'POST', reqObj, userToken);
+};
+
 const usersService = {
     addSubscription,
     getSubscriptions,
@@ -39,7 +44,8 @@ const usersService = {
     getZones,
     addZoneMapping,
     zoneMappingsData,
-    getOrderDates
+    getOrderDates,
+    deleteSubscription
 };
 
 export default usersService;
