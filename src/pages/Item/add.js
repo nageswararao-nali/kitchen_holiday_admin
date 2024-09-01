@@ -100,7 +100,7 @@ function AddItem(props) {
                             (categories && categories.length) ?
                             <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
                                 <Col sm={2}>
-                                    <Form.Label> Category </Form.Label>
+                                    <Form.Label className='form_label'> Category </Form.Label>
                                 </Col>
                                 <Col sm={10}>
                                     <Form.Select defaultValue={category} value={category} onChange={(e) => setCategory(e.target.value)} required >
@@ -115,7 +115,7 @@ function AddItem(props) {
                         }
                         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
                             <Col sm={2}>
-                                <Form.Label> Name </Form.Label>
+                                <Form.Label className='form_label'> Name </Form.Label>
                             </Col>
                             <Col sm={10}>
                                 <Form.Control 
@@ -127,7 +127,7 @@ function AddItem(props) {
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
                             <Col sm={2}>
-                            <Form.Label> Description </Form.Label>
+                            <Form.Label className='form_label'> Description </Form.Label>
                             </Col>
                             <Col sm={10}>
                                 <Form.Control
@@ -141,7 +141,7 @@ function AddItem(props) {
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
                             <Col sm={2}>
-                            <Form.Label> Price </Form.Label>
+                            <Form.Label className='form_label'> Price </Form.Label>
                             </Col>
                             <Col sm={10}>
                                 <Form.Control
@@ -155,7 +155,7 @@ function AddItem(props) {
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
                             <Col sm={2}>
-                                <Form.Label> Image </Form.Label>
+                                <Form.Label className='form_label'> Image </Form.Label>
                             </Col>
                             <Col sm={10}>
                                 <Form.Control

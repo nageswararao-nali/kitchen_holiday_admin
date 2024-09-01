@@ -57,7 +57,7 @@ function AddZone() {
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
                     <Col sm={2}>
-                        <Form.Label> Zone Zipcode </Form.Label>
+                        <Form.Label className='form_label'> Zone Zipcode </Form.Label>
                     </Col>
                     <Col sm={10}>
                         <Form.Control 

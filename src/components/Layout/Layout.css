@@ -1934,6 +1934,10 @@ table i {
   /* table, table>td, table>th {    background-color: #f2f4fa;} */
   .react-bootstrap-table table{    border: 1px solid #ffe2e8;}
   .title_above{background: #f3f4f9;padding: 15px 10px;border-radius: 8px;}
+  .form-check-input[type=checkbox]{background-color: #f3f4f9;}
+  .form_label{font-size: 18px;font-weight: 600;margin: 0;margin-top: 5px;}
+  .card_new.card{padding-left: 0;padding-right: 0;overflow: hidden;}
+  .card_new .card-header{background: #3b9f70;color: #fff;}
 
 @media (max-width: 900px) {
   .login-form .box-skew .authincation-content{    position: static;
