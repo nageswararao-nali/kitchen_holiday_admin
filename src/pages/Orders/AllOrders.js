@@ -133,15 +133,30 @@ function AllOrders() {
     <div className='container-fluid'>
         <div className='row'>
         <Card style={{ padding: '10px' }}>
-        <div class="card-header  mb-3">
-                <div class="card-title h5">All Orders</div>
-                <div className=' mb-2' style={{justifyContent: 'end'}}>
-                    <div>
-                    <Button onClick={() => navigate('/orders/add')}> Add Normal Order</Button>
-
+        
+       
+              {/* <Card.Title>Orders</Card.Title> */}
+              <Card.Body>
+                  {
+                      (orders && orders.length) ?
+                      <ToolkitProvider
+                        keyField="id"
+                        data={ orders }
+                        columns={ columns }
+                        exportCSV
+                      >
+                        {
+                          props => (
+                            <div>                           
+                              <div class="card-header  mb-3">
+                                <div class="card-title h5">All Orders</div>
+                                <div className='d-flex mb-2' style={{justifyContent: 'end'}}>
+                                 <ExportCSVButton { ...props.csvProps } class="btn btn-primary btn-secondry mr-2">Export CSV!!</ExportCSVButton>
+                                <div>
+                                <Button onClick={() => navigate('/orders/add')}> Add Normal Order</Button>
+                              </div>
+                            </div>
                     </div>
-                </div>
-              </div>
         <div className='row mb-3'>
             <div className='col-sm-12'>
             <div class="card-action coin-tabs mt-3 mt-sm-0">
@@ -186,22 +201,6 @@ function AllOrders() {
                 </div>
             </div>
         </div>
-       
-              {/* <Card.Title>Orders</Card.Title> */}
-              <Card.Body>
-                  {
-                      (orders && orders.length) ?
-                      <ToolkitProvider
-                        keyField="id"
-                        data={ orders }
-                        columns={ columns }
-                        exportCSV
-                      >
-                        {
-                          props => (
-                            <div>
-                              <ExportCSVButton { ...props.csvProps }>Export CSV!!</ExportCSVButton>
-                              <hr />
                               <BootstrapTable
                                       { ...props.baseProps }
                                     pagination={paginationFactory({ sizePerPage: 10, hideSizePerPage: true, onPageChange:(page)=>console.log("DB CALL with page" + page) })}

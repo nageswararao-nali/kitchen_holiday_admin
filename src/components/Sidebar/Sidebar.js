@@ -147,6 +147,47 @@ export default function Sidebar() {
         </li>
         : null
       }
+       {
+        (user.user_type == "admin") ?
+        <li className="nav-item">
+          <a className="nav-link collapsed" data-bs-target="#invoice-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-receipt-cutoff"></i><span className="flex-1">Invoice and Payments</span><i className="bi bi-caret-right-fill ms-auto"></i>
+          </a>
+          <ul id="invoice-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li onClick={() => navigateToRoute('invoices')}>
+              <a >
+              <i class="bi bi-diamond"></i><span>Invoices </span>
+              </a>
+            </li>
+            <li onClick={() => navigateToRoute('payments-refunds')}>
+              <a>
+              <i class="bi bi-diamond"></i><span>Payments & Refunds</span>
+              </a>
+            </li>
+            <li onClick={() => navigateToRoute('tax')}>
+              <a>
+              <i class="bi bi-diamond"></i><span>Tax </span>
+              </a>
+            </li>
+            <li onClick={() => navigateToRoute('discount')}>
+              <a>
+              <i class="bi bi-diamond"></i><span>Discount </span>
+              </a>
+            </li>
+            <li onClick={() => navigateToRoute('delivery-fee')}>
+              <a>
+              <i class="bi bi-diamond"></i><span>Delivery Fee  </span>
+              </a>
+            </li>
+            <li onClick={() => navigateToRoute('hanfling-charges')}>
+              <a>
+              <i class="bi bi-diamond"></i><span>Handling Charges  </span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        : null
+      }
       
     </ul>
 
