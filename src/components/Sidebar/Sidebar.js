@@ -34,23 +34,23 @@ export default function Sidebar() {
         </li>
         : null
       }
+       {
+        (user.user_type == "admin") ?
+        <li className="nav-item " onClick={() => navigateToRoute('customers')}>
+          <a className="collapsed nav-link " >
+          <i class="bi bi-people-fill"></i>
+            <span>Customers</span>
+          </a>
+        </li>
+        : null
+      }
       {
         (user.user_type == "admin") ?
         <li className="nav-item">
           <a className="nav-link collapsed" data-bs-target="#orders-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-bag-check-fill"></i><span>Orders</span><i className="bi bi-caret-right-fill ms-auto"></i>
           </a>
-          <ul id="orders-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
-            <li onClick={() => navigateToRoute('orders')}>
-              <a >
-              <i class="bi bi-diamond"></i><span>Normal Orders</span>
-              </a>
-            </li>
-            <li onClick={() => navigateToRoute('sub-orders')}>
-              <a>
-              <i class="bi bi-diamond"></i><span>Subscription Orders</span>
-              </a>
-            </li>
+          <ul id="orders-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">           
             <li onClick={() => navigateToRoute('all-orders')}>
               <a>
               <i class="bi bi-diamond"></i><span>All Orders</span>
@@ -59,6 +59,16 @@ export default function Sidebar() {
             <li onClick={() => navigateToRoute('today-orders')}>
               <a>
               <i class="bi bi-diamond"></i><span>Today Orders</span>
+              </a>
+            </li>
+            <li onClick={() => navigateToRoute('orders')}>
+              <a >
+              <i class="bi bi-diamond"></i><span>Normal Orders</span>
+              </a>
+            </li>
+            <li onClick={() => navigateToRoute('sub-orders')}>
+              <a>
+              <i class="bi bi-diamond"></i><span>Subscription Orders</span>
               </a>
             </li>
           </ul>

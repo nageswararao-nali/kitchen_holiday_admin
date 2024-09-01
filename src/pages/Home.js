@@ -183,7 +183,7 @@ function Home() {
 
           </div>
           
-          <div class="card-title h5 text-left mt-4 mb-3">Today’s Order Menu</div>          
+          <div class="card-title h5 text-left mt-5 mb-3 title_above">Today’s Order Menu</div>          
           <div className='row'>
             <div className="col-xxl-4 col-md-6">
               <div className="card info-card widget-stat bg-info">
