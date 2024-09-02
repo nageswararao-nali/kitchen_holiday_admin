@@ -23,11 +23,16 @@ function TodayOrders() {
     const getOrdersData = async () => {
       await dispatch(getOrders({orderDate: moment().format('YYYY-MM-DD')}))
     }
+    // useEffect(() => {
+    //     if(!orders.length && !status) {
+    //       getOrdersData()
+    //     }
+    // }, [orders])
     useEffect(() => {
-        if(!orders.length && !status) {
-          getOrdersData()
-        }
-    }, [orders])
+      // if(!orders.length && !status) {
+        getOrdersData()
+      // }
+  }, [])
 
     const updateOrder = async(orderId, statusD) => {
       console.log(orderId, status)
