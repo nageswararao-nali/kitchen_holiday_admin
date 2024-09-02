@@ -31,6 +31,7 @@ import AllOrders from './pages/Orders/AllOrders';
 import TodayOrders from './pages/Orders/TodayOrders';
 import ZoneMapping from './pages/DeliveryZone/mappings';
 import AddSubOrder from './pages/Orders/AddSubOrder';
+import Customers from './pages/Customers';
 
 function App() {
   return (
@@ -77,6 +78,9 @@ function App() {
           <Route path="/users"  element={<ProtectedRoute />} >
             <Route path="/users" element={<Users />} />
             <Route path="/users/add" element={<AddUser />} />
+          </Route>
+          <Route path="/customers"  element={<ProtectedRoute />} >
+            <Route path="/customers" element={<Customers />} />
           </Route>
           <Route path="/categories"  element={<ProtectedRoute />} >
             <Route path="/categories" element={<Category />} />

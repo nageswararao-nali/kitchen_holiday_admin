@@ -106,15 +106,18 @@ function ZoneMapping(props) {
   return (
     <div className='container-fluid'>
         <div className='row mx-5'>
-            <Card>
-                <Card.Title>Delivery Boy Mapping</Card.Title>
+            <Card className='card_new'>
+                <div class="card-header  mb-3">
+                    <div class="card-title h5">Delivery Boy Mapping</div>
+                    
+                </div>
                 <Card.Body>
                     <Form noValidate validated={validated} onSubmit={handleSubmit}>
                         {
                             (users && users.length) ?
                             <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
                                 <Col sm={2}>
-                                    <Form.Label> Delivery Boy </Form.Label>
+                                    <Form.Label className='form_label'> Delivery Boy </Form.Label>
                                 </Col>
                                 <Col sm={10}>
                                     <Form.Select defaultValue={userId} value={userId} onChange={(e) => getItemMappings(e)} required >
@@ -123,38 +126,68 @@ function ZoneMapping(props) {
                                             return (<option key={userData.id} value={userData.id}>{userData.fName + " " + userData.lName}</option>)
                                         })}
                                     </Form.Select>
-                                </Col>
-                            </Form.Group>
-                            : null
-                        }
-                        {
-                            (mappings &&  mappings[0]) ? 
-                            <div>
-                                <span>Selected Zones: {mappings[0].zipcodes}</span>
-                            </div>
-                            : null
-                        }
-                        <Row></Row>
-                        {
-                            (zones && zones.length) ?
-                            <Row>
-                                {
-                                    zones.map((zone) => {
-                                        return (
-                                            <Form.Group as={Row} className="mb-3" controlId="formHorizontalCheck">
-                                                <Col sm={2}></Col>
-                                                <Col sm={2}>
+                                    {
+                                        (mappings &&  mappings[0]) ? 
+                                        <div className='m-3'>
+                                            <span>Selected Zones: {mappings[0].zipcodes}</span>
+                                        </div>
+                                        : null
+                                    }
+                                    {
+                                    (zones && zones.length) ?
+                                    <Row>
+                                        <div className='d-flex flex-wrap mt-2 mx-2'>
+                                        {
+                                        zones.map((zone) => {
+                                            return (
+                                            <Form.Group className="mb-1 col-md-3 " controlId="formHorizontalCheck">
+                                                <Col className='m-2 text-left'>
                                                     <Form.Check data={zones.indexOf(zone.id) > -1} name="subitem" label={zone.name} value={zone.name} onChange={handleChange} />
                                                 </Col>
                                             </Form.Group>
                                         )
                                     })
                                 }
+                              </div>
                             </Row>
                             : null
                         }
+                                </Col>
+                            </Form.Group>
+                            : null
+                        }
+                        
+                        <Row></Row>
+                        
                         
                         <Button type="submit">Add</Button>
+                        <hr></hr>
+                        <Row>
+                        <Col sm={2}>
+                            <Form.Label className='form_label'> Delivery1 Boy </Form.Label>
+                        </Col>
+                        {
+                            (zones && zones.length) ?
+                            <Col sm={10}>
+                                 <div className='d-flex flex-wrap mt-2 mx-2'>
+                                {
+                                    zones.map((zone) => {
+                                        return (
+                                            <Form.Group className="mb-1 col-md-3 " controlId="formHorizontalCheck">
+                                                <Col className='m-2 text-left'>
+                                                    <Form.Check data={zones.indexOf(zone.id) > -1} name="subitem" label={zone.name} value={zone.name} onChange={handleChange} />
+                                                </Col>
+                                            </Form.Group>
+                                        )
+                                    })
+                                }
+                              </div>
+                            </Col>
+                            : null
+                        }
+                        </Row>
+                        
+                        <Button type="submit">Delete</Button>
                     </Form>
                 </Card.Body>
             </Card>

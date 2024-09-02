@@ -123,10 +123,16 @@ function Orders() {
             <div className='col-sm-12'>
               <div class="card-header  mb-3">
                 <div class="card-title h5">Orders</div>
-                <div className=' mb-2' style={{justifyContent: 'end'}}>
-                    <div>
+                <div className='mb-2  d-flex align-items-center' style={{justifyContent: 'end'}}>
+                  <div className='search-bar mr-2' style={{minWidth:'250px'}}>
+                    <form className="search-form d-flex align-items-center" method="POST" action="#">
+                        <input type="text" className="form-control" name="query" placeholder="Search" title="Enter search keyword" />
+                        <button type="submit" title="Search"><i className="bi bi-search"></i></button>
+                    </form>
+                  </div>
+                  <div>
                     <Button onClick={() => navigate('/orders/add')}> Add Normal Order</Button>
-                    </div>
+                  </div>
                 </div>
               </div>
             <div class="card-action coin-tabs mt-3 mt-sm-0">

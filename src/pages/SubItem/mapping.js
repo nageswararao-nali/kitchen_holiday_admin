@@ -104,7 +104,7 @@ function ItemMapping(props) {
   return (
     <div className='container-fluid'>
         <div className='row mx-5'>
-            <Card>
+            <Card className='card_new'>
                 <div class="card-header  mb-3">
                     <div class="card-title h5">Item Mapping</div>
                     
@@ -114,8 +114,8 @@ function ItemMapping(props) {
                         {
                             (items && items.length) ?
                             <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
-                                <Col sm={2}>
-                                    <Form.Label> Sub Item </Form.Label>
+                                <Col sm={2} className='p-0'>
+                                    <Form.Label className='form_label'> Sub Item </Form.Label>
                                 </Col>
                                 <Col sm={10}>
                                     <Form.Select defaultValue={itemId} value={itemId} onChange={(e) => getItemMappings(e)} required >
@@ -124,30 +124,89 @@ function ItemMapping(props) {
                                             return (<option key={itemData.id} value={itemData.id}>{itemData.name}</option>)
                                         })}
                                     </Form.Select>
-                                </Col>
-                            </Form.Group>
-                            : null
-                        }
-                        {
+                                    {
                             (subItems && subItems.length) ?
                             <Row>
+                                <div className='d-flex flex-wrap'>
                                 {
                                     subItems.map((subItem) => {
                                         return (
-                                            <Form.Group as={Row} className="mb-3" controlId="formHorizontalCheck">
-                                                <Col sm={2}></Col>
-                                                <Col sm={2}>
+                                            <Form.Group className="mb-1 col-md-3 " controlId="formHorizontalCheck">
+                                                <Col className='m-2 text-left'>
                                                     <Form.Check data={subItemIds.indexOf(subItem.id) > -1} name="subitem" label={subItem.name} value={subItem.id} onChange={handleChange} />
                                                 </Col>
                                             </Form.Group>
                                         )
                                     })
                                 }
+                                </div>
                             </Row>
                             : null
+                        }       
+                                </Col>
+                            </Form.Group>
+                            : null
                         }
+                       
                         
                         <Button type="submit">Add</Button>
+                        <hr></hr>
+                        <Row>
+                        <Col sm={2} className='p-0'>
+                            <Form.Label className='form_label'> Veg meals </Form.Label>
+                        </Col>
+                        <Col sm={10}>
+                        {
+                            (subItems && subItems.length) ?
+                            <Row>
+                                <div className='d-flex flex-wrap'>
+                                {
+                                    subItems.map((subItem) => {
+                                        return (
+                                            <Form.Group className="mb-1 col-md-3 " controlId="formHorizontalCheck">
+                                                <Col className='m-2 text-left'>
+                                                    <Form.Check data={subItemIds.indexOf(subItem.id) > -1} name="subitem" label={subItem.name} value={subItem.id} onChange={handleChange} />
+                                                </Col>
+                                            </Form.Group>
+                                        )
+                                    })
+                                }
+                                </div>
+                            </Row>
+                            : null
+                        }   
+                        </Col>
+                        </Row>                        
+                        <Button type="submit" className='m-2'>Delete</Button>
+
+                        <hr></hr>
+                        <Row>
+                        <Col sm={2} className='p-0'>
+                            <Form.Label className='form_label'> Non Veg meals </Form.Label>
+                        </Col>
+                        <Col sm={10}>
+                        {
+                            (subItems && subItems.length) ?
+                            <Row>
+                                <div className='d-flex flex-wrap'>
+                                {
+                                    subItems.map((subItem) => {
+                                        return (
+                                            <Form.Group className="mb-1 col-md-3 " controlId="formHorizontalCheck">
+                                                <Col className='m-2 text-left'>
+                                                    <Form.Check data={subItemIds.indexOf(subItem.id) > -1} name="subitem" label={subItem.name} value={subItem.id} onChange={handleChange} />
+                                                </Col>
+                                            </Form.Group>
+                                        )
+                                    })
+                                }
+                                </div>
+                            </Row>
+                            : null
+                        }   
+                        </Col>
+                        </Row>                        
+                        <Button type="submit" className='m-2'>Delete</Button>
                     </Form>
                 </Card.Body>
             </Card>
