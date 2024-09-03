@@ -253,7 +253,7 @@ p{
     padding: .625rem .75rem;
     width: 5.3125rem;
 }
-.media .media-body{text-align: right;}
+/* .media .media-body{text-align: right;} */
 .bgl-primary{    background: rgba(253, 104, 62, .1);}
 .text-primary {  color: #fd683e !important;}
 .text-warning{color: #ffa41d !important;}
@@ -1940,6 +1940,13 @@ table i {
   .card_new.card{padding-left: 0;padding-right: 0;overflow: hidden;}
   .card_new .card-header{background: #3b9f70;color: #fff;}
 .today_menu span{min-width: 160px;margin:10px;}
+.card .text-sm{font-size: 14px;color: #000;}
+.card-title.order_d_title{background: #2e9a3f;
+  border-radius: 1.75rem 1.75rem 0 0;
+  margin: 0 !important;
+  padding: 10px;
+  color: #fff;}
+.orders li:last-child:after{background: none;}
 @media (max-width: 900px) {
   .login-form .box-skew .authincation-content{    position: static;
     width: 100%;
