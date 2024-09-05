@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
   const navigate = useNavigate();
@@ -17,59 +18,59 @@ export default function Sidebar() {
       {
         (user.user_type == "admin") ?
         <li className="nav-item" onClick={() => navigateToRoute('')}>
-          <a className="nav-link ">
+          <NavLink to="/" className="nav-link collapsed">
             <i className="bi bi-grid-1x2-fill"></i>
             <span>Dashboard</span>
-          </a>
+          </NavLink>
         </li>
         : null
       }
       {
         (user.user_type == "admin") ?
         <li className="nav-item" onClick={() => navigateToRoute('users')}>
-          <a className="nav-link collapsed" >
+          <NavLink to="users" className="nav-link collapsed" >
           <i class="bi bi-people-fill"></i>
             <span>Users</span>
-          </a>
+          </NavLink>
         </li>
         : null
       }
        {
         (user.user_type == "admin") ?
         <li className="nav-item " onClick={() => navigateToRoute('customers')}>
-          <a className="collapsed nav-link " >
+          <NavLink to="customers" className="collapsed nav-link " >
           <i class="bi bi-people-fill"></i>
             <span>Customers</span>
-          </a>
+          </NavLink>
         </li>
         : null
       }
       {
         (user.user_type == "admin") ?
         <li className="nav-item">
-          <a className="nav-link collapsed" data-bs-target="#orders-nav" data-bs-toggle="collapse" href="#">
+           <NavLink to="/" className="nav-link collapsed inn" data-bs-target="#orders-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-bag-check-fill"></i><span>Orders</span><i className="bi bi-caret-right-fill ms-auto"></i>
-          </a>
+          </NavLink>
           <ul id="orders-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">           
             <li onClick={() => navigateToRoute('all-orders')}>
-              <a>
+            <NavLink to="all-orders">
               <i class="bi bi-diamond"></i><span>All Orders</span>
-              </a>
+              </NavLink>
             </li>
             <li onClick={() => navigateToRoute('today-orders')}>
-              <a>
+            <NavLink to="today-orders">
               <i class="bi bi-diamond"></i><span>Today Orders</span>
-              </a>
+              </NavLink>
             </li>
             <li onClick={() => navigateToRoute('orders')}>
-              <a >
+            <NavLink to="orders">
               <i class="bi bi-diamond"></i><span>Normal Orders</span>
-              </a>
+              </NavLink>
             </li>
             <li onClick={() => navigateToRoute('sub-orders')}>
-              <a>
+            <NavLink to="sub-orders">
               <i class="bi bi-diamond"></i><span>Subscription Orders</span>
-              </a>
+              </NavLink>
             </li>
           </ul>
         </li>
@@ -78,9 +79,9 @@ export default function Sidebar() {
       {
         (user.user_type == "admin") ?
         <li className="nav-item">
-          <a className="nav-link collapsed" data-bs-target="#items-nav" data-bs-toggle="collapse" href="#">
+          <NavLink to="/" className="nav-link collapsed inn" data-bs-target="#items-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-view-list"></i><span>Items</span><i className="bi bi-caret-right-fill ms-auto"></i>
-          </a>
+          </NavLink>
           <ul id="items-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li onClick={() => navigateToRoute('categories')}>
               <a >
@@ -109,30 +110,30 @@ export default function Sidebar() {
       {
         (user.user_type == "admin") ?
         <li className="nav-item" onClick={() => navigateToRoute('subscriptions')}>
-          <a className="nav-link collapsed" >
+           <NavLink to="subscriptions" className="nav-link collapsed" >
           <i class="bi bi-check-circle-fill"></i>
             <span>Subscriptions</span>
-          </a>
+          </NavLink>
         </li>
         : null
       }
       {
         (user.user_type == "admin") ?
         <li className="nav-item" onClick={() => navigateToRoute('delivery-zone')}>
-          <a className="nav-link collapsed" >
+          <NavLink to="delivery-zone" className="nav-link collapsed" >
             <i className="bi bi-map-fill"></i>
             <span>Delivery Zone</span>
-          </a>
+          </NavLink>
         </li> : null
       }
       
       {
         (user.user_type == "admin" || user.user_type == "delivery boy") ?
           <li className="nav-item" onClick={() => navigateToRoute('delivery-orders')}>
-          <a className="nav-link collapsed" >
+          <NavLink to="delivery-orders" className="nav-link collapsed" >
           <i class="bi bi-truck"></i>
             <span>Delivery Orders</span>
-          </a>
+          </NavLink>
         </li>
         : null
       }
@@ -140,19 +141,19 @@ export default function Sidebar() {
       {
         (user.user_type == "admin" || user.user_type == "kitchen") ?
         <li className="nav-item" onClick={() => navigateToRoute('kitchen-orders')}>
-          <a className="nav-link collapsed" >
+          <NavLink to="kitchen-orders"  className="nav-link collapsed" >
           <i class="bi bi-egg-fill"></i>
             <span>Kitchen Orders</span>
-          </a>
+          </NavLink>
         </li>
         : null
       }
        {
         (user.user_type == "admin") ?
         <li className="nav-item">
-          <a className="nav-link collapsed" data-bs-target="#invoice-nav" data-bs-toggle="collapse" href="#">
+           <NavLink to="invoices" className="nav-link collapsed" data-bs-target="#invoice-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-receipt-cutoff"></i><span className="flex-1">Invoice and Payments</span><i className="bi bi-caret-right-fill ms-auto"></i>
-          </a>
+          </NavLink>
           <ul id="invoice-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li onClick={() => navigateToRoute('invoices')}>
               <a >
