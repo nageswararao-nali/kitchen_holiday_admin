@@ -110,9 +110,9 @@ function Home() {
              
           </div>
           <div class="card-title h5 text-left mt-5 mb-3 title_above">Today’s Status:<small className='mx-3'> 10th Aug 2024</small></div>
-          <div className='d-flex justify-content-between'>
-            <div class="card-title h5 text-left mt-4 mb-3">Normal Orders : 20</div>          
-            <div class="card-title h5 text-left mt-4 mb-3">Subscription Orders : 35</div>   
+          <div className='d-flex mb-3'>
+            <div class="card-title h5 text-left mt-2 mb-3 mr-2 card_sub_title_bg">Normal Orders : 20</div>          
+            <div class="card-title h5 text-left mt-2 mb-3 ml-2 card_sub_title_bg">Subscription Orders : 35</div>   
           </div>       
           <div className='row'>
             <div className="col-xxl-4 col-md-6">
@@ -237,18 +237,58 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-xxl-4 col-md-6">
-              <div className="card info-card sales-card widget-stat bg-warning">
-                <div className="card-body p-4">
-                  <div className='media ai-icon'>
-                    <span class="me-3 bgl-warning text-warning"><img src='assets/img/items.png' width={36} /></span>                    
-                    <div class="media-body">
-                      <p class="mb-1"><b>Dal    </b></p>
-                      <h4 class="mb-0 ">2</h4>
+            <div className="col-xxl-12 col-md-12">
+              <div className='row'>
+              <div className='col-md-3'>
+                <div className="card sales-card widget-stat bg-warning">
+                  <div className="card-body p-4">
+                    <div className='media ai-icon justify-content-center'>
+                      {/* <span class="me-3 bgl-warning text-warning"><img src='assets/img/items.png' width={36} /></span>                     */}
+                      <div class="media-body">
+                        <h5 class="mb-0 ">Dal : 2</h5>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <div className='col-md-3'>
+                <div className="card sales-card widget-stat bg-info">
+                  <div className="card-body p-4">
+                    <div className='media ai-icon justify-content-center'>
+                      {/* <span class="me-3 bgl-warning text-warning"><img src='assets/img/items.png' width={36} /></span>                     */}
+                      <div class="media-body">
+                        <h5 class="mb-0 ">Chapathi : 4</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className='col-md-3'>
+                <div className="card sales-card widget-stat bg-danger">
+                  <div className="card-body p-4">
+                    <div className='media ai-icon justify-content-center'>
+                      {/* <span class="me-3 bgl-warning text-warning"><img src='assets/img/items.png' width={36} /></span>                     */}
+                      <div class="media-body">
+                        <h5 class="mb-0 ">Veg-curry : 1</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className='col-md-3'>
+                <div className="card sales-card widget-stat bg-success">
+                  <div className="card-body p-4">
+                    <div className='media ai-icon justify-content-center'>
+                      {/* <span class="me-3 bgl-warning text-warning"><img src='assets/img/items.png' width={36} /></span>                     */}
+                      <div class="media-body">
+                        <h5 class="mb-0 ">Salad/Soup : 1</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+
             </div>
             
 
