@@ -32,6 +32,7 @@ import TodayOrders from './pages/Orders/TodayOrders';
 import ZoneMapping from './pages/DeliveryZone/mappings';
 import AddSubOrder from './pages/Orders/AddSubOrder';
 import Customers from './pages/Customers';
+import SubscriptionUsers from './pages/Subscription/subscription_users';
 
 function App() {
   return (
@@ -98,6 +99,7 @@ function App() {
           <Route path="/subscriptions"  element={<ProtectedRoute />} >
             <Route path="/subscriptions" element={<Subscriptions />} />
             <Route path="/subscriptions/add" element={<AddSubscription />} />
+            <Route path="/subscriptions/subscription_users" element={<SubscriptionUsers />} />
           </Route>
           <Route path="/delivery-zone"  element={<ProtectedRoute />} >
             <Route path="/delivery-zone" element={<Zones />} />

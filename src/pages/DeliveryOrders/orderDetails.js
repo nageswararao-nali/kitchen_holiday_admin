@@ -116,6 +116,9 @@ function DeliveryOrderDetails() {
                     <div className="card">
                         <Map latitude={order.latitude} longitude={order.longitude}></Map>
                         {/* <div className="card-body"><img src="/assets/img/map_img.jpg" alt="" className='img-fluid' /></div> */}
+                        <div className='navigate_to'>
+                            <span className='btn btn2'>Navigate me</span>
+                        </div>
                     </div>
                 </div>
                 <div className="col-xl-8 col-md-7">

@@ -131,6 +131,10 @@ function TodayOrders() {
                       </Dropdown.Item> 
                     </Dropdown.Menu> 
                   </Dropdown>
+                  <i style={{color: 'green'}} className="bi bi-eye-fill"
+                onClick={() => {
+                    navigate('/kitchen-orders/details/'+row.id)
+                  } } />
 														
             </div>
           )
