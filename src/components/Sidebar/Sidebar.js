@@ -89,24 +89,24 @@ export default function Sidebar() {
           </NavLink>
           <ul id="items-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li onClick={() => navigateToRoute('categories')}>
-              <a >
+              <NavLink to="categories">
               <i class="bi bi-diamond"></i><span>Categories</span>
-              </a>
+              </NavLink>
             </li>
             <li onClick={() => navigateToRoute('items')}>
-              <a>
+            <NavLink to="items">
               <i class="bi bi-diamond"></i><span>Items</span>
-              </a>
+              </NavLink>
             </li>
             <li onClick={() => navigateToRoute('sub-items')}>
-              <a>
+              <NavLink to="sub-items">
               <i class="bi bi-diamond"></i><span>Sub Items</span>
-              </a>
+              </NavLink>
             </li>
             <li onClick={() => navigateToRoute('items/mapping')}>
-              <a>
+              <NavLink to="items/mapping">
               <i class="bi bi-diamond"></i><span>Items Mapping</span>
-              </a>
+              </NavLink>
             </li>
           </ul>
         </li>
@@ -114,11 +114,22 @@ export default function Sidebar() {
       }
       {
         (user.user_type == "admin") ?
-        <li className="nav-item" onClick={() => navigateToRoute('subscriptions')}>
-           <NavLink to="subscriptions" className="nav-link collapsed" >
-          <i class="bi bi-check-circle-fill"></i>
-            <span>Subscriptions</span>
+        <li className="nav-item" onClick={() => navigateToRoute('subscriptions')}>           
+          <NavLink to="/" className="nav-link collapsed inn" data-bs-target="#subscriptions-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-view-list"></i><span>Subscriptions</span><i className="bi bi-caret-right-fill ms-auto"></i>
           </NavLink>
+          <ul id="subscriptions-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <li onClick={() => navigateToRoute('subscriptions')}>
+              <NavLink to="subscriptions">
+              <i class="bi bi-diamond"></i><span>Subscriptions</span>
+              </NavLink>
+            </li>
+            <li onClick={() => navigateToRoute('subscriptions/subscription_users')}>
+              <NavLink to="subscriptions/subscription_users">
+              <i class="bi bi-diamond"></i><span>Subscriptions Users</span>
+              </NavLink>
+            </li>
+          </ul>
         </li>
         : null
       }
