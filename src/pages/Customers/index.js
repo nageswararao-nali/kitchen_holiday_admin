@@ -4,24 +4,23 @@ import paginationFactory from "react-bootstrap-table2-paginator";
 import { useNavigate } from 'react-router-dom';
 import { Button, Card, Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsers, deleteUser } from '../../store/usersSlice';
+import { getUsers, deleteUser, getUsersSearch } from '../../store/usersSlice';
 
 
 
 function Customers() {
   const navigate = useNavigate();
-    const [userType , setUserType] = useState(null)
+    const [userType , setUserType] = useState('customer')
     const dispatch = useDispatch()
     const { users } = useSelector((state) => state.users)
+    const [searchUserValue, setSearchUserValue] = useState('')
 
     const getUsersData = async () => {
-      await dispatch(getUsers({}))
+      await dispatch(getUsers({user_type: userType}))
     }
     useEffect(() => {
-        if(!users.length && !userType) {
-          getUsersData()
-        }
-    }, [users])
+      getUsersData()
+    }, [])
 
     const deleteUserData = async (userId) => {
       console.log("user id ", userId)
@@ -36,6 +35,15 @@ function Customers() {
         await dispatch(getUsers({}))
       }
       
+    }
+    const searchUser = async () => {
+      if(searchUserValue) {
+        let reqObj = {
+          user_type: userType,
+          search: searchUserValue
+        }
+        await dispatch(getUsersSearch(reqObj))
+      }
     }
     const columns = [
       {
@@ -73,6 +81,12 @@ function Customers() {
         formatter: (cell, row, rowIndex) => {
           return (
             <div key={row.id} style={{display: "flex", justifyContent: 'space-evenly'}}>
+              <span className='btn btn-secondry shadow btn-xs sharp me-1 d-flex justify-content-center m-0 p-0'>
+                  <i style={{color: '#fff'}} className="bi bi-pencil-fill"
+                  onClick={() => {
+                      navigate('/customers/edit/'+row.id)
+                    } } />
+              </span>
               <span className='btn btn-primary shadow btn-xs sharp me-1 d-flex justify-content-center m-0 p-0'>
                   <i style={{color: '#fff'}} className="bi bi-trash2-fill" onClick={() => {
                      console.log (row);
@@ -113,13 +127,13 @@ function Customers() {
         <div className='row'>
           <Card style={{ padding: '10px' }}>
               {/* <Card.Title>Users</Card.Title> */}
-              <div class="card-header">
-                <div class="card-title h5">Customers</div>
+              <div className="card-header">
+                <div className="card-title h5">Customers</div>
                 <div className=' mb-2  d-flex align-items-center' style={{justifyContent: 'end'}}>
                     <div className='search-bar mr-2'>
-                        <form className="search-form d-flex align-items-center" method="POST" action="#">
-                            <input type="text" className="form-control" name="query" placeholder="Search" title="Enter search keyword" />
-                            <button type="submit" title="Search"><i className="bi bi-search"></i></button>
+                        <form className="search-form d-flex align-items-center">
+                            <input type="text" className="form-control" name="query" value={searchUserValue} onChange={(e) => setSearchUserValue(e.target.value)} placeholder="Search" title="Enter search keyword" />
+                            <div title="Search" onClick={() => searchUser()} ><i className="bi bi-search"></i></div>
                         </form>
                     </div>
                     <div>

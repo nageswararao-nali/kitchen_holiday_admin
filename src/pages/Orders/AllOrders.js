@@ -8,6 +8,7 @@ import { getOrders, updateOrderStatus } from '../../store/orderSlice';
 import ToolkitProvider, {CSVExport} from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
 import * as moment from 'moment';
 import Modal from 'react-bootstrap/Modal';
+import DatePicker from 'react-datepicker';
 const { ExportCSVButton } = CSVExport;
 
 function AllOrders() {
@@ -16,6 +17,7 @@ function AllOrders() {
     const dispatch = useDispatch()
     const { orders } = useSelector((state) => state.orders)
     const [selectedOrder, setSelectedOrder] = useState({})
+    const [startDate, setStartDate] = useState(new Date());
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -23,10 +25,10 @@ function AllOrders() {
       await dispatch(getOrders({}))
     }
     useEffect(() => {
-        if(!orders.length && !status) {
+        // if(!orders.length && !status) {
           getOrdersData()
-        }
-    }, [orders])
+        // }
+    }, [])
 
     const updateOrder = async(orderId, statusD) => {
       console.log(orderId, status)
@@ -36,17 +38,32 @@ function AllOrders() {
     }
 
     const filterOrders = async (statusValue) => {
-      if(statusValue) {
+      if(statusValue && statusValue != 'all') {
         await dispatch(getOrders({status: statusValue}))
       } else {
         await dispatch(getOrders({}))
       }
       
     }
+
+    const handleDateClick = async (date) => {
+      console.log(date)
+      setStartDate(date)
+      let orderDate = moment(date).format('YYYY-MM-DD')
+      console.log(orderDate)
+      await dispatch(getOrders({orderDate: orderDate}))
+    }
     const columns = [
       {
         dataField: "id",
         text: "Order ID",
+        formatter: (cell, row, rowIndex) => {
+            return (
+                <span onClick={() => {
+                    navigate('/kitchen-orders/details/'+row.id)
+                  } }>{row.id}</span>
+            )
+        }
       },
       {
         dataField: "orderDate",
@@ -161,6 +178,12 @@ function AllOrders() {
             <div className='col-sm-12'>
             <div class="card-action coin-tabs mt-3 mt-sm-0">
                 <ul class="nav nav-tabs nav" role="tablist">
+                <li class="nav-item nav-item">
+                    <div className='brand-list'>
+                        <input type="radio" name="brand" className="btn-check" id="btn-all-outlined" value="all" autoComplete="off" checked={status == 'all'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
+                        <label className="btn btn-outline-primary selected_bg1" htmlFor="btn-new-outlined">All</label>
+                    </div>
+                    </li>
                   <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-new-outlined" value="new" autoComplete="off" checked={status == 'new'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
@@ -200,6 +223,15 @@ function AllOrders() {
                     </ul>
                 </div>
             </div>
+        </div>
+        <div className='row'>
+          <div className='col-md-3'>
+            <DatePicker
+            selected={startDate}
+              onChange={handleDateClick}
+            />
+          </div>
+          
         </div>
                               <BootstrapTable
                                       { ...props.baseProps }

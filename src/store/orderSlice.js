@@ -26,6 +26,9 @@ export const updateOrder = createAsyncThunk('orders/updateOrder', async (order, 
   return handleAuthApiCall(orderService.updateOrder, order, thunkAPI);
 });
 
+export const todayOrderDetails = createAsyncThunk('orders/todayOrderDetails', async (order, thunkAPI) => {
+  return handleAuthApiCall(orderService.todayOrderDetails, order, thunkAPI);
+});
 
 const itemsSlice = createSlice({
   name: 'items',
@@ -33,6 +36,7 @@ const itemsSlice = createSlice({
     loading: false,
     orders: [],
     order: {},
+    todayOrderDetails: {},
     error: null
   },
   reducers: {

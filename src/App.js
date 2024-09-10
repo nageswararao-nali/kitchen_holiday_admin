@@ -32,6 +32,7 @@ import TodayOrders from './pages/Orders/TodayOrders';
 import ZoneMapping from './pages/DeliveryZone/mappings';
 import AddSubOrder from './pages/Orders/AddSubOrder';
 import Customers from './pages/Customers';
+import UsersSubscriptions from './pages/Orders/UsersSubscriptions';
 
 function App() {
   return (
@@ -81,6 +82,8 @@ function App() {
           </Route>
           <Route path="/customers"  element={<ProtectedRoute />} >
             <Route path="/customers" element={<Customers />} />
+            <Route path="/customers/add" element={<AddUser />} />
+            <Route path="/customers/edit/:custId" element={<AddUser />} />
           </Route>
           <Route path="/categories"  element={<ProtectedRoute />} >
             <Route path="/categories" element={<Category />} />
@@ -94,15 +97,20 @@ function App() {
           <Route path="/sub-items"  element={<ProtectedRoute />} >
             <Route path="/sub-items" element={<SubItem />} />
             <Route path="/sub-items/add" element={<AddSubItem />} />
+            <Route path="/sub-items/edit/:itemId" element={<AddSubItem />} />
           </Route>
           <Route path="/subscriptions"  element={<ProtectedRoute />} >
             <Route path="/subscriptions" element={<Subscriptions />} />
             <Route path="/subscriptions/add" element={<AddSubscription />} />
+            <Route path="/subscriptions/edit/:id" element={<AddSubscription />} />
           </Route>
           <Route path="/delivery-zone"  element={<ProtectedRoute />} >
             <Route path="/delivery-zone" element={<Zones />} />
             <Route path="/delivery-zone/add" element={<AddZone />} />
             <Route path="/delivery-zone/mapping" element={<ZoneMapping />} />
+          </Route>
+          <Route path="/users-subscriptions"  element={<ProtectedRoute />} >
+            <Route path="/users-subscriptions" element={<UsersSubscriptions />} />
           </Route>
           <Route path="/login"  element={<Login />} />
           <Route path="/otp"  element={<Otp />} />

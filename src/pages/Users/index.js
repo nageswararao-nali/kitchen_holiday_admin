@@ -10,18 +10,16 @@ import { getUsers, deleteUser } from '../../store/usersSlice';
 
 function Users() {
   const navigate = useNavigate();
-    const [userType , setUserType] = useState(null)
+    const [userType , setUserType] = useState('delivery boy')
     const dispatch = useDispatch()
     const { users } = useSelector((state) => state.users)
 
     const getUsersData = async () => {
-      await dispatch(getUsers({}))
+      await dispatch(getUsers({user_type: userType}))
     }
     useEffect(() => {
-        if(!users.length && !userType) {
-          getUsersData()
-        }
-    }, [users])
+      getUsersData()
+    }, [])
 
     const deleteUserData = async (userId) => {
       console.log("user id ", userId)
@@ -123,12 +121,12 @@ function Users() {
               </div>
               <div class="card-action coin-tabs mt-3 mt-sm-3">
                 <ul class="nav nav-tabs nav" role="tablist">
-                  <li class="nav-item nav-item">
+                  {/* <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-new-outlined" value="customer" autoComplete="off" checked={userType == 'customer'} onChange={(e) => {setUserType(e.target.value); filterUsers(e.target.value)}} />
                         <label className="btn btn-outline-primary selected_bg1" htmlFor="btn-new-outlined">Customers</label>
                     </div>
-                  </li>
+                  </li> */}
                   <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-confirmed-outlined" value="delivery boy" autoComplete="off" checked={userType == 'delivery boy'} onChange={(e) => {setUserType(e.target.value); filterUsers(e.target.value)}} />

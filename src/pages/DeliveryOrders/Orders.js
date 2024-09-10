@@ -16,7 +16,13 @@ function DeliveryOrders() {
     const { user } = useSelector((state) => state.auth)
 
     const getOrdersData = async () => {
-      await dispatch(getOrders({userId: user.id, orderDate: moment().format('YYYY-MM-DD')}))
+      let reqObj = {
+        orderDate: moment().format('YYYY-MM-DD'),
+      }
+      if(user.user_type != 'admin') {
+        reqObj['userId'] = user.id
+      }
+      await dispatch(getOrders(reqObj))
     }
 
     const updateOrder = async(orderId, statusD) => {

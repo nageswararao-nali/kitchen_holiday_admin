@@ -10,6 +10,10 @@ export const getSubscriptions = createAsyncThunk('subscriptions/getSubscriptions
   return handleAuthApiCall(subscriptionService.getSubscriptions, reqObj, thunkAPI);
 });
 
+export const getSubscription = createAsyncThunk('subscriptions/getSubscription', async (reqObj, thunkAPI) => {
+  return handleAuthApiCall(subscriptionService.getSubscription, reqObj, thunkAPI);
+});
+
 export const addZone = createAsyncThunk('subscriptions/addZone', async (reqObj, thunkAPI) => {
     return handleAuthApiCall(subscriptionService.addZone, reqObj, thunkAPI);
   });
@@ -31,6 +35,17 @@ export const addZone = createAsyncThunk('subscriptions/addZone', async (reqObj, 
     return handleAuthApiCall(subscriptionService.deleteSubscription, reqObj, thunkAPI);
   }); 
   
+export const userSubscriptions = createAsyncThunk('subscriptions/getMySubscriptions', async (reqObj, thunkAPI) => {
+  return handleAuthApiCall(subscriptionService.userSubscriptions, reqObj, thunkAPI);
+}); 
+export const updateMySubscription = createAsyncThunk('subscriptions/updateMySubscription', async (reqObj, thunkAPI) => {
+  return handleAuthApiCall(subscriptionService.updateMySubscription, reqObj, thunkAPI);
+});
+
+export const deleteMySubscription = createAsyncThunk('subscriptions/deleteMySubscription', async (reqObj, thunkAPI) => {
+  return handleAuthApiCall(subscriptionService.deleteMySubscription, reqObj, thunkAPI);
+});
+
 const subscriptionSlice = createSlice({
   name: 'items',
   initialState: {
@@ -39,6 +54,8 @@ const subscriptionSlice = createSlice({
     zones: [],
     lastSubDate: null,
     mappings: [],
+    usersSubscriptions: [],
+    subscription: {},
     error: null
   },
   reducers: {
@@ -56,6 +73,20 @@ const subscriptionSlice = createSlice({
         state.loading = false;
       })
       .addCase(addSubscription.rejected, (state, action) => {
+        state.loading = false;
+      })
+      .addCase(getSubscription.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getSubscription.fulfilled, (state, action) => {
+        if(action.payload.success) {
+            state.subscription = action.payload.data
+        } else {
+          state.error = action.payload.message
+        }
+        state.loading = false;
+      })
+      .addCase(getSubscription.rejected, (state, action) => {
         state.loading = false;
       })
       .addCase(getSubscriptions.pending, (state) => {
@@ -142,6 +173,22 @@ const subscriptionSlice = createSlice({
       .addCase(getOrderDates.rejected, (state, action) => {
         state.loading = false;
       })
+      .addCase(userSubscriptions.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(userSubscriptions.fulfilled, (state, action) => {
+        if(action.payload.success) {
+            state.usersSubscriptions = action.payload.data.items
+        } else {
+          state.error = action.payload.message
+          state.usersSubscriptions = []
+        }
+        state.loading = false;
+      })
+      .addCase(userSubscriptions.rejected, (state, action) => {
+        state.loading = false;
+      })
+      
   },
 });
 

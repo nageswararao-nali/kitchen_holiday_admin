@@ -5,12 +5,13 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import { useDispatch, useSelector } from 'react-redux';
-import { addUser } from '../../store/usersSlice';
-import { useNavigate } from 'react-router-dom';
+import { addUser, getUser, updateUser } from '../../store/usersSlice';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function AddUser() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { custId } = useParams()
     const { error } = useSelector((state) => state.users)
     const [validated, setValidated] = useState(false);
     const [userType, setUserType] = useState('customer');
@@ -39,12 +40,36 @@ function AddUser() {
             password,
             user_type: userType
         }
-        await dispatch(addUser(userObj));
+        if(!custId) {
+            await dispatch(addUser(userObj));
+        } else {
+            await dispatch(updateUser({userId: custId, updateData: userObj}));
+        }
+        
         navigate('/users')
     }
     setValidated(true);
     
   };
+  
+  const getUserData = async () => {
+    let userRes = await dispatch(getUser({userId: custId}))
+    if(userRes.payload.success) {
+        let userData = userRes.payload.data
+        setUsername(userData.username)
+        setMobile(userData.mobile)
+        setEmail(userData.email)
+        setFName(userData.fName)
+        setLName(userData.lName)
+        setUserType(userData.user_type)
+        setPassword(userData.password)
+    }
+  }
+  useEffect(() => {
+    if(custId) {
+        getUserData()
+    }
+  }, [custId])
     
   return (
     <div className='container-fluid'>

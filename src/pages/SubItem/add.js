@@ -35,6 +35,8 @@ function AddSubItem(props) {
             setName(subItem.name)
             setDescription(subItem.description)
             setIsVeg(subItem.isVeg)
+            setQuantity(subItem.quantity)
+            setPrice(subItem.price)
         }
     }, [subItem])
     
@@ -60,6 +62,7 @@ function AddSubItem(props) {
             formData.append('isVeg', isVeg)
             formData.append('quantity', quantity)
             formData.append('price', price)
+            formData.append('id', itemId)
             await dispatch(addSubItem(formData));
             await dispatch(getSubItems())
             navigate('/sub-items')

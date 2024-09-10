@@ -64,6 +64,7 @@ function AddItem(props) {
             formData.append('description', description)
             formData.append('isVeg', isVeg)
             formData.append('price', price)
+            formData.append('id', itemId)
             // let userObj = {
             //     category,
             //     name,

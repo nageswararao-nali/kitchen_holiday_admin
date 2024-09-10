@@ -5,10 +5,11 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import { useDispatch, useSelector } from 'react-redux';
-import { addSubscription, getSubscriptions } from '../../store/subscriptionsSlice';
-import { useNavigate } from 'react-router-dom';
+import { addSubscription, getSubscriptions, getSubscription } from '../../store/subscriptionsSlice';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function AddSubscription() {
+    const { id } = useParams()
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { error } = useSelector((state) => state.users)
@@ -19,6 +20,28 @@ function AddSubscription() {
     const [price, setPrice] = useState('');
     const [days, setDays] = useState('');
     const [isVeg , setIsVeg] = useState(true)
+    const { subscription } = useSelector((state) => state.subscriptions)
+
+    const getItemData = async () => {
+        await dispatch(getSubscription({id: id}))
+    }
+    
+    useEffect(() => {
+        if(id) {
+            getItemData()
+        }
+    }, [id])
+
+    useEffect(() => {
+        if(subscription) {
+            setName(subscription.name)
+            setDescription(subscription.description)
+            setIsVeg(subscription.isVeg)
+            setDays(subscription.days)
+            setShortName(subscription.shortName)
+            setPrice(subscription.price)
+        }
+    }, [subscription])
 
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
@@ -34,7 +57,9 @@ function AddSubscription() {
             description,
             price,
             days,
-            isVeg
+            isVeg,
+            shortName,
+            id
         }
         await dispatch(addSubscription(userObj));
         await dispatch(getSubscriptions({}))

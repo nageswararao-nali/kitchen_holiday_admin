@@ -97,6 +97,7 @@ function ItemMapping(props) {
             // navigate('/items')
             setItemId(null)
             setSubItemIds([])
+            window.location.reload()
         }
         setValidated(true);
         
@@ -105,8 +106,8 @@ function ItemMapping(props) {
     <div className='container-fluid'>
         <div className='row mx-5'>
             <Card className='card_new'>
-                <div class="card-header  mb-3">
-                    <div class="card-title h5">Item Mapping</div>
+                <div className="card-header  mb-3">
+                    <div className="card-title h5">Item Mapping</div>
                     
                 </div>
                 <Card.Body>
@@ -118,7 +119,7 @@ function ItemMapping(props) {
                                     <Form.Label className='form_label'> Sub Item </Form.Label>
                                 </Col>
                                 <Col sm={10}>
-                                    <Form.Select defaultValue={itemId} value={itemId} onChange={(e) => getItemMappings(e)} required >
+                                    <Form.Select defaultValue={itemId} onChange={(e) => getItemMappings(e)} required >
                                         <option value="">Select Item</option>
                                         {items.map((itemData) => {
                                             return (<option key={itemData.id} value={itemData.id}>{itemData.name}</option>)
@@ -131,9 +132,9 @@ function ItemMapping(props) {
                                 {
                                     subItems.map((subItem) => {
                                         return (
-                                            <Form.Group className="mb-1 col-md-3 " controlId="formHorizontalCheck">
+                                            <Form.Group className="mb-1 col-md-3 " key={subItem.id} controlId="formHorizontalCheck">
                                                 <Col className='m-2 text-left'>
-                                                    <Form.Check data={subItemIds.indexOf(subItem.id) > -1} name="subitem" label={subItem.name} value={subItem.id} onChange={handleChange} />
+                                                    <Form.Check data={subItemIds.indexOf(subItem.id.toString())} checked={subItemIds.indexOf(subItem.id.toString()) > -1} name="subitem" label={subItem.name} value={subItem.id} onChange={handleChange} />
                                                 </Col>
                                             </Form.Group>
                                         )
@@ -151,7 +152,7 @@ function ItemMapping(props) {
                         
                         <Button type="submit">Add</Button>
                         <hr></hr>
-                        <Row>
+                        {/* <Row>
                         <Col sm={2} className='p-0'>
                             <Form.Label className='form_label'> Veg meals </Form.Label>
                         </Col>
@@ -179,8 +180,8 @@ function ItemMapping(props) {
                         </Row>                        
                         <Button type="submit" className='m-2'>Delete</Button>
 
-                        <hr></hr>
-                        <Row>
+                        <hr></hr> */}
+                        {/* <Row>
                         <Col sm={2} className='p-0'>
                             <Form.Label className='form_label'> Non Veg meals </Form.Label>
                         </Col>
@@ -206,7 +207,7 @@ function ItemMapping(props) {
                         }   
                         </Col>
                         </Row>                        
-                        <Button type="submit" className='m-2'>Delete</Button>
+                        <Button type="submit" className='m-2'>Delete</Button> */}
                     </Form>
                 </Card.Body>
             </Card>

@@ -72,6 +72,11 @@ export default function Sidebar() {
               <i class="bi bi-diamond"></i><span>Subscription Orders</span>
               </NavLink>
             </li>
+            <li onClick={() => navigateToRoute('users-subscriptions')}>
+            <NavLink to="sub-orders">
+              <i class="bi bi-diamond"></i><span>User Subscriptions</span>
+              </NavLink>
+            </li>
           </ul>
         </li>
         : null

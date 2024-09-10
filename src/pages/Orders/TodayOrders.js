@@ -88,6 +88,14 @@ function TodayOrders() {
         text: "Customer Name",
       },
       {
+        dataField: "customerMobile",
+        text: "Customer Mobile",
+      },
+      {
+        dataField: "itemName",
+        text: "Meal",
+      },
+      {
         dataField: "deliveryParterName",
         text: "Delivery Boy Name",
       },
@@ -176,14 +184,14 @@ function TodayOrders() {
                                 <ExportCSVButton { ...props.csvProps } class="btn btn-primary btn-secondry mr-2">Export CSV!!</ExportCSVButton>
                                 </div>
                               </div>
-                              <div className='d-flex justify-content-around flex-wrap today_menu'>
+                              {/* <div className='d-flex justify-content-around flex-wrap today_menu'>
                                 <span>Total Meals : 25</span>
                                 <span>Veg Meals : 10</span>
                                 <span>Non Veg Meals : 15</span>
                                 <span>Extra Items : 20</span>
                                 <span>Dal : 2</span>
                               </div>
-                              <span className='card-header pt-0'></span>
+                              <span className='card-header pt-0'></span> */}
                             <div className='col-sm-12'>
                                 <div className='brand-list-content my-3'>
                                     <div className='brand-list'>

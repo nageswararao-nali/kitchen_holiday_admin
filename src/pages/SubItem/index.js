@@ -38,13 +38,20 @@ function SubItems() {
           formatter: (cell, row, rowIndex) => {
             return (
               <div key={row.id} className='d-flex justify-content-center'>
+                <span className='btn btn-secondry shadow btn-xs sharp me-1 d-flex justify-content-center m-0 p-0'>
+              <i style={{color: '#fff'}} className="bi bi-pencil-fill"
+              onClick={() => {
+                  navigate('/sub-items/edit/'+row.id)
+                } } />
+              </span>
               <span className='btn btn-primary shadow btn-xs sharp me-1 d-flex justify-content-center m-0 p-0'>
                 <i style={{color: '#fff'}} className="bi bi-trash2-fill" onClick={() => {
                    console.log (row);
                    console.log(cell)
                    deleteItemFun(row.id)
                  } } />
-                 </span>
+              </span>
+              
                  
             </div>
             )

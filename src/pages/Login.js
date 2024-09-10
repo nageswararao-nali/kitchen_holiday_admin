@@ -22,9 +22,10 @@ function Home() {
     }
     useEffect(() => {
         if(isAuthenticated) {
-            if(user.user_type == 'kitchen') {
-                navigate('/kitchen-orders')
-            } else if(user.user_type == 'delivery boy') {
+            // if(user.user_type == 'kitchen') {
+            //     navigate('/kitchen-orders')
+            // } else 
+            if(user.user_type == 'delivery boy') {
                 navigate('/delivery-orders')
             } else {
                 navigate('/')

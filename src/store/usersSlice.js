@@ -18,17 +18,32 @@ export const addUser = createAsyncThunk('users/addUser', async (user, thunkAPI) 
     return handleAuthApiCall(usersService.addUser, user, thunkAPI);
 });
 
+export const updateUser = createAsyncThunk('users/updateUser', async (user, thunkAPI) => {
+  return handleAuthApiCall(usersService.updateUser, user, thunkAPI);
+});
+
 export const getUsers = createAsyncThunk('users/getUsers', async (searchQuery, thunkAPI) => {
     return handleAuthApiCall(usersService.getUsers, {searchQuery}, thunkAPI);
+});
+
+export const getUser = createAsyncThunk('users/getUser', async (searchQuery, thunkAPI) => {
+  return handleAuthApiCall(usersService.getUser, searchQuery, thunkAPI);
+});
+
+export const getUsersSearch = createAsyncThunk('users/getUsersSearch', async (searchQuery, thunkAPI) => {
+  return handleAuthApiCall(usersService.getUsersSearch, searchQuery, thunkAPI);
 });
 
 export const deleteUser = createAsyncThunk('users/deleteUser', async (user, thunkAPI) => {
   return handleAuthApiCall(usersService.deleteUser, user, thunkAPI);
 });
 
-
 export const getUserAddresses = createAsyncThunk('users/getUserAddresses', async (reaObj, thunkAPI) => {
   return handleAuthApiCall(usersService.getUserAddresses, reaObj, thunkAPI);
+});
+
+export const getUsersSubscriptions = createAsyncThunk('users/getUsersSubscriptions', async (reaObj, thunkAPI) => {
+  return handleAuthApiCall(usersService.getUsersSubscriptions, reaObj, thunkAPI);
 });
 
 const usersSlice = createSlice({
@@ -40,6 +55,7 @@ const usersSlice = createSlice({
     totalDrivers: 0,
     userAddresses: [],
     users: [],
+    usersSubscriptions: [],
     error: null
   },
   reducers: {
@@ -106,6 +122,19 @@ const usersSlice = createSlice({
         state.loading = false;
       })
       .addCase(getUsers.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload
+      })
+      .addCase(getUsersSearch.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getUsersSearch.fulfilled, (state, action) => {
+        if(action.payload.success) {
+            state.users = action.payload.data.users
+        }
+        state.loading = false;
+      })
+      .addCase(getUsersSearch.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload
       })
