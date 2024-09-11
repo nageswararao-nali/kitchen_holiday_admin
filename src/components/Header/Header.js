@@ -47,10 +47,10 @@ export default function Header() {
     <div className="search-bar d-flex">
     {/* <i className="bi bi-list toggle-sidebar-btn p-3" onClick={() => toggleSidebar()}></i> */}
     <div class="hamburger m-3 hide-md"  onClick={() => toggleSidebar()}><span class="line" ></span><span class="line"></span><span class="line"></span></div>
-      <form className="search-form d-flex align-items-center" method="POST" action="#">
+     {/*  <form className="search-form d-flex align-items-center" method="POST" action="#">
         <input type="text" className="form-control" name="query" placeholder="Search" title="Enter search keyword" />
         <button type="submit" title="Search"><i className="bi bi-search"></i></button>
-      </form>
+      </form> */}
     </div>
 
     <nav className="header-nav ms-auto">

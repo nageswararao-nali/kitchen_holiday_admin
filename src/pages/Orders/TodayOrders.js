@@ -144,10 +144,10 @@ function TodayOrders() {
                       </Dropdown.Item> 
                     </Dropdown.Menu> 
                   </Dropdown>
-                  <i style={{color: 'green'}} className="bi bi-eye-fill"
+                  <span style={{color: 'green'}} className="bi bi-eye-fill"
                 onClick={() => {
                     navigate('/kitchen-orders/details/'+row.id)
-                  } } />
+                  } } ></span>
 														
             </div>
           )
@@ -157,10 +157,13 @@ function TodayOrders() {
   return (
     <div className='container-fluid'>
         <div className='row mb-3'>
-        <Card >
+        <Card className='card_new'>
         {/* <Card.Title>Today Orders</Card.Title> */}
        
-       
+        <div className="card-header">
+            <div className="card-title h5">Today Orders</div>
+            
+        </div>
               <Card.Body>
                   {
                       (orders && orders.length) ?
@@ -175,9 +178,8 @@ function TodayOrders() {
                             <div>
                               
                              
-                              <div class="card-header  mb-3">
-                                <div class="card-title h5">Today Orders</div>
-                                <div className=' mb-2  d-flex align-items-center' style={{justifyContent: 'end'}}>
+                              <div class="  mb-3">
+                                <div className=' mb-2  d-flex align-items-center' style={{justifyContent: 'space-between'}}>
                                 <div className='search-bar mr-2' style={{minWidth:'250px'}}>
                                     <form className="search-form d-flex align-items-center" method="POST" action="#">
                                         <input type="text" className="form-control" name="query" placeholder="Search" title="Enter search keyword" />
@@ -185,7 +187,7 @@ function TodayOrders() {
                                     </form>
                                 </div>
                                
-                                <ExportCSVButton { ...props.csvProps } class="btn btn-primary btn-secondry mr-2">Export CSV!!</ExportCSVButton>
+                                <ExportCSVButton { ...props.csvProps } class="btn btn-primary btn-secondry mr-2 card widget-stat mb-0 text-white">Export CSV!!</ExportCSVButton>
                                 </div>
                               </div>
                               {/* <div className='d-flex justify-content-around flex-wrap today_menu'>

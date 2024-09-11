@@ -32,11 +32,8 @@ import TodayOrders from './pages/Orders/TodayOrders';
 import ZoneMapping from './pages/DeliveryZone/mappings';
 import AddSubOrder from './pages/Orders/AddSubOrder';
 import Customers from './pages/Customers';
-<<<<<<< HEAD
 import UsersSubscriptions from './pages/Orders/UsersSubscriptions';
-=======
 import SubscriptionUsers from './pages/Subscription/subscription_users';
->>>>>>> fa584edaa4fcef59737c0eab736d2738c4f9d3a0
 
 function App() {
   return (

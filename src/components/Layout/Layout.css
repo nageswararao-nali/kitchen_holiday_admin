@@ -414,7 +414,8 @@ p{
   padding: 1.5rem 1.875rem 1.25rem;
   position: relative;
 }
-.container-fluid .btn-primary{border: 0;}
+.container-fluid .btn-primary{border: 0;line-height: 30px;}
+.container-fluid hr{border-color:#e5e9ed;opacity:1}
 .react-bootstrap-table table{table-layout: auto;}
 .table-responsive {
   -webkit-overflow-scrolling: touch;
@@ -1868,6 +1869,7 @@ address{text-align: left;}
 .extra_items_block .extra_item{margin: 10px 0;}
 .sub_total{height: 30px;display: block;;}
 /* .total_amt{text-align: right;margin-right: 30px;} */
+.search-form{width: 300px;}
 @keyframes animate-loading {
   0% {
     transform: rotate(0deg);

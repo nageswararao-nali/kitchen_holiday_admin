@@ -140,18 +140,24 @@ function AllOrders() {
                       </Dropdown.Item> 
                     </Dropdown.Menu> 
                   </Dropdown>
-														
+                  <span style={{color: 'green'}} className="bi bi-eye-fill" onClick={() => {
+                    navigate('/kitchen-orders/details/'+row.id)
+                  } }></span>				
             </div>
+            
           )
         }
       }
     ];
   return (
     <div className='container-fluid'>
-        <div className='row'>
-        <Card style={{ padding: '10px' }}>
+        <div className='row '>
+        <Card className='card_new'>
         
-       
+        <div className="card-header">
+                    <div className="card-title h5">All Orders</div>
+                    
+                </div>
               {/* <Card.Title>Orders</Card.Title> */}
               <Card.Body>
                   {
@@ -165,15 +171,27 @@ function AllOrders() {
                         {
                           props => (
                             <div>                           
-                              <div class="card-header  mb-3">
-                                <div class="card-title h5">All Orders</div>
-                                <div className='d-flex mb-2' style={{justifyContent: 'end'}}>
-                                 <ExportCSVButton { ...props.csvProps } class="btn btn-primary btn-secondry mr-2">Export CSV!!</ExportCSVButton>
-                                <div>
-                                <Button onClick={() => navigate('/orders/add')}> Add Normal Order</Button>
-                              </div>
+                              <div class="  mb-3">
+                                <div className='d-flex mb-2' style={{justifyContent: 'space-between'}}>
+                                <form className="search-form d-flex align-items-center" method="POST" action="#">
+                                  <input type="text" className="form-control" name="query" placeholder="Search" title="Enter search keyword" />
+                                  <button type="submit" title="Search"><i className="bi bi-search"></i></button>
+                                </form>                               
+                                <div className='d-flex justify-content-end align-items-center'>
+                                <div className='mr-2'>
+                                  <DatePicker
+                                  selected={startDate}
+                                    onChange={handleDateClick}
+                                  />
+                                </div>
+                                  <ExportCSVButton { ...props.csvProps } class="btn btn-primary btn-secondry mr-2 card widget-stat mb-0 text-white">Export CSV!!</ExportCSVButton>
+                                  <div className='card widget-stat mb-0'>
+                                  <Button onClick={() => navigate('/orders/add')}> Add Normal Order</Button>
+                                  </div>
+                                </div>
                             </div>
                     </div>
+                    <hr></hr>
         <div className='row mb-3'>
             <div className='col-sm-12'>
             <div class="card-action coin-tabs mt-3 mt-sm-0">
@@ -224,15 +242,7 @@ function AllOrders() {
                 </div>
             </div>
         </div>
-        <div className='row'>
-          <div className='col-md-3'>
-            <DatePicker
-            selected={startDate}
-              onChange={handleDateClick}
-            />
-          </div>
-          
-        </div>
+       
                               <BootstrapTable
                                       { ...props.baseProps }
                                     pagination={paginationFactory({ sizePerPage: 10, hideSizePerPage: true, onPageChange:(page)=>console.log("DB CALL with page" + page) })}
