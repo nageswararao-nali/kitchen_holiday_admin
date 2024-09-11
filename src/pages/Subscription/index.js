@@ -76,18 +76,26 @@ function Subscriptions() {
     <div className='container-fluid'>
        
         <div className='row'>
-          <Card style={{ padding: '10px' }}>
+          <Card className='card_new'>
               {/* <Card.Title>Subscriptions</Card.Title> */}
-              <div class="card-header  mb-3">
+              <div class="card-header">
                 <div class="card-title h5">Subscriptions</div>
-                <div className=' mb-2' style={{justifyContent: 'end'}}>
-                    <div>
+               
+              </div>
+              <Card.Body>
+              <div  className='mb-4 d-flex justify-content-between align-items-center flex-wrap' >
+              <div class="customer-search sm-mb-0 mb-3">
+              <div class="input-group search-area">
+                <input type="text" class="form-control" placeholder="Search Name / Mobile / Email"/>
+                <span class="input-group-text"><a href="/react/demo/order-list"><i class="bi bi-search"></i></a>
+                </span>
+              </div>
+            </div>
+                    <div className='card widget-stat mb-0'>
                     <Button onClick={() => navigate('/subscriptions/add')}> Add Subscription</Button>
 
                     </div>
                 </div>
-              </div>
-              <Card.Body>
                   {
                       (subscriptions && subscriptions.length) ?
                       <BootstrapTable

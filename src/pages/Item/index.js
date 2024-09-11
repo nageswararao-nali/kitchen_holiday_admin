@@ -69,16 +69,24 @@ function Items() {
     <div className='container-fluid'>
        
         <div className='row'>
-          <Card style={{ padding: '10px' }}>
-          <div class="card-header  mb-3">
+          <Card className='card_new'>
+          <div class="card-header ">
                 <div class="card-title h5">Items</div>
-                <div className=' mb-2' style={{justifyContent: 'end'}}>
-                    <div>
+               
+              </div>
+            <Card.Body>
+            <div className='mb-4 d-flex justify-content-between align-items-center flex-wrap' >
+            <div class="customer-search sm-mb-0 mb-3">
+              <div class="input-group search-area">
+                <input type="text" class="form-control" placeholder="Search Name / Mobile / Email"/>
+                <span class="input-group-text"><a href="/react/demo/order-list"><i class="bi bi-search"></i></a>
+                </span>
+              </div>
+            </div>
+                    <div className='card widget-stat mb-0'>
                     <Button onClick={() => navigate('/items/add')}> Add Item</Button>
                     </div>
                 </div>
-              </div>
-            <Card.Body>
                 {
                     (items && items.length) ?
                     <BootstrapTable

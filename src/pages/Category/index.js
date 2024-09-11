@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { getCategories } from '../../store/itemsSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import {  Card } from 'react-bootstrap';
+import {  Card, CardBody } from 'react-bootstrap';
 
 export const productsGenerator = quantity => {
   const items = [];
@@ -48,15 +48,24 @@ function Category() {
     <div className='container-fluid'>
        
         <div className='row'>
-        <Card style={{ padding: '10px' }}>
-          <div class="card-header mb-3">
+        <Card className='card_new'>
+          <div class="card-header ">
             <div class="card-title h5">Category</div>
-            <div className=' mb-2' style={{justifyContent: 'end'}}>
-                <div>
+            
+          </div>
+          <CardBody>
+          <div className='mb-4 d-flex justify-content-between align-items-center flex-wrap' >
+            <div class="customer-search sm-mb-0 mb-3">
+              <div class="input-group search-area">
+                <input type="text" class="form-control" placeholder="Search Name / Mobile / Email"/>
+                <span class="input-group-text"><a href="/react/demo/order-list"><i class="bi bi-search"></i></a>
+                </span>
+              </div>
+            </div>
+                <div className='card widget-stat mb-0'>
                 <Button onClick={() => navigate('/category/add')}> Add Category</Button>
                 </div>
             </div>
-          </div>
             {
                 (categories && categories.length) ?
                 <BootstrapTable
@@ -68,7 +77,8 @@ function Category() {
                 
                 />
                 : null
-            }                
+            }     
+            </CardBody>           
             </Card>
         </div>
     </div>

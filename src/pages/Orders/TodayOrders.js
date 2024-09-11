@@ -23,6 +23,10 @@ function TodayOrders() {
     const getOrdersData = async () => {
       await dispatch(getOrders({orderDate: moment().format('YYYY-MM-DD')}))
     }
+    const [show1, setShow1] = useState(false);
+
+    const handleClose1 = () => setShow1(false);
+    const handleShow1 = () => setShow1(true);
     // useEffect(() => {
     //     if(!orders.length && !status) {
     //       getOrdersData()
@@ -56,9 +60,7 @@ function TodayOrders() {
         text: "Order ID",
         formatter: (cell, row, rowIndex) => {
             return (
-                <span onClick={() => {
-                    navigate('/kitchen-orders/details/'+row.id)
-                  } }>{row.id}</span>
+                <span onClick={handleShow1}>{row.id}</span>
             )
         }
       },
@@ -182,14 +184,16 @@ function TodayOrders() {
                                 <div className=' mb-2  d-flex align-items-center' style={{justifyContent: 'space-between'}}>
                                 <div className='search-bar mr-2' style={{minWidth:'250px'}}>
                                     <form className="search-form d-flex align-items-center" method="POST" action="#">
-                                        <input type="text" className="form-control" name="query" placeholder="Search" title="Enter search keyword" />
+                                        <input type="text" className="form-control" name="query" placeholder="Search Name / Mobile / Email" title="Enter search keyword" />
                                         <button type="submit" title="Search"><i className="bi bi-search"></i></button>
                                     </form>
                                 </div>
-                               
-                                <ExportCSVButton { ...props.csvProps } class="btn btn-primary btn-secondry mr-2 card widget-stat mb-0 text-white">Export CSV!!</ExportCSVButton>
+                               <div className='card widget-stat mb-0 mr-2'>
+                                <ExportCSVButton { ...props.csvProps } class="btn btn-primary btn-secondry ">Export CSV!!</ExportCSVButton>
+                                </div>
                                 </div>
                               </div>
+                              <hr></hr>
                               {/* <div className='d-flex justify-content-around flex-wrap today_menu'>
                                 <span>Total Meals : 25</span>
                                 <span>Veg Meals : 10</span>
@@ -265,6 +269,108 @@ function TodayOrders() {
             </Modal>
             </div>
             </div>
+          <Modal
+                show={show1} onHide={handleClose1} 
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >      
+            <Modal.Body className='text-center'>
+              <table cellspacing='0' cellpadding="2" border='0' style={{width:'100%'}}>
+                <thead>
+                  <tr>
+                    <th colspan="3">
+                    Kitchen Holiday
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    {/* <td   class="store-info">
+                      <div class="company-name">Kitchen Holiday</div>
+                      <div>133 S Eucla Ave.<br />San Dimas, CA 91773</div>
+                    </td> */}
+                    <td  align="right" valign="top">
+
+                    </td>
+                    
+                  </tr>
+                  <tr>
+                    <td height={20}></td>
+                  </tr>
+                              
+                  <tr>
+                    <td align="right" >
+                      <b>Ship To:</b>
+                    </td>
+                    <td  align="left">
+                      <div>[Recipient Name]</div>
+                      <div>[Recipient Mobile]</div>
+                      <div>[Recipient Address]</div>
+                    </td>
+                    <td >
+                      <table cellspacing="0" border="0" class="order-info">
+                        <tr>
+                          <td align="right" class="label first">Order ID</td>
+                          <td align="left">[Order ID]</td>
+                        </tr>
+                        <tr>
+                          <td align="right" class="label">Date</td>
+                          <td align="left">[Order Date]</td>
+                        </tr>
+                        <tr>
+                          <td align="right" class="label last">Ship Date</td>
+                          <td align="left">[Ship Date]</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td height={20}></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table cellspacing='0' cellpadding="2" border="0" style={{width:'100%'}} class="line-items">
+                <thead>
+
+
+                  <tr>
+                    <th align="left" style={{width:"1.5in"}} class="sku">
+                      Item
+                    </th>
+                    <th align="left" style={{width:"1.5in"}} class="sku">
+                      Sub item
+                    </th>
+                    <th align="left">
+                      Item Details
+                    </th>
+                  
+                    <th align="center" style={{width:"0.75in"}}>
+                      Qty
+                    </th>
+                  
+                  </tr>
+
+
+                </thead>
+                <tbody>
+
+                  <tr>
+                    <td class="sku" valign='top'>[Item Title]</td>
+                    <td class="sku">
+                      <span className='d-block'>[SubItem1]</span>
+                      <span className='d-block'>[SubItem2]</span>
+                      <span className='d-block'>[SubItem3]</span>
+                    </td>
+                    <td valign='top'>[Item Options]</td>
+                    <td align="center" valign='top'>[Quantity]</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </Modal.Body>      
+          </Modal>
     </div>
   );
 }

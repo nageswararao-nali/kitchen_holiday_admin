@@ -98,19 +98,18 @@ function KitchenOrders() {
     ];
   return (
    <div class="container-fluid">
-    <div class="mb-sm-4 d-flex flex-wrap align-items-center text-head">
-      <h2 class="mb-3 me-auto">Order Page List</h2>
-        <div>
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item active"><a href="/react/demo/order-list">Order</a></li>
-            <li class="breadcrumb-item"><a href="/react/demo/order-list">Oder List</a></li>
-            </ol>
-          </div>
-        </div>
+    <div class="row mb-3">
+    <Card className='card_new'>
+      <div className="card-header">
+            <div className="card-title h5">Kitchen Orders</div>
+            
+        </div>         
+        <Card.Body>
+                 
         <div class="mb-4 d-flex justify-content-between align-items-center flex-wrap">
           <div class="customer-search sm-mb-0 mb-3">
             <div class="input-group search-area">
-              <input type="text" class="form-control" placeholder="Search here......"/>
+              <input type="text" class="form-control" placeholder="Search Name / Mobile / Email"/>
               <span class="input-group-text"><a href="/react/demo/order-list"><i class="bi bi-search"></i></a>
               </span>
             </div>
@@ -137,6 +136,10 @@ function KitchenOrders() {
           </div>
         </div>
       </div>
+      </div>
+      
+    </Card.Body>
+    </Card>
     </div>
   </div>
   );

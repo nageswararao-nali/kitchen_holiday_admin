@@ -47,23 +47,34 @@ function Zones() {
     <div className='container-fluid'>
         
         <div className='row'>
-          <Card style={{ padding: '10px' }}>
-              <div class="card-header  mb-3">
+          <Card className='card_new'>
+              <div class="card-header ">
                 <div class="card-title h5">Zones</div>
-                <div className=' mb-2' style={{justifyContent: 'start'}}>
-                    <div>
-                    <Button onClick={() => navigate('/delivery-zone/add')}> Add Zone</Button>
-
-                    </div>
-                </div>
-                <div className=' mb-2' style={{justifyContent: 'end'}}>
-                    <div>
-                    <Button onClick={() => navigate('/delivery-zone/mapping')}> Mapping</Button>
-
-                    </div>
-                </div>
+                
               </div>
               <Card.Body>
+              <div className='mb-2  d-flex align-items-center' style={{justifyContent: 'space-between'}}>
+              <div className='search-bar mr-2' style={{minWidth:'250px'}}>
+                    <form className="search-form d-flex align-items-center" method="POST" action="#">
+                        <input type="text" className="form-control" name="query" placeholder="Search Name / Mobile / Email" title="Enter search keyword" />
+                        <button type="submit" title="Search"><i className="bi bi-search"></i></button>
+                    </form>
+                  </div>
+                  <div className='d-flex'>
+                    <div className=' mb-2  mr-2' style={{justifyContent: 'start'}}>
+                        <div className='card widget-stat mb-0'>
+                        <Button onClick={() => navigate('/delivery-zone/add')}> Add Zone</Button>
+
+                        </div>
+                    </div>
+                    <div className=' mb-2  ml-2' style={{justifyContent: 'end'}}>
+                        <div className='card widget-stat mb-0'>
+                        <Button onClick={() => navigate('/delivery-zone/mapping')}> Mapping</Button>
+
+                        </div>
+                    </div>
+                  </div>
+                </div>
                   {
                       (zones && zones.length) ?
                       <BootstrapTable

@@ -125,24 +125,25 @@ function Customers() {
             </div>
         </div> */}
         <div className='row'>
-          <Card style={{ padding: '10px' }}>
+          <Card className='card_new'>
               {/* <Card.Title>Users</Card.Title> */}
               <div className="card-header">
                 <div className="card-title h5">Customers</div>
-                <div className=' mb-2  d-flex align-items-center' style={{justifyContent: 'end'}}>
-                    <div className='search-bar mr-2'>
-                        <form className="search-form d-flex align-items-center">
-                            <input type="text" className="form-control" name="query" value={searchUserValue} onChange={(e) => setSearchUserValue(e.target.value)} placeholder="Search" title="Enter search keyword" />
-                            <div title="Search" onClick={() => searchUser()} ><i className="bi bi-search"></i></div>
-                        </form>
-                    </div>
-                    <div>
-                        <Button > Send notification</Button>
-                    </div>
-                </div>
+                
               </div>
              
               <Card.Body>
+              <div className=' mb-3 d-sm-flex d-block align-items-center justify-content-between'>
+                    <div className='search-bar mr-2'>
+                        <form className="search-form d-flex align-items-center">
+                            <input type="text" className="form-control" name="query" value={searchUserValue} onChange={(e) => setSearchUserValue(e.target.value)} placeholder="Search Name / Mobile / Email" title="Enter search keyword" />
+                            <button type="submit" title="Search"  onClick={() => searchUser()} ><i className="bi bi-search"></i></button>
+                        </form>
+                    </div>
+                    <div className='card widget-stat mb-0 mr-2'>
+                        <Button > Send notification</Button>
+                    </div>
+                </div>
                   {
                       (users && users.length) ?
                       <div className='table-responsive'>

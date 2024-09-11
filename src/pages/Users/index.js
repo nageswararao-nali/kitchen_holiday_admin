@@ -109,45 +109,45 @@ function Users() {
             </div>
         </div> */}
         <div className='row'>
-          <Card style={{ padding: '10px' }}>
+          <Card className='card_new'>
               {/* <Card.Title>Users</Card.Title> */}
               <div class="card-header">
                 <div class="card-title h5">Users</div>
-                <div className=' mb-2' style={{justifyContent: 'end'}}>
-                    <div>
-                        <Button onClick={() => navigate('/users/add')}> Add User</Button>
-                    </div>
-                </div>
+               
               </div>
-              <div class="card-action coin-tabs mt-3 mt-sm-3">
-                <ul class="nav nav-tabs nav" role="tablist">
-                  {/* <li class="nav-item nav-item">
-                    <div className='brand-list'>
-                        <input type="radio" name="brand" className="btn-check" id="btn-new-outlined" value="customer" autoComplete="off" checked={userType == 'customer'} onChange={(e) => {setUserType(e.target.value); filterUsers(e.target.value)}} />
-                        <label className="btn btn-outline-primary selected_bg1" htmlFor="btn-new-outlined">Customers</label>
-                    </div>
-                  </li> */}
-                  <li class="nav-item nav-item">
+              <Card.Body>
+              <div className=' mb-3' style={{justifyContent: 'end'}}>
+              <div className='mb-2  d-flex align-items-center' style={{justifyContent: 'space-between'}}>
+                  <div className='search-bar mr-2' style={{minWidth:'250px'}}>
+                    <form className="search-form d-flex align-items-center" method="POST" action="#">
+                        <input type="text" className="form-control" name="query" placeholder="Search Name / Mobile / Email" title="Enter search keyword" />
+                        <button type="submit" title="Search"><i className="bi bi-search"></i></button>
+                    </form>
+                  </div>
+                  <div className='card widget-stat mb-0'>
+                  <Button onClick={() => navigate('/users/add')}> Add User</Button>
+                  </div>
+                </div>
+                   
+                </div>
+                <hr></hr>
+                <div className='col-sm-12'>
+                <div className='brand-list-content my-3'>
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-confirmed-outlined" value="delivery boy" autoComplete="off" checked={userType == 'delivery boy'} onChange={(e) => {setUserType(e.target.value); filterUsers(e.target.value)}} />
                         <label className="btn btn-outline-primary selected_bg2" htmlFor="btn-confirmed-outlined">Delivery Boys</label>
                     </div>
-                  </li>
-                  <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-preparing-outlined" value="admin" autoComplete="off" checked={userType == 'admin'} onChange={(e) => {setUserType(e.target.value); filterUsers(e.target.value)}} />
                         <label className="btn btn-outline-primary selected_bg3" htmlFor="btn-preparing-outlined">Admins</label>
                     </div>
-                  </li>
-                  <li class="nav-item nav-item">
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-ready-outlined" value="kitchen" autoComplete="off" checked={userType == 'kitchen'} onChange={(e) => {setUserType(e.target.value); filterUsers(e.target.value)}} />
                         <label className="btn btn-outline-primary selected_bg4" htmlFor="btn-ready-outlined">Kitchen</label>
                     </div>
-                  </li>
-                </ul>
               </div>
-              <Card.Body>
+              </div>
+            
                   {
                       (users && users.length) ?
                       <div className='table-responsive'>

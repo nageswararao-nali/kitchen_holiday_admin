@@ -92,7 +92,10 @@ function DeliveryOrders() {
                       </Dropdown.Item> 
                     </Dropdown.Menu> 
                   </Dropdown>
-														
+                  <span style={{color: 'green'}} className="bi bi-eye-fill"
+                onClick={() => {
+                    navigate('/delivery-orders/details/'+row.id)
+                  } } ></span>					
             </div>
           )
         }
@@ -100,19 +103,25 @@ function DeliveryOrders() {
     ];
   return (
    <div class="container-fluid">
-    <div class="mb-sm-4 d-flex flex-wrap align-items-center text-head">
-      <h2 class="mb-3 me-auto">Order Page List</h2>
-        <div>
+    <div class="row mb-3">
+      <Card className='card_new'>
+      <div className="card-header">
+            <div className="card-title h5">Delivery Orders</div>
+            
+        </div>
+      <Card.Body>
+
+      
+      {/*   <div>
           <ol class="breadcrumb">
             <li class="breadcrumb-item active"><a href="/react/demo/order-list">Order</a></li>
             <li class="breadcrumb-item"><a href="/react/demo/order-list">Oder List</a></li>
             </ol>
-          </div>
-        </div>
+          </div> */}
         <div class="mb-4 d-flex justify-content-between align-items-center flex-wrap">
           <div class="customer-search sm-mb-0 mb-3" style={{minWidth:'260px'}}>
           <form className="search-form d-flex align-items-center" method="POST" action="#">
-          <input type="text" className="form-control" name="query" placeholder="Search" title="Enter search keyword" />
+          <input type="text" className="form-control" name="query" placeholder="Search Name / Mobile / Email" title="Enter search keyword" />
           <button type="submit" title="Search"><i className="bi bi-search"></i></button>
         </form>
           </div>
@@ -138,6 +147,9 @@ function DeliveryOrders() {
           </div>
         </div>
       </div>
+      </div>
+      </Card.Body>
+    </Card>
     </div>
   </div>
   );
