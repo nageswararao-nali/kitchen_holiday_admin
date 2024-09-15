@@ -1,6 +1,6 @@
 
 import apiRequest from '../utils/api';
-import { ADD_ORDER, GET_ORDERS, GET_ORDER, UPDATE_ORDER, UPDATE_ORDER_STATUS, ADD_USER_ORDER, GET_TODAY_ORDER_DETAILS} from '../utils/apiRoutes'
+import { ADD_ORDER, GET_ORDERS, GET_ORDER, UPDATE_ORDER, UPDATE_ORDER_STATUS, ADD_USER_ORDER, GET_TODAY_ORDER_DETAILS, UPLOAD_DELIVERY_IMAGE} from '../utils/apiRoutes'
 
 // const userToken = localStorage.getItem('userToken');
 
@@ -32,6 +32,12 @@ const todayOrderDetails = async (reqObj, userToken) => {
   return await apiRequest(GET_TODAY_ORDER_DETAILS, 'POST', reqObj, userToken);
 };
 
+const uploadDeliveryImage = async (reqObj, userToken) => {
+  // console.log("calling today orderdetails ......")
+  return await apiRequest(UPLOAD_DELIVERY_IMAGE, 'POST', reqObj, userToken, true);
+};
+
+
 const usersService = {
     getOrder,
     getOrders,
@@ -39,7 +45,8 @@ const usersService = {
     updateOrderStatus,
     updateOrder,
     addUserOrder,
-    todayOrderDetails
+    todayOrderDetails,
+    uploadDeliveryImage
 };
 
 export default usersService;

@@ -16,6 +16,7 @@ function ZoneMapping(props) {
     const [userId, setUserId] = useState(null)
     const [validated, setValidated] = useState(false);
     const [zipcodes, setZipcodes] = useState([]);
+    const [mappedZips, setMappedZips] = useState([])
 
     const getUsersData = async () => {
       await dispatch(getUsers({user_type: 'delivery boy'}))
@@ -40,11 +41,11 @@ function ZoneMapping(props) {
 
     
     useEffect(() => {
-        // if(mappings.length && mappings[0].subItemIds) {
-        //     console.log("am inside ...", JSON.parse(mappings[0].subItemIds))
-        //     console.log("am inside 777...", (mappings[0].subItemIds))
-        //     setSubItemIds(JSON.parse(mappings[0].subItemIds))
-        // }
+        if(mappings.length && mappings[0].zipcodes) {
+            console.log("mappings ....")
+            console.log(mappings[0].zipcodes.split(","))
+            setMappedZips(mappings[0].zipcodes.split(","))
+        }
         
     }, [mappings])
     
@@ -142,7 +143,7 @@ function ZoneMapping(props) {
                                             return (
                                             <Form.Group className="mb-1 col-md-3 " controlId="formHorizontalCheck">
                                                 <Col className='m-2 text-left'>
-                                                    <Form.Check data={zones.indexOf(zone.id) > -1} name="subitem" label={zone.name} value={zone.name} onChange={handleChange} />
+                                                    <Form.Check data={mappedZips.indexOf(zone.zipcode) > -1} checked={mappedZips.indexOf(zone.zipcode) > -1} name="subitem" label={zone.name + " - " + zone.zipcode} value={zone.zipcode} onChange={handleChange} />
                                                 </Col>
                                             </Form.Group>
                                         )
@@ -161,7 +162,7 @@ function ZoneMapping(props) {
                         
                         
                         <Button type="submit">Add</Button>
-                        <hr></hr>
+                        {/* <hr></hr>
                         <Row>
                         <Col sm={2}>
                             <Form.Label className='form_label'> Delivery1 Boy </Form.Label>
@@ -187,7 +188,7 @@ function ZoneMapping(props) {
                         }
                         </Row>
                         
-                        <Button type="submit">Delete</Button>
+                        <Button type="submit">Delete</Button> */}
                     </Form>
                 </Card.Body>
             </Card>

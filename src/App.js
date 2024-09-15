@@ -34,6 +34,8 @@ import AddSubOrder from './pages/Orders/AddSubOrder';
 import Customers from './pages/Customers';
 import UsersSubscriptions from './pages/Orders/UsersSubscriptions';
 import SubscriptionUsers from './pages/Subscription/subscription_users';
+import Payments from './pages/Payments';
+import Refunds from './pages/Payments/refunds';
 
 function App() {
   return (
@@ -113,6 +115,12 @@ function App() {
           </Route>
           <Route path="/users-subscriptions"  element={<ProtectedRoute />} >
             <Route path="/users-subscriptions" element={<UsersSubscriptions />} />
+          </Route>
+          <Route path="/payments"  element={<ProtectedRoute />} >
+            <Route path="/payments" element={<Payments />} />
+          </Route>
+          <Route path="/refunds"  element={<ProtectedRoute />} >
+            <Route path="/refunds" element={<Refunds />} />
           </Route>
           <Route path="/login"  element={<Login />} />
           <Route path="/otp"  element={<Otp />} />

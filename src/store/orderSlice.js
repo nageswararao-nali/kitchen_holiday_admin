@@ -30,6 +30,10 @@ export const todayOrderDetails = createAsyncThunk('orders/todayOrderDetails', as
   return handleAuthApiCall(orderService.todayOrderDetails, order, thunkAPI);
 });
 
+export const uploadDeliveryImage = createAsyncThunk('orders/uploadDeliveryImage', async (order, thunkAPI) => {
+  return handleAuthApiCall(orderService.uploadDeliveryImage, order, thunkAPI);
+});
+
 const itemsSlice = createSlice({
   name: 'items',
   initialState: {

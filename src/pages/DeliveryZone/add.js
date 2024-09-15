@@ -18,6 +18,9 @@ function AddZone() {
     const { error } = useSelector((state) => state.users)
     const [validated, setValidated] = useState(false);
     const [name, setName] = useState('');
+    const [zipcode, setZipcode] = useState('');
+    const [latitude, setLatitude] = useState('');
+    const [longitude, setLongitude] = useState('');
     const [coordinates, setCoordinates] = useState('');
     
 
@@ -32,7 +35,9 @@ function AddZone() {
         event.preventDefault();
         let userObj = {
             name,
-            coordinates
+            zipcode,
+            latitude,
+            longitude
         }
         await dispatch(addZone(userObj));
         // navigate('/delivery-zone')
@@ -57,13 +62,49 @@ function AddZone() {
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
                     <Col sm={2}>
-                        <Form.Label className='form_label'> Zone Zipcode </Form.Label>
+                        <Form.Label className='form_label'> Zone Name </Form.Label>
                     </Col>
                     <Col sm={10}>
                         <Form.Control 
                             type="text" placeholder="Zone Name" required 
                             onChange={(e) => setName(e.target.value)}
                             value={name}
+                        />
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+                    <Col sm={2}>
+                        <Form.Label className='form_label'> Zipcode </Form.Label>
+                    </Col>
+                    <Col sm={10}>
+                        <Form.Control 
+                            type="text" placeholder="Zipcode" required 
+                            onChange={(e) => setZipcode(e.target.value)}
+                            value={zipcode}
+                        />
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+                    <Col sm={2}>
+                        <Form.Label className='form_label'> Latitude </Form.Label>
+                    </Col>
+                    <Col sm={10}>
+                        <Form.Control 
+                            type="text" placeholder="Zone Latitude"  
+                            onChange={(e) => setLatitude(e.target.value)}
+                            value={latitude}
+                        />
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail">
+                    <Col sm={2}>
+                        <Form.Label className='form_label'> Longitude </Form.Label>
+                    </Col>
+                    <Col sm={10}>
+                        <Form.Control 
+                            type="text" placeholder="Zone Longitude"  
+                            onChange={(e) => setLongitude(e.target.value)}
+                            value={longitude}
                         />
                     </Col>
                 </Form.Group>

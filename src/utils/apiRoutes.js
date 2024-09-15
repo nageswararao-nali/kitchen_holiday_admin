@@ -38,3 +38,7 @@ export const USER_SUBSCRIPTIONS = 'subscriptions/getMySubscriptions';
 export const UPDATE_MY_SUBSCRIPTION = 'orders/updateMySubscription';
 export const DELETE_MY_SUBSCRIPTION = 'orders/deleteMySubscription';
 export const GET_SUBSCRIPTION = 'subscriptions/getSubscription';
+export const GET_PAYMENTS = 'payments/getPayments';
+export const GET_REFUNDS = 'payments/getRefunds';
+export const UPDATE_REFUND = 'payments/updateRefund';
+export const UPLOAD_DELIVERY_IMAGE = 'orders/uploadDeliveryImage';

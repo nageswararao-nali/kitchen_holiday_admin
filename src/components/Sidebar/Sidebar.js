@@ -176,9 +176,14 @@ export default function Sidebar() {
               <i class="bi bi-diamond"></i><span>Invoices </span>
               </a>
             </li>
-            <li onClick={() => navigateToRoute('payments-refunds')}>
+            <li onClick={() => navigateToRoute('payments')}>
               <a>
-              <i class="bi bi-diamond"></i><span>Payments & Refunds</span>
+              <i class="bi bi-diamond"></i><span>Payments</span>
+              </a>
+            </li>
+            <li onClick={() => navigateToRoute('refunds')}>
+              <a>
+              <i class="bi bi-diamond"></i><span>Refunds</span>
               </a>
             </li>
             <li onClick={() => navigateToRoute('tax')}>

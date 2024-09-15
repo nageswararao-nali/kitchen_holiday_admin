@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Card, Dropdown, Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getOrder, getOrders, updateOrderStatus, updateOrder } from '../../store/orderSlice';
+import { getOrder, getOrders, updateOrderStatus, updateOrder, uploadDeliveryImage } from '../../store/orderSlice';
 import { getSubItem, getSubItems } from '../../store/itemsSlice';
 import { getUsers } from '../../store/usersSlice';
 import Map from '../KitchenOrders/map';
@@ -21,6 +21,9 @@ function DeliveryOrderDetails() {
     const {order} = useSelector((state) => state.orders)
     const {subItems} = useSelector((state) => state.items)
     const {users} = useSelector((state) => state.users)
+    const [itemImage , setItemImage] = useState(null)
+    const inputFile = useRef(null) 
+
     const getOrderData = async() => {
         
        let orderDataRes = await dispatch(getOrder({id: orderId}))
@@ -47,11 +50,32 @@ function DeliveryOrderDetails() {
         await dispatch(updateOrderStatus({orderId, status: statusD}))
   
       }
+    const goToMap = async () => {
+        // window.open("https://maps.google.com?q="+order.latitude+","+order.longitude );
+        window.open('https://www.google.com/maps/dir/?api=1&destination='+order.latitude+','+order.longitude );
+    }
       
       const [show, setShow] = useState(false);
 
       const handleClose = () => setShow(false);
       const handleShow = () => setShow(true);
+    const onButtonClick = () => {
+        // `current` points to the mounted file input element
+        inputFile.current.click();
+    };
+    const uploadPhoto = async (e) => {
+        const formData = new FormData();
+        formData.append('deliveryImage', e.target.files[0])
+        formData.append('orderId', order.id)
+        let res = await dispatch(uploadDeliveryImage(formData))
+        console.log("res.payload")
+        console.log(res.payload)
+        if(res.payload.success) {
+          console.log("calling user details")
+          getOrderData()
+        }
+    }
+
   return (
     <div className="container-fluid order_details_page">
     <div className="mb-sm-4 d-flex flex-wrap align-items-center text-head">
@@ -116,69 +140,76 @@ function DeliveryOrderDetails() {
                     <div className="card">
                         <Map latitude={order.latitude} longitude={order.longitude}></Map>
                         {/* <div className="card-body"><img src="/assets/img/map_img.jpg" alt="" className='img-fluid' /></div> */}
-                        <div className='navigate_to'>
+                        <div className='navigate_to' onClick={() => goToMap()}>
                             <span className='btn btn2'>Navigate me</span>
                         </div>
                     </div>
                 </div>
                 <div className="col-xl-8 col-md-7">
-                    <div className="card justify-content-center">
-                        {
-                            order.deliveryParterId ?
-                            <div>
-                                <div className="card-body d-flex align-items-center justify-content-between pb-0">
-                                    <div className="d-flex align-items-center delivery-guy">
-                                        <div className="me-3"><img src="/assets/img/logo_f.png" alt="" /></div>
-                                        <div className='text-left'>
-                                            <span>Delivery guy</span>
-                                            <h5 className="mb-0 t_title">{order.deliveryBoy.fName + " " + order.deliveryBoy.lName}</h5>
-                                            <span className="text-primary">ID {order.deliveryBoy.id}</span>
+                    {
+                        order.isPickFromKitchen ?
+                        <div className='success'>
+                            Customer Will Picked Up from Kitchen
+                        </div>
+                        :
+                        <div className="card justify-content-center">
+                            {
+                                order.deliveryParterId ?
+                                <div>
+                                    <div className="card-body d-flex align-items-center justify-content-between pb-0">
+                                        <div className="d-flex align-items-center delivery-guy">
+                                            <div className="me-3"><img src="/assets/img/logo_f.png" alt="" /></div>
+                                            <div className='text-left'>
+                                                <span>Delivery guy</span>
+                                                <h5 className="mb-0 t_title">{order.deliveryBoy.fName + " " + order.deliveryBoy.lName}</h5>
+                                                <span className="text-primary">ID {order.deliveryBoy.id}</span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <ul className="delivery-contact d-flex">
+                                                <li>
+                                                    <a className="me-3" href="/orderDetails"><i className="bi bi-chat-fill"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="/orderDetails"><i className="bi bi-phone-fill"></i></a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div>
-                                        <ul className="delivery-contact d-flex">
-                                            <li>
-                                                <a className="me-3" href="/orderDetails"><i className="bi bi-chat-fill"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="/orderDetails"><i className="bi bi-phone-fill"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    {/* <Button className='mb-3'>Change Delivery Guy</Button> */}
                                 </div>
-                                {/* <Button className='mb-3'>Change Delivery Guy</Button> */}
-                            </div>
 
-                            :
-                            <div className="mx-3"> 
-                                
-                                {
-                                    (users && users.length) ?
-                                    <div className="d-flex px-2 align-items-center">
-                                        <div className="col-md-8">
-                                        <Form.Select defaultValue={deliveryBoy} onChange={(e) => setDeliveryBoy(e.target.value)} required >
-                                            <option value="">Select Delivery Boy</option>
-                                            {
-                                                users.map((user) => {
-                                                    return (
-                                                        <option value={user.id}>{user.fName + " " + user.lName}</option>
-                                                    )
-                                                })
-                                            }
-                                        </Form.Select>
-                                        </div>
-                                        <div className='col-md-4'>
-                                            <button onClick={assignDriver} className="btn btn-primary btn-sm w-100 mx-2">Assign</button>
+                                :
+                                <div className="mx-3"> 
+                                    
+                                    {
+                                        (users && users.length) ?
+                                        <div className="d-flex px-2 align-items-center">
+                                            <div className="col-md-8">
+                                            <Form.Select defaultValue={deliveryBoy} onChange={(e) => setDeliveryBoy(e.target.value)} required >
+                                                <option value="">Select Delivery Boy</option>
+                                                {
+                                                    users.map((user) => {
+                                                        return (
+                                                            <option value={user.id}>{user.fName + " " + user.lName}</option>
+                                                        )
+                                                    })
+                                                }
+                                            </Form.Select>
+                                            </div>
+                                            <div className='col-md-4'>
+                                                <button onClick={assignDriver} className="btn btn-primary btn-sm w-100 mx-2">Assign</button>
+                                            </div>
+                                            
                                         </div>
                                         
-                                    </div>
-                                    
-                                    : null
-                                }
-                            </div>
-                        }
-                        
-                    </div>
+                                        : null
+                                    }
+                                </div>
+                            }
+                            
+                        </div>
+                    }
                 </div>
                 <div className="col-xl-4 col-md-5">
                     <div className="card">
@@ -199,8 +230,9 @@ function DeliveryOrderDetails() {
                         <div className='card-title order_d_title m-1'>
                                Delevered Image
                             </div>                         
-                           <Button className='btn btn2 m-3'>Upload photo</Button>
-                           <img  src="../../assets/img/card.jpg" width={200} className='m-3' alt=""  onClick={handleShow} />
+                           <Button className='btn btn2 m-3' onClick={onButtonClick}>Upload photo</Button>
+                           <input type='file' id='file' ref={inputFile} onChange={(e) => {uploadPhoto(e)}} style={{display: 'none'}}/>
+                           <img  src={order.deliveryImage} width={200} className='m-3' alt=""  onClick={handleShow} />
                         </div>
                     </div>
                 </div> }
