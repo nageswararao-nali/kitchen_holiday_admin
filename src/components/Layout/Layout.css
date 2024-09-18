@@ -1922,7 +1922,8 @@ td.notes {
   font-family: "Free 3 of 9 Extended";
   font-size: 48pt;
 }
-
+.details_wrap .d-flex span{flex: 0.2;}
+.details_wrap .d-flex b{flex: 1;}
 @keyframes animate-loading {
   0% {
     transform: rotate(0deg);
@@ -2005,7 +2006,7 @@ a {
 table > thead > tr > th {
   background-color: #ffe2e8  ;
 }
-
+.line-items > thead > tr > th{ background-color: var(--primary-color);color: #fff  ;}
 table i {
   cursor: pointer;font-size: 14px;line-height: 24px;
 }

@@ -271,104 +271,65 @@ function TodayOrders() {
             </div>
           <Modal
                 show={show1} onHide={handleClose1} 
-                size="lg"
+                size="md"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >      
             <Modal.Body className='text-center'>
-              <table cellspacing='0' cellpadding="2" border='0' style={{width:'100%'}}>
+              <div className='modal-header pt-0'>
+                <img src='assets/img/logo_f.png' width={100} className='m-auto'/>
+              </div>
+              <div className='modal-body'>
+                <div className='shipping_details'>
+                  <span className='mb-2 d-block'><b>Shipping details:</b></span>
+                  <div className='details_wrap text-left'>
+                    <div className='d-flex'><span>Name:</span> <b>Venkat</b></div>
+                    <div className='d-flex'><span>Mobile:</span> <b>8143376372</b></div>
+                    <div className='d-flex'><span>Adress:</span> <b>8th floor, 379 Hudson St, New York, <br></br>NY 10018</b></div>
+                  </div>
+                </div>
+                <hr></hr>
+                <div className='shipping_details order_details'>
+                  <span className='mb-2 d-block'><b>Order details:</b></span>
+                  <div className='details_wrap text-left d-flex justify-content-evenly'>
+                    <div ><span>Order ID:</span> <b>01245</b></div>
+                    <div ><span>Date:</span> <b>09-18-2024</b></div>
+                  </div>
+                </div>
+                <table cellspacing='0' cellpadding="2" border="0" style={{width:'100%'}} class="line-items mt-4">
                 <thead>
-                  <tr>
-                    <th colspan="3">
-                    Kitchen Holiday
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    {/* <td   class="store-info">
-                      <div class="company-name">Kitchen Holiday</div>
-                      <div>133 S Eucla Ave.<br />San Dimas, CA 91773</div>
-                    </td> */}
-                    <td  align="right" valign="top">
-
-                    </td>
-                    
-                  </tr>
-                  <tr>
-                    <td height={20}></td>
-                  </tr>
-                              
-                  <tr>
-                    <td align="right" >
-                      <b>Ship To:</b>
-                    </td>
-                    <td  align="left">
-                      <div>[Recipient Name]</div>
-                      <div>[Recipient Mobile]</div>
-                      <div>[Recipient Address]</div>
-                    </td>
-                    <td >
-                      <table cellspacing="0" border="0" class="order-info">
-                        <tr>
-                          <td align="right" class="label first">Order ID</td>
-                          <td align="left">[Order ID]</td>
-                        </tr>
-                        <tr>
-                          <td align="right" class="label">Date</td>
-                          <td align="left">[Order Date]</td>
-                        </tr>
-                        <tr>
-                          <td align="right" class="label last">Ship Date</td>
-                          <td align="left">[Ship Date]</td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td height={20}></td>
-                  </tr>
-                </tbody>
-              </table>
-
-              <table cellspacing='0' cellpadding="2" border="0" style={{width:'100%'}} class="line-items">
-                <thead>
-
-
                   <tr>
                     <th align="left" style={{width:"1.5in"}} class="sku">
                       Item
                     </th>
                     <th align="left" style={{width:"1.5in"}} class="sku">
                       Sub item
-                    </th>
-                    <th align="left">
-                      Item Details
-                    </th>
-                  
+                    </th>                  
                     <th align="center" style={{width:"0.75in"}}>
                       Qty
-                    </th>
-                  
+                    </th>                  
                   </tr>
-
-
                 </thead>
                 <tbody>
-
                   <tr>
-                    <td class="sku" valign='top'>[Item Title]</td>
+                    <td class="sku" valign='top'><img src="assets/img/veg_icon.png" width="18" alt=""/>Veg Meal</td>
                     <td class="sku">
-                      <span className='d-block'>[SubItem1]</span>
-                      <span className='d-block'>[SubItem2]</span>
-                      <span className='d-block'>[SubItem3]</span>
+                      <span className='d-block'>Dal</span>
+                      <span className='d-block'>Rice</span>
+                      <span className='d-block'>Chapathi</span>
                     </td>
-                    <td valign='top'>[Item Options]</td>
-                    <td align="center" valign='top'>[Quantity]</td>
+                    <td align="center" valign='top'>
+                    <span className='d-block'>1</span>
+                    <span className='d-block'>2</span>
+                    <span className='d-block'>4</span>
+                    </td>
                   </tr>
-
+                  <tr>
+                    
+                  </tr>
                 </tbody>
               </table>
+              </div>
             </Modal.Body>      
           </Modal>
     </div>
