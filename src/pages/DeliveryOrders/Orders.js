@@ -104,11 +104,20 @@ function DeliveryOrders() {
   return (
    <div class="container-fluid">
     <div class="row mb-3">
-      <Card className='card_new'>
+      <Card>
       <div className="card-header">
-            <div className="card-title h5">Delivery Orders</div>
-            
+            <div className="card-title my-0 h5">Delivery Orders</div>
+            <div class=" d-flex justify-content-between align-items-center flex-wrap">
+              <div class="customer-search sm-mb-0" style={{minWidth:'260px'}}>
+                <form className="search-form d-flex align-items-center" method="POST" action="#">
+                <input type="text" className="form-control" name="query" placeholder="Search Name / Mobile / Email" title="Enter search keyword" />
+                <button type="submit" title="Search"><i className="bi bi-search"></i></button>
+                </form>
+              </div>
+            <div>        
+          </div>
         </div>
+      </div>
       <Card.Body>
 
       
@@ -118,16 +127,7 @@ function DeliveryOrders() {
             <li class="breadcrumb-item"><a href="/react/demo/order-list">Oder List</a></li>
             </ol>
           </div> */}
-        <div class="mb-4 d-flex justify-content-between align-items-center flex-wrap">
-          <div class="customer-search sm-mb-0 mb-3" style={{minWidth:'260px'}}>
-          <form className="search-form d-flex align-items-center" method="POST" action="#">
-          <input type="text" className="form-control" name="query" placeholder="Search Name / Mobile / Email" title="Enter search keyword" />
-          <button type="submit" title="Search"><i className="bi bi-search"></i></button>
-        </form>
-          </div>
-        <div>        
-      </div>
-    </div>
+        
     <div class="row">
       <div class="col-xl-12">
         <div class="table-responsive">

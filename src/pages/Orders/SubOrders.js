@@ -128,13 +128,10 @@ function SubOrders() {
   return (
     <div className='container-fluid'>
     <div className='row'>
-    <Card className='card_new'>
+    <Card>
       <div className="card-header">
-          <div className="card-title h5">Subscription Orders</div>          
-      </div>
-      <Card.Body>
-        <div class=" mb-3">
-                <div className=' mb-2 d-flex align-items-center' style={{justifyContent: 'space-between'}}>
+          <div className="card-title h5">Subscription Orders</div>  
+          <div className=' mb-2 d-flex align-items-center' style={{justifyContent: 'space-between'}}>
                   <div className='search-bar mr-2' style={{minWidth:'250px'}}>
                     <form className="search-form d-flex align-items-center" method="POST" action="#">
                         <input type="text" className="form-control" name="query" placeholder="Search Name / Mobile / Email" title="Enter search keyword" />
@@ -145,9 +142,9 @@ function SubOrders() {
                     <Button onClick={() => navigate('/sub-orders/add')}> Add Subscription Order</Button>
 
                     </div>
-                </div>
-              </div>              
-      <hr></hr>
+                </div>        
+      </div>
+      <Card.Body className='py-0'>
             <div className='col-sm-12'>
             <div className='brand-list-content my-3'>
                 
@@ -179,7 +176,7 @@ function SubOrders() {
                     </div>
                     <div className='brand-list'>
                         <input type="radio" name="brand" className="btn-check" id="btn-cancelled-outlined" value="cancelled" autoComplete="off" checked={status == 'cancelled'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
-                        <label className="btn btn-outline-primary selected_bg1" htmlFor="btn-cancelled-outlined">Cancelled</label>
+                        <label className="btn btn-outline-primary selected_bg7" htmlFor="btn-cancelled-outlined">Cancelled</label>
                     </div>
                 </div>
             </div>

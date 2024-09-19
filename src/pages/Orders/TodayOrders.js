@@ -159,14 +159,10 @@ function TodayOrders() {
   return (
     <div className='container-fluid'>
         <div className='row mb-3'>
-        <Card className='card_new'>
+        <Card >
         {/* <Card.Title>Today Orders</Card.Title> */}
        
-        <div className="card-header">
-            <div className="card-title h5">Today Orders</div>
-            
-        </div>
-              <Card.Body>
+              <Card.Body className='py-0'>
                   {
                       (orders && orders.length) ?
                       <ToolkitProvider
@@ -180,7 +176,8 @@ function TodayOrders() {
                             <div>
                               
                              
-                              <div class="  mb-3">
+                              <div class="card-header  mb-3">
+                              <div className="card-title h5">Today Orders</div>
                                 <div className=' mb-2  d-flex align-items-center' style={{justifyContent: 'space-between'}}>
                                 <div className='search-bar mr-2' style={{minWidth:'250px'}}>
                                     <form className="search-form d-flex align-items-center" method="POST" action="#">
@@ -193,7 +190,6 @@ function TodayOrders() {
                                 </div>
                                 </div>
                               </div>
-                              <hr></hr>
                               {/* <div className='d-flex justify-content-around flex-wrap today_menu'>
                                 <span>Total Meals : 25</span>
                                 <span>Veg Meals : 10</span>
@@ -206,27 +202,27 @@ function TodayOrders() {
                                 <div className='brand-list-content my-3'>
                                     <div className='brand-list'>
                                         <input type="radio" name="brand" className="btn-check" id="btn-new-outlined" value="new" autoComplete="off" checked={status == 'new'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
-                                        <label className="btn btn-outline-primary" htmlFor="btn-new-outlined">New Orders</label>
+                                        <label className="btn btn-outline-primary selected_bg1" htmlFor="btn-new-outlined">New Orders</label>
                                     </div>
                                     <div className='brand-list'>
                                         <input type="radio" name="brand" className="btn-check" id="btn-confirmed-outlined" value="confirmed" autoComplete="off" checked={status == 'confirmed'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
-                                        <label className="btn btn-outline-primary" htmlFor="btn-confirmed-outlined">Confirmed</label>
+                                        <label className="btn btn-outline-primary selected_bg2" htmlFor="btn-confirmed-outlined">Confirmed</label>
                                     </div>
                                     <div className='brand-list'>
                                         <input type="radio" name="brand" className="btn-check" id="btn-preparing-outlined" value="preparing" autoComplete="off" checked={status == 'preparing'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
-                                        <label className="btn btn-outline-primary" htmlFor="btn-preparing-outlined">Preparing</label>
+                                        <label className="btn btn-outline-primary selected_bg3" htmlFor="btn-preparing-outlined">Preparing</label>
                                     </div>
                                     <div className='brand-list'>
                                         <input type="radio" name="brand" className="btn-check" id="btn-ready-outlined" value="ready" autoComplete="off" checked={status == 'ready'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
-                                        <label className="btn btn-outline-primary" htmlFor="btn-ready-outlined">Ready for Pickup</label>
+                                        <label className="btn btn-outline-primary selected_bg4" htmlFor="btn-ready-outlined">Ready for Pickup</label>
                                     </div>
                                     <div className='brand-list'>
                                         <input type="radio" name="brand" className="btn-check" id="btn-completed-outlined" value="completed" autoComplete="off" checked={status == 'completed'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
-                                        <label className="btn btn-outline-primary" htmlFor="btn-completed-outlined">Order Completed</label>
+                                        <label className="btn btn-outline-primary selected_bg5" htmlFor="btn-completed-outlined">Order Completed</label>
                                     </div>
                                     <div className='brand-list'>
                                         <input type="radio" name="brand" className="btn-check" id="btn-cancelled-outlined" value="cancelled" autoComplete="off" checked={status == 'cancelled'} onChange={(e) => {setStatus(e.target.value); filterOrders(e.target.value)}} />
-                                        <label className="btn btn-outline-primary" htmlFor="btn-cancelled-outlined">Cancelled</label>
+                                        <label className="btn btn-outline-primary selected_bg6" htmlFor="btn-cancelled-outlined">Cancelled</label>
                                     </div>
                                 </div>
                             </div>
@@ -329,6 +325,9 @@ function TodayOrders() {
                   </tr>
                 </tbody>
               </table>
+              <div className='card widget-stat d-inline-block mb-0 mt-4'>
+                    <Button className='px-4'> Print</Button>
+                  </div>
               </div>
             </Modal.Body>      
           </Modal>

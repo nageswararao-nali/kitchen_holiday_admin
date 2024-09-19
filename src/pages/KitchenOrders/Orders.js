@@ -99,24 +99,23 @@ function KitchenOrders() {
   return (
    <div class="container-fluid">
     <div class="row mb-3">
-    <Card className='card_new'>
+    <Card >
       <div className="card-header">
-            <div className="card-title h5">Kitchen Orders</div>
-            
-        </div>         
-        <Card.Body>
-                 
-        <div class="mb-4 d-flex justify-content-between align-items-center flex-wrap">
-          <div class="customer-search sm-mb-0 mb-3">
-            <div class="input-group search-area">
-              <input type="text" class="form-control" placeholder="Search Name / Mobile / Email"/>
-              <span class="input-group-text"><a href="/react/demo/order-list"><i class="bi bi-search"></i></a>
-              </span>
-            </div>
+            <div className="card-title my-0 h5">Kitchen Orders</div>
+            <div class="d-flex justify-content-between align-items-center flex-wrap">
+          <div className='search-bar mr-2' style={{minWidth:'250px'}}>
+            <form className="search-form d-flex align-items-center" method="POST" action="#">
+                <input type="text" className="form-control" name="query" placeholder="Search Name / Mobile / Email" title="Enter search keyword" />
+                <button type="submit" title="Search"><i className="bi bi-search"></i></button>
+            </form>
           </div>
         <div>        
       </div>
     </div>
+        </div>         
+        <Card.Body>
+                 
+        
     <div class="row">
       <div class="col-xl-12">
         <div class="table-responsive">

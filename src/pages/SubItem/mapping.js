@@ -105,7 +105,7 @@ function ItemMapping(props) {
   return (
     <div className='container-fluid'>
         <div className='row mx-5'>
-            <Card className='card_new'>
+            <Card >
                 <div className="card-header  mb-3">
                     <div className="card-title h5">Item Mapping</div>
                     

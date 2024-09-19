@@ -48,24 +48,23 @@ function Category() {
     <div className='container-fluid'>
        
         <div className='row'>
-        <Card className='card_new'>
+        <Card>
           <div class="card-header ">
-            <div class="card-title h5">Category</div>
-            
-          </div>
-          <CardBody>
-          <div className='mb-4 d-flex justify-content-between align-items-center flex-wrap' >
-            <div class="customer-search sm-mb-0 mb-3">
-              <div class="input-group search-area">
-                <input type="text" class="form-control" placeholder="Search Name / Mobile / Email"/>
-                <span class="input-group-text"><a href="/react/demo/order-list"><i class="bi bi-search"></i></a>
-                </span>
-              </div>
+            <div class="card-title my-0 h5">Category</div>
+            <div className='d-flex justify-content-between align-items-center flex-wrap' >
+          <div className='search-bar mr-2' style={{minWidth:'250px'}}>
+              <form className="search-form d-flex align-items-center" method="POST" action="#">
+                  <input type="text" className="form-control" name="query" placeholder="Search Name / Mobile / Email" title="Enter search keyword" />
+                  <button type="submit" title="Search"><i className="bi bi-search"></i></button>
+              </form>
             </div>
                 <div className='card widget-stat mb-0'>
                 <Button onClick={() => navigate('/category/add')}> Add Category</Button>
                 </div>
             </div>
+          </div>
+          <CardBody >
+          
             {
                 (categories && categories.length) ?
                 <BootstrapTable

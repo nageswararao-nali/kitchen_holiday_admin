@@ -101,14 +101,11 @@ function UsersSubscriptions() {
     <div className='container-fluid'>
        
         <div className='row'>
-          <Card  className='card_new'>
+          <Card >
               {/* <Card.Title>Subscriptions</Card.Title> */}
               <div class="card-header ">
                 <div class="card-title h5">User Subscriptions</div>
-                </div>
-                <Card.Body>
-
-                <div className=' mb-3' style={{justifyContent: 'space-between'}}>
+                <div style={{justifyContent: 'space-between'}}>
                     {/* <div>
                     <Button onClick={() => navigate('/subscriptions/add')}> User Subscriptions</Button>
 
@@ -120,6 +117,10 @@ function UsersSubscriptions() {
                     </form>
                   </div>
                 </div>
+                </div>
+                <Card.Body>
+
+                
                   {
                       (usersSubscriptions && usersSubscriptions.length) ?
                       <BootstrapTable

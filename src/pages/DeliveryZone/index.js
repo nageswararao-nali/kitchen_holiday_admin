@@ -47,13 +47,10 @@ function Zones() {
     <div className='container-fluid'>
         
         <div className='row'>
-          <Card className='card_new'>
+          <Card >
               <div class="card-header ">
-                <div class="card-title h5">Zones</div>
-                
-              </div>
-              <Card.Body>
-              <div className='mb-2  d-flex align-items-center' style={{justifyContent: 'space-between'}}>
+                <div class="card-title my-0 h5">Zones</div>
+                <div className='d-flex align-items-center' style={{justifyContent: 'space-between'}}>
               <div className='search-bar mr-2' style={{minWidth:'250px'}}>
                     <form className="search-form d-flex align-items-center" method="POST" action="#">
                         <input type="text" className="form-control" name="query" placeholder="Search Name / Mobile / Email" title="Enter search keyword" />
@@ -75,6 +72,9 @@ function Zones() {
                     </div>
                   </div>
                 </div>
+              </div>
+              <Card.Body>
+              
                   {
                       (zones && zones.length) ?
                       <BootstrapTable
