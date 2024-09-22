@@ -2005,9 +2005,9 @@ td.notes {
 /* common styles */
 .brand-list-content {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-evenly;flex-wrap: wrap;
 }
-
+.react-bootstrap-table{overflow: auto;}
 a {
   cursor: pointer;
 }
@@ -2055,4 +2055,7 @@ table i {
       margin-left:0 !important;
   }
   .cart-item{overflow: auto;}
+  .container-fluid .card-header{display: block;padding: 1.5rem 0rem 1.25rem;}
+  .search-form{width: 100%;}
+  .container-fluid .btn-primary{margin-top: 5px;}
 }

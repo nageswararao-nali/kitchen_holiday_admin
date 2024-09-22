@@ -172,12 +172,12 @@ function AllOrders() {
                           props => (
                             <div>                           
                               <div class="  mb-3">
-                                <div className='d-flex mb-2' style={{justifyContent: 'space-between'}}>
+                                <div className=' mb-2 d-block d-sm-flex' style={{justifyContent: 'space-between'}}>
                                 <form className="search-form d-flex align-items-center" method="POST" action="#">
                                   <input type="text" className="form-control" name="query" placeholder="Search Name / Mobile / Email" title="Enter search keyword" />
                                   <button type="submit" title="Search"><i className="bi bi-search"></i></button>
                                 </form>                               
-                                <div className='d-flex justify-content-end align-items-center'>
+                                <div className='d-block d-sm-flex justify-content-end align-items-center'>
                                 <div className='mr-2'>
                                   <DatePicker
                                   selected={startDate}

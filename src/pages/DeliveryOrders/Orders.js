@@ -107,7 +107,7 @@ function DeliveryOrders() {
       <Card>
       <div className="card-header">
             <div className="card-title my-0 h5">Delivery Orders</div>
-            <div class=" d-flex justify-content-between align-items-center flex-wrap">
+            <div class=" d-block d-sm-flex justify-content-between align-items-center flex-wrap">
               <div class="customer-search sm-mb-0" style={{minWidth:'260px'}}>
                 <form className="search-form d-flex align-items-center" method="POST" action="#">
                 <input type="text" className="form-control" name="query" placeholder="Search Name / Mobile / Email" title="Enter search keyword" />

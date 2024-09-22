@@ -75,7 +75,7 @@ export default function Header() {
 
         </li>
 
-        <li className="nav-item dropdown">
+       {/*  <li className="nav-item dropdown">
 
           <a className="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
           <i class="bi bi-chat-square-text"></i>
@@ -86,7 +86,7 @@ export default function Header() {
 
           </ul>
 
-        </li>
+        </li> */}
 
         <li className="nav-item dropdown pe-3">
 

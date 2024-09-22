@@ -50,7 +50,7 @@ function Zones() {
           <Card >
               <div class="card-header ">
                 <div class="card-title my-0 h5">Zones</div>
-                <div className='d-flex align-items-center' style={{justifyContent: 'space-between'}}>
+                <div className='d-block d-sm-flex align-items-center' style={{justifyContent: 'space-between'}}>
               <div className='search-bar mr-2' style={{minWidth:'250px'}}>
                     <form className="search-form d-flex align-items-center" method="POST" action="#">
                         <input type="text" className="form-control" name="query" placeholder="Search Name / Mobile / Email" title="Enter search keyword" />
